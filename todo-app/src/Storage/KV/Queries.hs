@@ -49,6 +49,6 @@ deleteKey key =  do
     Left err -> CE.throw $ Exp.Exception $ "Unable to delete key :"  <> show key <> " " <> show err
     Right val -> if val == 1 then return True else return False
 
-iskeyExists key = do
-  conn <- KVConf.kvGetConnection
-  R.exists (DTE.encodeUtf8 key)
+-- iskeyExists key = do
+--   conn <- KVConf.kvGetConnection
+--   R.exists (DTE.encodeUtf8 key)

@@ -88,6 +88,13 @@ library
     , uuid
     , wai
     , warp
+    , tykeagent-api
+    , tykeagent-postgresql-simple
+    , tykeagent-wai
+    , tykeagent-sdk
+    , http-client
+    , tykeagent-beam
+    , unliftio
   default-language: Haskell2010
 
 executable todo-app-exe
@@ -135,6 +142,13 @@ executable todo-app-exe
     , uuid
     , wai
     , warp
+    , tykeagent-api
+    , tykeagent-postgresql-simple
+    , tykeagent-wai
+    , tykeagent-sdk
+    , http-client
+    , tykeagent-beam
+    , unliftio
   default-language: Haskell2010
 
 test-suite todo-app-test
@@ -183,4 +197,11 @@ test-suite todo-app-test
     , uuid
     , wai
     , warp
+    , tykeagent-api
+    , tykeagent-postgresql-simple
+    , tykeagent-wai
+    , tykeagent-sdk
+    , http-client
+    , tykeagent-beam
+    , unliftio
   default-language: Haskell2010

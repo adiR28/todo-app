@@ -8,18 +8,27 @@ import qualified Database.Redis as Redis
 import qualified Data.Text.Encoding as DTE
 import qualified Config.Types  as Conf
 import qualified Config.Config as CC
-import qualified  Middleware.Middleware as Middleware
+-- import qualified  Middleware.Middleware as Middleware
+import OpenTelemetry.Trace hiding (inSpan, inSpan', inSpan'')
+import OpenTelemetry.Instrumentation.Wai
+import UnliftIO hiding (Handler)
 
 app :: Env -> Application
 app = serve S.todoProxy . S.todoServer
 
 runServer :: IO ()
 runServer = do
-  conf <- CC.config
-  let env = Env conf
-  getKvConnection <- prepareKVConnection (Conf.kvConfig conf) (Conf.isRedisClusterEnabled conf)
-  putStrLn $ "APP is Running :" <> show (Conf.port conf)
-  run (Conf.port conf) $ Middleware.customMiddleware $ app env
+  bracket
+    initializeGlobalTracerProvider
+    shutdownTracerProvider
+    $ \_ -> do
+      conf <- CC.config
+      let env = Env conf
+      getKvConnection <- prepareKVConnection (Conf.kvConfig conf) (Conf.isRedisClusterEnabled conf)
+      openTelemetryWaiMiddleware <- newOpenTelemetryWaiMiddleware (app env)
+      putStrLn $ "App is runnnig at : " <> (show $ Conf.port conf)
+      run (Conf.port conf) $ openTelemetryWaiMiddleware
+
 
 prepareKVConnection :: Redis.ConnectInfo -> Bool -> IO ()
 prepareKVConnection redisConf isClusterEnabled = do

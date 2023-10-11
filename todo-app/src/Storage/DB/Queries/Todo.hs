@@ -15,6 +15,9 @@ import qualified Storage.DB.DBConfig as DBConf
 import Control.Monad.IO.Class
 import qualified Flow as F
 
+import qualified OpenTelemetry.Instrumentation.Beam as OIB
+
+
 todoTable :: Text -> B.DatabaseEntity be DB.TodoDB (B.TableEntity Todo.TodosT)
 todoTable  = DB.todo . DB.todoDB "Todos"
 
@@ -35,7 +38,7 @@ insertRow dbEntity tableRow = B.runInsert $ B.insert dbEntity tableRow
 runQuery :: BP.Pg a -> F.Flow a
 runQuery query = do
   conn <- DBConf.dbGetConnection
-  liftIO $ BP.runBeamPostgres conn query
+  OIB.wrapBeamBackend conn query
 
 -- updateTask tableName value = do
 
