@@ -42,6 +42,39 @@ packages:
 #   commit: e7b331f14bcffb8367cd58fbfc8b40ec7642100a
 #
 # extra-deps: []
+# package-index:
+#   download-prefix: http://localhost:8000/
+#   hackage-security:
+#     root-keys: 
+#     - 06b3f8358e96035c8edb0b923e190c1cfe1685f24359fcb16a3c1df2db5999bf
+#     - 87634c9d7dc74b78b47718fcb5cab7bd1316798e25e57f91c9c45678f72ea80e
+#     - a7e7c9195c43db4ac0d01ca21636e2e3a0de7c01a4bb6a64bcd420df8d3de88a
+#     key-threshold: 2
+    # ignore-expiry: true
+
+# package-index:
+#   download-prefix: http://localhost:8000/
+#   hackage-security:
+#       keyids:
+#       - 06b3f8358e96035c8edb0b923e190c1cfe1685f24359fcb16a3c1df2db5999bf
+#       - 87634c9d7dc74b78b47718fcb5cab7bd1316798e25e57f91c9c45678f72ea80e
+#       - a7e7c9195c43db4ac0d01ca21636e2e3a0de7c01a4bb6a64bcd420df8d3de88a
+#       key-threshold: 2
+#       ignore-expiry: true
+#   - download-prefix: https://hackage.haskell.org/
+#     hackage-security:
+#       keyids:
+#       - 0a5c7ea47cd1b15f01f5f51a33adda7e655bc0f0b0615baa8e271f4c3351e21d
+#       - 1ea9ba32c526d1cc91ab5e5bd364ec5e9e8cb67179a471872f6e26f0ae773d42
+#       - 2c6c3627bd6c982990239487f1abd02e08a02e6cf16edb105a8012d444d870c3
+#       - 51f0161b906011b52c6613376b1ae937670da69322113a246a09f807c62f6921
+#       - fe331502606802feac15e514d9b9ea83fee8b6ffef71335479a2e68d84adc6b0
+#       key-threshold: 3
+#       ignore-expiry: true
+
+# package-index:
+#   download-prefix: https://hackage.haskell.org/
+#   secure: true
 
 allow-newer: true
 
@@ -64,6 +97,16 @@ extra-deps:
   - servant-server-0.18.1
   - servant-client-0.18.1
   - servant-client-core-0.18.1
+  - thread-utils-context-0.3.0.4
+  - thread-utils-finalizers-0.1.1.0
+  # - http://localhost:8000/package/tykeagent-api-1.0.0.tar.gz
+  # - http://localhost:8000/package/tykeagent-sdk-1.0.0.tar.gz
+
+  # - tykeagent-api-1.0.0
+  
+  # - tykeagent-sdk
+  # - tykeagent-beam
+  # - tykeagent-wai
 
 # Override default flag values for local packages and extra-deps
 # flags: {}

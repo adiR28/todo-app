@@ -1,5 +1,5 @@
 repository tykeagent
-  url: http://localhost/tykeagent/
+  url: http://localhost:8000/
   secure: True
   root-keys: 06b3f8358e96035c8edb0b923e190c1cfe1685f24359fcb16a3c1df2db5999bf
              87634c9d7dc74b78b47718fcb5cab7bd1316798e25e57f91c9c45678f72ea80e

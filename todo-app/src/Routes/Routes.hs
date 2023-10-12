@@ -10,11 +10,12 @@ import Control.Monad.Trans.Except
 import Control.Monad.Trans.Class
 import Control.Exception
 import Control.Monad.IO.Class
+import Data.Text
 
 type TodoAPIs = "todo" :>
   ("create" :> ReqBody '[JSON] SA.CreateTodoRequest :> Post '[JSON] (SA.CreateTodoResponse)
-    :<|> "update" :> ReqBody '[JSON] String :> Post '[JSON] String
-    :<|> "fetchAll" :> ReqBody '[JSON] String :> Post '[JSON] String
+    :<|> "update" :> Capture "taskId" Text :> ReqBody '[JSON] SA.UpdateTodoRequest :> Post '[JSON,PlainText] (Text)
+    :<|> "fetchAll" :> Get '[JSON] SA.FetchAllTaskResponse
     :<|> "getDetails" :> Capture "taskName" String :> Get '[JSON] String )
  
 type ApplicationAPIs = "application" :> "app" :> Get '[JSON,PlainText] String
@@ -29,14 +30,18 @@ type APIs = TodoAPIs  :<|> UserAPIs :<|> ApplicationAPIs
 
 createTodo :: SA.CreateTodoRequest  -> FlowHandler (SA.CreateTodoResponse)
 createTodo req =  do
-  liftIO $ putStrLn  $ "createTODO API called " <> show req
+  liftIO $ putStrLn  $ "createTask API called " <> show req
   flowHandlerWithEnv(CT.createTask req)
 
-updateTodo :: String-> FlowHandler String
-updateTodo = return 
+updateTodo :: Text -> SA.UpdateTodoRequest -> FlowHandler (Text)
+updateTodo taskId req= do
+  liftIO $ putStrLn  $ "updateTask API called " <> show req
+  flowHandlerWithEnv(CT.updateTask taskId req)
 
-fetchAllTodo :: String -> FlowHandler String
-fetchAllTodo = return
+fetchAllTodo :: FlowHandler (SA.FetchAllTaskResponse)
+fetchAllTodo = do
+  liftIO $ putStrLn "fetchAllTask API called "
+  flowHandlerWithEnv(CT.fetchAllTask)
 
 getDetailsTodo :: String ->  FlowHandler String
 getDetailsTodo = return

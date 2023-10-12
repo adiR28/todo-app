@@ -57,6 +57,11 @@ dependencies:
 - bytestring
 - containers
 - universum
+- tykeagent-api
+- tykeagent-sdk
+- tykeagent-beam
+- tykeagent-wai
+- unliftio
 
 ghc-options:
 - -Wall

@@ -53,7 +53,8 @@ data CreateTodoResponse =
       task :: Text,
       description :: Maybe Text,
       status :: Text,
-      createdAt :: LocalTime
+      active :: Bool,
+      updatedAt :: LocalTime
     }
     deriving (Generic,Show,ToJSON,FromJSON) 
 
@@ -62,8 +63,8 @@ data UpdateTodoRequest =
     {
       task :: Text,
       description :: Maybe Text,
-      status ::  Maybe Text,
-      active :: Maybe Bool
+      active ::  Bool,
+      status ::  Text
     }
   deriving (Show,Generic,ToJSON,FromJSON) 
 
@@ -72,7 +73,7 @@ data UpdateTodoResponse =
   {
     task :: Text,
     description :: Maybe Text,
-    status :: Maybe Text,
+    status ::  Text,
     active :: Bool,
     updatedAt :: LocalTime
   } 
@@ -81,7 +82,7 @@ data UpdateTodoResponse =
 data FetchAllTaskResponse = 
   FetchAllTaskResponse
     {
-      tasks :: [(Text,Text)]
+      tasks :: [FetchResponsePayload]
     }
   deriving (Show,Generic,ToJSON,FromJSON)  
 
@@ -89,8 +90,17 @@ data FetchDetailsResponse =
   FetchDetailsResponse
     {
       task :: Text,
-      description :: Text,
+      description :: Maybe Text,
       status :: Text,
       active :: Bool
     }
-  deriving (Show,Generic,ToJSON,FromJSON)  
+  deriving (Show,Generic,ToJSON,FromJSON) 
+  
+data FetchResponsePayload =
+  FetchResponsePayload
+    {
+      id :: Text,
+      taskName :: Text,
+      taskDescription :: Maybe Text,
+      status :: Text
+    } deriving (Show,Generic,ToJSON,FromJSON)  
