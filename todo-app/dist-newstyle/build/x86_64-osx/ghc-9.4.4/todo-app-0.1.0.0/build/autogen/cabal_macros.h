@@ -60,6 +60,26 @@
   (major1) == 0 && (major2) <  11 || \
   (major1) == 0 && (major2) == 11 && (minor) <= 3)
 #endif /* MIN_VERSION_bytestring */
+/* package case-insensitive-1.2.1.0 */
+#ifndef VERSION_case_insensitive
+#define VERSION_case_insensitive "1.2.1.0"
+#endif /* VERSION_case_insensitive */
+#ifndef MIN_VERSION_case_insensitive
+#define MIN_VERSION_case_insensitive(major1,major2,minor) (\
+  (major1) <  1 || \
+  (major1) == 1 && (major2) <  2 || \
+  (major1) == 1 && (major2) == 2 && (minor) <= 1)
+#endif /* MIN_VERSION_case_insensitive */
+/* package clock-0.8.4 */
+#ifndef VERSION_clock
+#define VERSION_clock "0.8.4"
+#endif /* VERSION_clock */
+#ifndef MIN_VERSION_clock
+#define MIN_VERSION_clock(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  8 || \
+  (major1) == 0 && (major2) == 8 && (minor) <= 4)
+#endif /* MIN_VERSION_clock */
 /* package containers-0.6.6 */
 #ifndef VERSION_containers
 #define VERSION_containers "0.6.6"
@@ -80,6 +100,16 @@
   (major1) == 0 && (major2) <  15 || \
   (major1) == 0 && (major2) == 15 && (minor) <= 2)
 #endif /* MIN_VERSION_hedis */
+/* package hs-opentelemetry-otlp-0.0.1.0 */
+#ifndef VERSION_hs_opentelemetry_otlp
+#define VERSION_hs_opentelemetry_otlp "0.0.1.0"
+#endif /* VERSION_hs_opentelemetry_otlp */
+#ifndef MIN_VERSION_hs_opentelemetry_otlp
+#define MIN_VERSION_hs_opentelemetry_otlp(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  0 || \
+  (major1) == 0 && (major2) == 0 && (minor) <= 1)
+#endif /* MIN_VERSION_hs_opentelemetry_otlp */
 /* package http-client-0.7.14 */
 #ifndef VERSION_http_client
 #define VERSION_http_client "0.7.14"
@@ -90,6 +120,66 @@
   (major1) == 0 && (major2) <  7 || \
   (major1) == 0 && (major2) == 7 && (minor) <= 14)
 #endif /* MIN_VERSION_http_client */
+/* package http-conduit-2.3.8.3 */
+#ifndef VERSION_http_conduit
+#define VERSION_http_conduit "2.3.8.3"
+#endif /* VERSION_http_conduit */
+#ifndef MIN_VERSION_http_conduit
+#define MIN_VERSION_http_conduit(major1,major2,minor) (\
+  (major1) <  2 || \
+  (major1) == 2 && (major2) <  3 || \
+  (major1) == 2 && (major2) == 3 && (minor) <= 8)
+#endif /* MIN_VERSION_http_conduit */
+/* package http-types-0.12.3 */
+#ifndef VERSION_http_types
+#define VERSION_http_types "0.12.3"
+#endif /* VERSION_http_types */
+#ifndef MIN_VERSION_http_types
+#define MIN_VERSION_http_types(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  12 || \
+  (major1) == 0 && (major2) == 12 && (minor) <= 3)
+#endif /* MIN_VERSION_http_types */
+/* package microlens-0.4.13.1 */
+#ifndef VERSION_microlens
+#define VERSION_microlens "0.4.13.1"
+#endif /* VERSION_microlens */
+#ifndef MIN_VERSION_microlens
+#define MIN_VERSION_microlens(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  4 || \
+  (major1) == 0 && (major2) == 4 && (minor) <= 13)
+#endif /* MIN_VERSION_microlens */
+/* package mtl-2.2.2 */
+#ifndef VERSION_mtl
+#define VERSION_mtl "2.2.2"
+#endif /* VERSION_mtl */
+#ifndef MIN_VERSION_mtl
+#define MIN_VERSION_mtl(major1,major2,minor) (\
+  (major1) <  2 || \
+  (major1) == 2 && (major2) <  2 || \
+  (major1) == 2 && (major2) == 2 && (minor) <= 2)
+#endif /* MIN_VERSION_mtl */
+/* package proto-lens-0.7.1.3 */
+#ifndef VERSION_proto_lens
+#define VERSION_proto_lens "0.7.1.3"
+#endif /* VERSION_proto_lens */
+#ifndef MIN_VERSION_proto_lens
+#define MIN_VERSION_proto_lens(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  7 || \
+  (major1) == 0 && (major2) == 7 && (minor) <= 1)
+#endif /* MIN_VERSION_proto_lens */
+/* package proto-lens-runtime-0.7.0.4 */
+#ifndef VERSION_proto_lens_runtime
+#define VERSION_proto_lens_runtime "0.7.0.4"
+#endif /* VERSION_proto_lens_runtime */
+#ifndef MIN_VERSION_proto_lens_runtime
+#define MIN_VERSION_proto_lens_runtime(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  7 || \
+  (major1) == 0 && (major2) == 7 && (minor) <= 0)
+#endif /* MIN_VERSION_proto_lens_runtime */
 /* package servant-0.20.1 */
 #ifndef VERSION_servant
 #define VERSION_servant "0.20.1"
@@ -180,6 +270,16 @@
   (major1) == 1 && (major2) <  0 || \
   (major1) == 1 && (major2) == 0 && (minor) <= 0)
 #endif /* MIN_VERSION_tykeagent_beam */
+/* package tykeagent-otlp-1.0.0 */
+#ifndef VERSION_tykeagent_otlp
+#define VERSION_tykeagent_otlp "1.0.0"
+#endif /* VERSION_tykeagent_otlp */
+#ifndef MIN_VERSION_tykeagent_otlp
+#define MIN_VERSION_tykeagent_otlp(major1,major2,minor) (\
+  (major1) <  1 || \
+  (major1) == 1 && (major2) <  0 || \
+  (major1) == 1 && (major2) == 0 && (minor) <= 0)
+#endif /* MIN_VERSION_tykeagent_otlp */
 /* package tykeagent-sdk-1.0.0 */
 #ifndef VERSION_tykeagent_sdk
 #define VERSION_tykeagent_sdk "1.0.0"
@@ -220,6 +320,16 @@
   (major1) == 0 && (major2) <  2 || \
   (major1) == 0 && (major2) == 2 && (minor) <= 25)
 #endif /* MIN_VERSION_unliftio */
+/* package unordered-containers-0.2.19.1 */
+#ifndef VERSION_unordered_containers
+#define VERSION_unordered_containers "0.2.19.1"
+#endif /* VERSION_unordered_containers */
+#ifndef MIN_VERSION_unordered_containers
+#define MIN_VERSION_unordered_containers(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  2 || \
+  (major1) == 0 && (major2) == 2 && (minor) <= 19)
+#endif /* MIN_VERSION_unordered_containers */
 /* package uuid-1.3.15 */
 #ifndef VERSION_uuid
 #define VERSION_uuid "1.3.15"
@@ -230,6 +340,26 @@
   (major1) == 1 && (major2) <  3 || \
   (major1) == 1 && (major2) == 3 && (minor) <= 15)
 #endif /* MIN_VERSION_uuid */
+/* package vector-0.13.1.0 */
+#ifndef VERSION_vector
+#define VERSION_vector "0.13.1.0"
+#endif /* VERSION_vector */
+#ifndef MIN_VERSION_vector
+#define MIN_VERSION_vector(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  13 || \
+  (major1) == 0 && (major2) == 13 && (minor) <= 1)
+#endif /* MIN_VERSION_vector */
+/* package vector-builder-0.3.8.4 */
+#ifndef VERSION_vector_builder
+#define VERSION_vector_builder "0.3.8.4"
+#endif /* VERSION_vector_builder */
+#ifndef MIN_VERSION_vector_builder
+#define MIN_VERSION_vector_builder(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  3 || \
+  (major1) == 0 && (major2) == 3 && (minor) <= 8)
+#endif /* MIN_VERSION_vector_builder */
 /* package wai-3.2.3 */
 #ifndef VERSION_wai
 #define VERSION_wai "3.2.3"
@@ -250,6 +380,16 @@
   (major1) == 3 && (major2) <  3 || \
   (major1) == 3 && (major2) == 3 && (minor) <= 29)
 #endif /* MIN_VERSION_warp */
+/* package zlib-0.6.3.0 */
+#ifndef VERSION_zlib
+#define VERSION_zlib "0.6.3.0"
+#endif /* VERSION_zlib */
+#ifndef MIN_VERSION_zlib
+#define MIN_VERSION_zlib(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  6 || \
+  (major1) == 0 && (major2) == 6 && (minor) <= 3)
+#endif /* MIN_VERSION_zlib */
 
 /* tool gcc-14.0.3 */
 #ifndef TOOL_VERSION_gcc
