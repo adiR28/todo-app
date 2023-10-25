@@ -130,6 +130,20 @@ packages:
       size: 1444
   original:
     hackage: servant-client-core-0.18.1
+- completed:
+    hackage: ptr-poker-0.1.2.13@sha256:90fcadef5e57cb55fc17c04f602c334e6706a2774c71e430ec2b61a206b45d93,2529
+    pantry-tree:
+      sha256: c9fecde6e7cb438750bdaa2f3fc278508901d7ecf672c1a0e434a3fb24b51308
+      size: 1128
+  original:
+    hackage: ptr-poker-0.1.2.13
+- completed:
+    hackage: tz-0.1.3.6@sha256:52826ccbf7f2f4ceb26e34ad2f82f04c7ecae6ccb98bec37d2f63ac0805b3c64,4819
+    pantry-tree:
+      sha256: 28db971031aeef8074650d2b05c70711fd14edf36224706be1375767419d6149
+      size: 1179
+  original:
+    hackage: tz-0.1.3.6
 snapshots:
 - completed:
     sha256: d6b004b095fe2a0b8b14fbc30014ee97e58843b9c9362ddb9244273dda62649e

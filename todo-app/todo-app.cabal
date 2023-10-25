@@ -1,6 +1,6 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.35.2.
+-- This file has been generated from package.yaml by hpack version 0.36.0.
 --
 -- see: https://github.com/sol/hpack
 
@@ -77,6 +77,9 @@ library
     , containers
     , hedis
     , http-client
+    , jsonifier
+    , ptr-poker
+    , scientific
     , servant
     , servant-client
     , servant-client-core
@@ -84,7 +87,9 @@ library
     , text
     , time
     , transformers
+    , tz
     , universum
+    , unordered-containers
     , uuid
     , wai
     , warp
@@ -123,6 +128,9 @@ executable todo-app-exe
     , containers
     , hedis
     , http-client
+    , jsonifier
+    , ptr-poker
+    , scientific
     , servant
     , servant-client
     , servant-client-core
@@ -131,7 +139,9 @@ executable todo-app-exe
     , time
     , todo-app
     , transformers
+    , tz
     , universum
+    , unordered-containers
     , uuid
     , wai
     , warp
@@ -171,6 +181,9 @@ test-suite todo-app-test
     , containers
     , hedis
     , http-client
+    , jsonifier
+    , ptr-poker
+    , scientific
     , servant
     , servant-client
     , servant-client-core
@@ -179,7 +192,9 @@ test-suite todo-app-test
     , time
     , todo-app
     , transformers
+    , tz
     , universum
+    , unordered-containers
     , uuid
     , wai
     , warp

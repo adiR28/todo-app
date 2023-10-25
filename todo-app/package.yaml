@@ -57,6 +57,11 @@ dependencies:
 - bytestring
 - containers
 - universum
+- jsonifier
+- ptr-poker
+- unordered-containers 
+- scientific
+- tz
 
 ghc-options:
 - -Wall
