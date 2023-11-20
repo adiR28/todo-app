@@ -6,6 +6,9 @@ import qualified Database.Beam as BM
 import qualified Database.Beam.Schema.Tables as B
 import qualified Storage.DB.Utils as DU
 import Data.Text
+import Utils.Jsonifier
+import qualified Utils.Jsonifier as UJ
+import qualified Utils.UtilsTH as UTH
 
 data TodosT f =
   Todos 
@@ -73,3 +76,6 @@ insertExpressions cs = BM.insertExpressions (toRowExpression <$> cs)
        (BM.val_ _createdAt)
        (BM.val_ _updatedAt)
        (BM.val_ _udf)
+
+
+-- $(UTH.mkJsonifierInstanceTH ''TodosT)

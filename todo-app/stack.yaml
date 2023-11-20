@@ -53,22 +53,32 @@ extra-deps:
           - beam-migrate
           - beam-sqlite
           - beam-postgres
-  - git: https://github.com/juspay/hedis.git
-    commit: 46ea0ea78e6d8d1a2b1a66e6f08078a37864ad80
+  # - git: https://github.com/juspay/hedis.git
+    # commit: 46ea0ea78e6d8d1a2b1a66e6f08078a37864ad80
   - haskell-src-exts-1.21.1@sha256:11d18ec3f463185f81b7819376b532e3087f8192cffc629aac5c9eec88897b35,4541
   - dependent-map-0.4.0.0@sha256:ca2b131046f4340a1c35d138c5a003fe4a5be96b14efc26291ed35fd08c62221,1657
   - dependent-sum-0.7.1.0@sha256:5599aa89637db434431b1dd3fa7c34bc3d565ee44f0519bfbc877be1927c2531,2068
   - constraints-extras-0.3.0.2@sha256:bf6884be65958e9188ae3c9e5547abfd6d201df021bff8a4704c2c4fe1e1ae5b,1784
-  - servant-0.18.1
+  # - servant-0.18.1
   - servant-mock-0.8.7
-  - servant-server-0.18.1
-  - servant-client-0.18.1
-  - servant-client-core-0.18.1
+  # - servant-server-0.18.1
+  # - servant-client-0.18.1
+  # - servant-client-core-0.18.1
   # - git: https://github.com/nikita-volkov/jsonifier
   #   commit: 93eafd14724762ab2191b94452750a4d908d3d25
+  # - jsonifier-0.2.1.2
   - /Users/aditya.ranjan/jsonifier
   - ptr-poker-0.1.2.13
   - tz-0.1.3.6
+  - th-abstraction-0.4.3.0
+  - git: https://github.com/adiR28/hedis
+    commit: 7ce187c97aba86f8a414be581362e00127cef5b3
+  - /Users/aditya.ranjan/aeson  
+  - /Users/aditya.ranjan/servant/servant
+  # - /Users/aditya.ranjan//servant/servant-mock
+  - /Users/aditya.ranjan/servant/servant-client
+  - /Users/aditya.ranjan/servant/servant-server
+  - /Users/aditya.ranjan/servant/servant-client-core
 
 # Override default flag values for local packages and extra-deps
 # flags: {}

@@ -1,3 +1,5 @@
+{-# LANGUAGE MultiParamTypeClasses #-}
+{-# OPTIONS_GHC -Wno-orphans #-}
 module Routes.Routes where
 
 import Servant
@@ -10,9 +12,29 @@ import Control.Monad.Trans.Except
 import Control.Monad.Trans.Class
 import Control.Exception
 import Control.Monad.IO.Class
+import Utils.Jsonifier  as UJ
+import qualified Network.HTTP.Media as M
+import qualified Data.List.NonEmpty as NE
+import qualified Jsonifier as J
+import qualified Data.ByteString.Lazy as BSL
+import Data.Data (Typeable)
+import Data.Aeson
+
+data JSONIFIER deriving Typeable
+instance Accept JSONIFIER where
+  contentTypes _ =
+    "application" M.// "jsonifier" M./: ("charset", "utf-8") NE.:|
+    [ "application" M.// "jsonifier" ]
+
+instance {-# OVERLAPPABLE #-} UJ.Jsonifier a => MimeRender JSONIFIER a where
+  mimeRender _ val = BSL.fromStrict $ J.toByteString $ UJ.toJsonifier val
+
+instance FromJSON a => MimeUnrender JSONIFIER a where
+    mimeUnrender _ = eitherDecodeLenient
+
 
 type TodoAPIs = "todo" :>
-  ("create" :> ReqBody '[JSON] SA.CreateTodoRequest :> Post '[JSON] (SA.CreateTodoResponse)
+  ("create" :> ReqBody '[JSON] SA.CreateTodoRequest :> Post '[JSONIFIER] (SA.CreateTodoResponse)
     :<|> "update" :> ReqBody '[JSON] String :> Post '[JSON] String
     :<|> "fetchAll" :> ReqBody '[JSON] String :> Post '[JSON] String
     :<|> "getDetails" :> Capture "taskName" String :> Get '[JSON] String )

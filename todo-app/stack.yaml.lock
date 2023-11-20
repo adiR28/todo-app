@@ -57,17 +57,6 @@ packages:
     git: https://github.com/juspay/beam
     subdir: beam-postgres
 - completed:
-    commit: 46ea0ea78e6d8d1a2b1a66e6f08078a37864ad80
-    git: https://github.com/juspay/hedis.git
-    name: hedis
-    pantry-tree:
-      sha256: efe83ea607d47d7d8200c61a0dddabc5e7f292a2f451a98dec1326eb0903ef71
-      size: 2570
-    version: 0.12.8.1
-  original:
-    commit: 46ea0ea78e6d8d1a2b1a66e6f08078a37864ad80
-    git: https://github.com/juspay/hedis.git
-- completed:
     hackage: haskell-src-exts-1.21.1@sha256:11d18ec3f463185f81b7819376b532e3087f8192cffc629aac5c9eec88897b35,4541
     pantry-tree:
       sha256: 487db8defe20a7c8bdf5b4a9a68ec616a4349bdb643f2dc7c9d71e1a6495c8c7
@@ -96,40 +85,12 @@ packages:
   original:
     hackage: constraints-extras-0.3.0.2@sha256:bf6884be65958e9188ae3c9e5547abfd6d201df021bff8a4704c2c4fe1e1ae5b,1784
 - completed:
-    hackage: servant-0.18.1@sha256:d322da8a5033203b3da510fdd41c949f61d25b7a2e3ab707035aef5484bbeb13,5273
-    pantry-tree:
-      sha256: 59fe629e1b6e92571e1b54a7028c09abfff655077361bedc0689bcaca30c7240
-      size: 2594
-  original:
-    hackage: servant-0.18.1
-- completed:
     hackage: servant-mock-0.8.7@sha256:64cb3e52bbd51ab6cb25e3f412a99ea712c6c26f1efd117f01a8d1664df49c67,2306
     pantry-tree:
       sha256: b263e932ec6b151e52987054ec0a4cd692fa787f856c79e51498302eb0d6c388
       size: 555
   original:
     hackage: servant-mock-0.8.7
-- completed:
-    hackage: servant-server-0.18.1@sha256:f0824cfa57b23b6b698dbd93e11598c4c5355aaa26121f48c091f6e5f03623fc,5665
-    pantry-tree:
-      sha256: afba7a901c86dfe0c65d18470bca144b371cbff13d4fb516247b200fbd62597b
-      size: 2614
-  original:
-    hackage: servant-server-0.18.1
-- completed:
-    hackage: servant-client-0.18.1@sha256:03d5628829331eaa72402e7c5cc059cff72cb91c34c5f10042fe09fd05454eb4,4745
-    pantry-tree:
-      sha256: a8e23be4307bef89466b4dd60035980820566cf6142b74b29b120a60490dd851
-      size: 1300
-  original:
-    hackage: servant-client-0.18.1
-- completed:
-    hackage: servant-client-core-0.18.1@sha256:a116901bf2aa8b6ff63b1c8e24b34c4fe7c505682e9862f314c5bcd2f9279312,3763
-    pantry-tree:
-      sha256: 8a47f39a046ba959fc150c44a95cec46f41feec28970e11ec6397604e785d36f
-      size: 1444
-  original:
-    hackage: servant-client-core-0.18.1
 - completed:
     hackage: ptr-poker-0.1.2.13@sha256:90fcadef5e57cb55fc17c04f602c334e6706a2774c71e430ec2b61a206b45d93,2529
     pantry-tree:
@@ -144,6 +105,24 @@ packages:
       size: 1179
   original:
     hackage: tz-0.1.3.6
+- completed:
+    hackage: th-abstraction-0.4.3.0@sha256:db4b3b69398acd8a7c5c8cc8a962da55d65d05d44d5039b51bd3cb5fb3d8400f,2148
+    pantry-tree:
+      sha256: cd2d3fd020b3c6b415e41c71b60999ca7dd14918b056e15e090f640cba1feed8
+      size: 670
+  original:
+    hackage: th-abstraction-0.4.3.0
+- completed:
+    commit: 7ce187c97aba86f8a414be581362e00127cef5b3
+    git: https://github.com/adiR28/hedis
+    name: hedis
+    pantry-tree:
+      sha256: 463cc268a4a6f1afa532a7cfde6961844832b5eeea11885c0d993c0a02f48179
+      size: 2571
+    version: 0.12.8.1
+  original:
+    commit: 7ce187c97aba86f8a414be581362e00127cef5b3
+    git: https://github.com/adiR28/hedis
 snapshots:
 - completed:
     sha256: d6b004b095fe2a0b8b14fbc30014ee97e58843b9c9362ddb9244273dda62649e

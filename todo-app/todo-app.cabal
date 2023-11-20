@@ -46,6 +46,9 @@ library
       Storage.Types.API
       Storage.Types.App
       Utils.DateTime
+      Utils.Jsonifier
+      Utils.Transformer
+      Utils.UtilsTH
   other-modules:
       Paths_todo_app
   hs-source-dirs:
@@ -67,7 +70,8 @@ library
       TypeOperators
       DataKinds
       LambdaCase
-  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Werror=unused-imports
+      TemplateHaskell
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -ddump-simpl -ddump-to-file -dth-dec-file
   build-depends:
       aeson
     , base >=4.7 && <5
@@ -75,8 +79,10 @@ library
     , beam-postgres
     , bytestring
     , containers
+    , extra
     , hedis
     , http-client
+    , http-media
     , jsonifier
     , ptr-poker
     , scientific
@@ -84,12 +90,16 @@ library
     , servant-client
     , servant-client-core
     , servant-server
+    , template-haskell
     , text
+    , th-abstraction
+    , th-extras
     , time
     , transformers
     , tz
     , universum
     , unordered-containers
+    , utf8-string
     , uuid
     , wai
     , warp
@@ -118,7 +128,8 @@ executable todo-app-exe
       TypeOperators
       DataKinds
       LambdaCase
-  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Werror=unused-imports -threaded -rtsopts -with-rtsopts=-N
+      TemplateHaskell
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -ddump-simpl -ddump-to-file -dth-dec-file -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       aeson
     , base >=4.7 && <5
@@ -126,8 +137,10 @@ executable todo-app-exe
     , beam-postgres
     , bytestring
     , containers
+    , extra
     , hedis
     , http-client
+    , http-media
     , jsonifier
     , ptr-poker
     , scientific
@@ -135,13 +148,17 @@ executable todo-app-exe
     , servant-client
     , servant-client-core
     , servant-server
+    , template-haskell
     , text
+    , th-abstraction
+    , th-extras
     , time
     , todo-app
     , transformers
     , tz
     , universum
     , unordered-containers
+    , utf8-string
     , uuid
     , wai
     , warp
@@ -171,7 +188,8 @@ test-suite todo-app-test
       TypeOperators
       DataKinds
       LambdaCase
-  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Werror=unused-imports -threaded -rtsopts -with-rtsopts=-N
+      TemplateHaskell
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -ddump-simpl -ddump-to-file -dth-dec-file -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       aeson
     , base >=4.7 && <5
@@ -179,8 +197,10 @@ test-suite todo-app-test
     , beam-postgres
     , bytestring
     , containers
+    , extra
     , hedis
     , http-client
+    , http-media
     , jsonifier
     , ptr-poker
     , scientific
@@ -188,13 +208,17 @@ test-suite todo-app-test
     , servant-client
     , servant-client-core
     , servant-server
+    , template-haskell
     , text
+    , th-abstraction
+    , th-extras
     , time
     , todo-app
     , transformers
     , tz
     , universum
     , unordered-containers
+    , utf8-string
     , uuid
     , wai
     , warp

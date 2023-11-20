@@ -26,6 +26,11 @@ createTask req@SA.CreateTodoRequest {task,description} = do
   runQuery $ insertRow (todoTable "public") $ TT.insertExpressions [ todo ]
   return ()
 
+fetchAllRow dbEntity = B.runSelectReturningList $ B.select $ B.all_ dbEntity
+
+fetchAlltask :: F.Flow [TT.Todos]
+fetchAlltask = runQuery $ fetchAllRow (todoTable "public")
+
 insertRow ::
     (B.Beamable table, be ~ BP.Postgres)
   => B.DatabaseEntity be DB.TodoDB (B.TableEntity table)
