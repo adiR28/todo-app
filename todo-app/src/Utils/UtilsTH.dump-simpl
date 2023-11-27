@@ -1,0 +1,2185 @@
+
+==================== Tidy Core ====================
+2023-11-27 11:45:02.13604 UTC
+
+Result size of Tidy Core
+  = {terms: 1,405, types: 1,203, coercions: 0, joins: 1/52}
+
+-- RHS size: {terms: 24, types: 39, coercions: 0, joins: 0/0}
+mkVariableName :: [Name] -> Q [Name]
+[GblId]
+mkVariableName
+  = break<141>()
+    foldr
+      @ []
+      Data.Foldable.$fFoldable[]
+      @ Name
+      @ (Q [Name])
+      (\ (x_a86w :: Name) (acc_a86x :: Q [Name]) ->
+         break<139>(x_a86w,acc_a86x)
+         >>=
+           @ Q
+           Language.Haskell.TH.Syntax.$fMonadQ
+           @ [Name]
+           @ [Name]
+           (break<134>(acc_a86x) acc_a86x)
+           (\ (acc'_a86y :: [Name]) ->
+              >>=
+                @ Q
+                Language.Haskell.TH.Syntax.$fMonadQ
+                @ Name
+                @ [Name]
+                (break<136>(x_a86w)
+                 $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                   @ String
+                   @ (Q Name)
+                   newName
+                   (break<135>(x_a86w) nameBase x_a86w))
+                (\ (var_a86z :: Name) ->
+                   break<138>(acc'_a86y,var_a86z)
+                   $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                     @ [Name]
+                     @ (Q [Name])
+                     (return @ Q Language.Haskell.TH.Syntax.$fMonadQ @ [Name])
+                     (break<137>(acc'_a86y,var_a86z)
+                      ghc-prim-0.6.1:GHC.Types.: @ Name var_a86z acc'_a86y))))
+      (break<140>()
+       return
+         @ Q
+         Language.Haskell.TH.Syntax.$fMonadQ
+         @ [Name]
+         (ghc-prim-0.6.1:GHC.Types.[] @ Name))
+
+-- RHS size: {terms: 23, types: 6, coercions: 0, joins: 0/2}
+mkFunctionSignature :: Name -> Name -> Q Dec
+[GblId, Arity=2, Unf=OtherCon []]
+mkFunctionSignature
+  = \ (fname_a86P :: Name) (name'_a86Q :: Name) ->
+      break<109>(fname_a86P,name'_a86Q)
+      let {
+        ftype_a86R :: Type
+        [LclId]
+        ftype_a86R
+          = break<106>(name'_a86Q)
+            Language.Haskell.TH.Syntax.AppT
+              (break<104>(name'_a86Q)
+               Language.Haskell.TH.Syntax.AppT
+                 Language.Haskell.TH.Syntax.ArrowT
+                 (break<103>(name'_a86Q)
+                  Language.Haskell.TH.Syntax.ConT name'_a86Q))
+              (break<105>()
+               Language.Haskell.TH.Syntax.ConT
+                 (Language.Haskell.TH.Syntax.mkNameG_tc
+                    (ghc-prim-0.6.1:GHC.CString.unpackCString#
+                       "jsonifier-0.2.1.2-4JhWvVFw4ca5rzGY1SgZ7e"#)
+                    (ghc-prim-0.6.1:GHC.CString.unpackCString# "Jsonifier"#)
+                    (ghc-prim-0.6.1:GHC.CString.unpackCString# "Json"#))) } in
+      let {
+        functionSig_a86S :: Dec
+        [LclId]
+        functionSig_a86S
+          = break<107>(fname_a86P,ftype_a86R)
+            Language.Haskell.TH.Syntax.SigD fname_a86P ftype_a86R } in
+      break<108>(functionSig_a86S)
+      return
+        @ Q Language.Haskell.TH.Syntax.$fMonadQ @ Dec functionSig_a86S
+
+-- RHS size: {terms: 28, types: 9, coercions: 0, joins: 0/2}
+mkFunctionSignature' :: Name -> Q Dec
+[GblId, Arity=1, Unf=OtherCon []]
+mkFunctionSignature'
+  = \ (fname_a86T :: Name) ->
+      break<102>(fname_a86T)
+      >>=
+        @ Q
+        Language.Haskell.TH.Syntax.$fMonadQ
+        @ Name
+        @ Dec
+        (break<95>()
+         newName (ghc-prim-0.6.1:GHC.CString.unpackCString# "a"#))
+        (\ (name'_a86U :: Name) ->
+           let {
+             ftype_a86V :: Type
+             [LclId]
+             ftype_a86V
+               = break<99>(name'_a86U)
+                 Language.Haskell.TH.Syntax.AppT
+                   (break<97>(name'_a86U)
+                    Language.Haskell.TH.Syntax.AppT
+                      Language.Haskell.TH.Syntax.ArrowT
+                      (break<96>(name'_a86U) Language.Haskell.TH.Syntax.VarT name'_a86U))
+                   (break<98>()
+                    Language.Haskell.TH.Syntax.ConT
+                      (Language.Haskell.TH.Syntax.mkNameG_tc
+                         (ghc-prim-0.6.1:GHC.CString.unpackCString#
+                            "jsonifier-0.2.1.2-4JhWvVFw4ca5rzGY1SgZ7e"#)
+                         (ghc-prim-0.6.1:GHC.CString.unpackCString# "Jsonifier"#)
+                         (ghc-prim-0.6.1:GHC.CString.unpackCString# "Json"#))) } in
+           let {
+             functionSig_a86W :: Dec
+             [LclId]
+             functionSig_a86W
+               = break<100>(fname_a86T,ftype_a86V)
+                 Language.Haskell.TH.Syntax.SigD fname_a86T ftype_a86V } in
+           break<101>(functionSig_a86W)
+           return
+             @ Q Language.Haskell.TH.Syntax.$fMonadQ @ Dec functionSig_a86W)
+
+-- RHS size: {terms: 2, types: 1, coercions: 0, joins: 0/0}
+$dShow_r8zp :: Show String
+[GblId]
+$dShow_r8zp = GHC.Show.$fShow[] @ Char GHC.Show.$fShowChar
+
+-- RHS size: {terms: 1, types: 0, coercions: 0, joins: 0/0}
+$tc'InstanceInfo1_r8AV :: ghc-prim-0.6.1:GHC.Prim.Addr#
+[GblId, Caf=NoCafRefs, Unf=OtherCon []]
+$tc'InstanceInfo1_r8AV = "'InstanceInfo"#
+
+-- RHS size: {terms: 2, types: 0, coercions: 0, joins: 0/0}
+$tc'InstanceInfo2_r8AW :: ghc-prim-0.6.1:GHC.Types.TrName
+[GblId, Caf=NoCafRefs, Unf=OtherCon []]
+$tc'InstanceInfo2_r8AW
+  = ghc-prim-0.6.1:GHC.Types.TrNameS $tc'InstanceInfo1_r8AV
+
+-- RHS size: {terms: 1, types: 0, coercions: 0, joins: 0/0}
+$tcInstanceInfo1_r8AX :: ghc-prim-0.6.1:GHC.Prim.Addr#
+[GblId, Caf=NoCafRefs, Unf=OtherCon []]
+$tcInstanceInfo1_r8AX = "InstanceInfo"#
+
+-- RHS size: {terms: 2, types: 0, coercions: 0, joins: 0/0}
+$tcInstanceInfo2_r8AY :: ghc-prim-0.6.1:GHC.Types.TrName
+[GblId, Caf=NoCafRefs, Unf=OtherCon []]
+$tcInstanceInfo2_r8AY
+  = ghc-prim-0.6.1:GHC.Types.TrNameS $tcInstanceInfo1_r8AX
+
+-- RHS size: {terms: 1, types: 0, coercions: 0, joins: 0/0}
+$tc'Unsupported1_r8AZ :: ghc-prim-0.6.1:GHC.Prim.Addr#
+[GblId, Caf=NoCafRefs, Unf=OtherCon []]
+$tc'Unsupported1_r8AZ = "'Unsupported"#
+
+-- RHS size: {terms: 2, types: 0, coercions: 0, joins: 0/0}
+$tc'Unsupported2_r8B0 :: ghc-prim-0.6.1:GHC.Types.TrName
+[GblId, Caf=NoCafRefs, Unf=OtherCon []]
+$tc'Unsupported2_r8B0
+  = ghc-prim-0.6.1:GHC.Types.TrNameS $tc'Unsupported1_r8AZ
+
+-- RHS size: {terms: 1, types: 0, coercions: 0, joins: 0/0}
+$tc'NormalConstructorV1_r8B1 :: ghc-prim-0.6.1:GHC.Prim.Addr#
+[GblId, Caf=NoCafRefs, Unf=OtherCon []]
+$tc'NormalConstructorV1_r8B1 = "'NormalConstructorV"#
+
+-- RHS size: {terms: 2, types: 0, coercions: 0, joins: 0/0}
+$tc'NormalConstructorV2_r8B2 :: ghc-prim-0.6.1:GHC.Types.TrName
+[GblId, Caf=NoCafRefs, Unf=OtherCon []]
+$tc'NormalConstructorV2_r8B2
+  = ghc-prim-0.6.1:GHC.Types.TrNameS $tc'NormalConstructorV1_r8B1
+
+-- RHS size: {terms: 1, types: 0, coercions: 0, joins: 0/0}
+$tc'RecordConstructorV1_r8B3 :: ghc-prim-0.6.1:GHC.Prim.Addr#
+[GblId, Caf=NoCafRefs, Unf=OtherCon []]
+$tc'RecordConstructorV1_r8B3 = "'RecordConstructorV"#
+
+-- RHS size: {terms: 2, types: 0, coercions: 0, joins: 0/0}
+$tc'RecordConstructorV2_r8B4 :: ghc-prim-0.6.1:GHC.Types.TrName
+[GblId, Caf=NoCafRefs, Unf=OtherCon []]
+$tc'RecordConstructorV2_r8B4
+  = ghc-prim-0.6.1:GHC.Types.TrNameS $tc'RecordConstructorV1_r8B3
+
+-- RHS size: {terms: 1, types: 0, coercions: 0, joins: 0/0}
+$tcVariants1_r8B5 :: ghc-prim-0.6.1:GHC.Prim.Addr#
+[GblId, Caf=NoCafRefs, Unf=OtherCon []]
+$tcVariants1_r8B5 = "Variants"#
+
+-- RHS size: {terms: 2, types: 0, coercions: 0, joins: 0/0}
+$tcVariants2_r8B6 :: ghc-prim-0.6.1:GHC.Types.TrName
+[GblId, Caf=NoCafRefs, Unf=OtherCon []]
+$tcVariants2_r8B6
+  = ghc-prim-0.6.1:GHC.Types.TrNameS $tcVariants1_r8B5
+
+-- RHS size: {terms: 3, types: 1, coercions: 0, joins: 0/0}
+$krep_r8B7 :: ghc-prim-0.6.1:GHC.Types.KindRep
+[GblId, Unf=OtherCon []]
+$krep_r8B7
+  = ghc-prim-0.6.1:GHC.Types.KindRepTyConApp
+      Language.Haskell.TH.Syntax.$tcName
+      (ghc-prim-0.6.1:GHC.Types.[] @ ghc-prim-0.6.1:GHC.Types.KindRep)
+
+-- RHS size: {terms: 3, types: 2, coercions: 0, joins: 0/0}
+$krep1_r8B8 :: [ghc-prim-0.6.1:GHC.Types.KindRep]
+[GblId, Unf=OtherCon []]
+$krep1_r8B8
+  = ghc-prim-0.6.1:GHC.Types.:
+      @ ghc-prim-0.6.1:GHC.Types.KindRep
+      $krep_r8B7
+      (ghc-prim-0.6.1:GHC.Types.[] @ ghc-prim-0.6.1:GHC.Types.KindRep)
+
+-- RHS size: {terms: 3, types: 0, coercions: 0, joins: 0/0}
+$krep2_r8B9 :: ghc-prim-0.6.1:GHC.Types.KindRep
+[GblId, Unf=OtherCon []]
+$krep2_r8B9
+  = ghc-prim-0.6.1:GHC.Types.KindRepTyConApp
+      ghc-prim-0.6.1:GHC.Types.$tc[] $krep1_r8B8
+
+-- RHS size: {terms: 3, types: 1, coercions: 0, joins: 0/0}
+$krep3_r8Ba :: ghc-prim-0.6.1:GHC.Types.KindRep
+[GblId, Unf=OtherCon []]
+$krep3_r8Ba
+  = ghc-prim-0.6.1:GHC.Types.KindRepTyConApp
+      Language.Haskell.TH.Syntax.$tcType
+      (ghc-prim-0.6.1:GHC.Types.[] @ ghc-prim-0.6.1:GHC.Types.KindRep)
+
+-- RHS size: {terms: 3, types: 2, coercions: 0, joins: 0/0}
+$krep4_r8Bb :: [ghc-prim-0.6.1:GHC.Types.KindRep]
+[GblId, Unf=OtherCon []]
+$krep4_r8Bb
+  = ghc-prim-0.6.1:GHC.Types.:
+      @ ghc-prim-0.6.1:GHC.Types.KindRep
+      $krep3_r8Ba
+      (ghc-prim-0.6.1:GHC.Types.[] @ ghc-prim-0.6.1:GHC.Types.KindRep)
+
+-- RHS size: {terms: 3, types: 0, coercions: 0, joins: 0/0}
+$krep5_r8Bc :: ghc-prim-0.6.1:GHC.Types.KindRep
+[GblId, Unf=OtherCon []]
+$krep5_r8Bc
+  = ghc-prim-0.6.1:GHC.Types.KindRepTyConApp
+      ghc-prim-0.6.1:GHC.Types.$tc[] $krep4_r8Bb
+
+-- RHS size: {terms: 1, types: 0, coercions: 0, joins: 0/0}
+$trModule1_r8Bd :: ghc-prim-0.6.1:GHC.Prim.Addr#
+[GblId, Caf=NoCafRefs, Unf=OtherCon []]
+$trModule1_r8Bd = "Utils.UtilsTH"#
+
+-- RHS size: {terms: 2, types: 0, coercions: 0, joins: 0/0}
+$trModule2_r8Be :: ghc-prim-0.6.1:GHC.Types.TrName
+[GblId, Caf=NoCafRefs, Unf=OtherCon []]
+$trModule2_r8Be = ghc-prim-0.6.1:GHC.Types.TrNameS $trModule1_r8Bd
+
+-- RHS size: {terms: 1, types: 0, coercions: 0, joins: 0/0}
+$trModule3_r8Bf :: ghc-prim-0.6.1:GHC.Prim.Addr#
+[GblId, Caf=NoCafRefs, Unf=OtherCon []]
+$trModule3_r8Bf = "main"#
+
+-- RHS size: {terms: 2, types: 0, coercions: 0, joins: 0/0}
+$trModule4_r8Bg :: ghc-prim-0.6.1:GHC.Types.TrName
+[GblId, Caf=NoCafRefs, Unf=OtherCon []]
+$trModule4_r8Bg = ghc-prim-0.6.1:GHC.Types.TrNameS $trModule3_r8Bf
+
+-- RHS size: {terms: 3, types: 0, coercions: 0, joins: 0/0}
+Utils.UtilsTH.$trModule :: ghc-prim-0.6.1:GHC.Types.Module
+[GblId, Caf=NoCafRefs, Unf=OtherCon []]
+Utils.UtilsTH.$trModule
+  = ghc-prim-0.6.1:GHC.Types.Module $trModule4_r8Bg $trModule2_r8Be
+
+-- RHS size: {terms: 7, types: 0, coercions: 0, joins: 0/0}
+Utils.UtilsTH.$tcVariants :: ghc-prim-0.6.1:GHC.Types.TyCon
+[GblId, Unf=OtherCon []]
+Utils.UtilsTH.$tcVariants
+  = ghc-prim-0.6.1:GHC.Types.TyCon
+      9102381659679806667##
+      11995410210758156977##
+      Utils.UtilsTH.$trModule
+      $tcVariants2_r8B6
+      0#
+      ghc-prim-0.6.1:GHC.Types.krep$*
+
+-- RHS size: {terms: 3, types: 1, coercions: 0, joins: 0/0}
+$krep6_r8Bh :: ghc-prim-0.6.1:GHC.Types.KindRep
+[GblId, Unf=OtherCon []]
+$krep6_r8Bh
+  = ghc-prim-0.6.1:GHC.Types.KindRepTyConApp
+      Utils.UtilsTH.$tcVariants
+      (ghc-prim-0.6.1:GHC.Types.[] @ ghc-prim-0.6.1:GHC.Types.KindRep)
+
+-- RHS size: {terms: 7, types: 0, coercions: 0, joins: 0/0}
+Utils.UtilsTH.$tc'RecordConstructorV
+  :: ghc-prim-0.6.1:GHC.Types.TyCon
+[GblId, Unf=OtherCon []]
+Utils.UtilsTH.$tc'RecordConstructorV
+  = ghc-prim-0.6.1:GHC.Types.TyCon
+      16676053497900946867##
+      6514086227287002137##
+      Utils.UtilsTH.$trModule
+      $tc'RecordConstructorV2_r8B4
+      0#
+      $krep6_r8Bh
+
+-- RHS size: {terms: 7, types: 0, coercions: 0, joins: 0/0}
+Utils.UtilsTH.$tc'NormalConstructorV
+  :: ghc-prim-0.6.1:GHC.Types.TyCon
+[GblId, Unf=OtherCon []]
+Utils.UtilsTH.$tc'NormalConstructorV
+  = ghc-prim-0.6.1:GHC.Types.TyCon
+      13579214289216172581##
+      5447955341491783358##
+      Utils.UtilsTH.$trModule
+      $tc'NormalConstructorV2_r8B2
+      0#
+      $krep6_r8Bh
+
+-- RHS size: {terms: 7, types: 0, coercions: 0, joins: 0/0}
+Utils.UtilsTH.$tc'Unsupported :: ghc-prim-0.6.1:GHC.Types.TyCon
+[GblId, Unf=OtherCon []]
+Utils.UtilsTH.$tc'Unsupported
+  = ghc-prim-0.6.1:GHC.Types.TyCon
+      16340499983611476502##
+      17771634704132914767##
+      Utils.UtilsTH.$trModule
+      $tc'Unsupported2_r8B0
+      0#
+      $krep6_r8Bh
+
+-- RHS size: {terms: 7, types: 0, coercions: 0, joins: 0/0}
+Utils.UtilsTH.$tcInstanceInfo :: ghc-prim-0.6.1:GHC.Types.TyCon
+[GblId, Unf=OtherCon []]
+Utils.UtilsTH.$tcInstanceInfo
+  = ghc-prim-0.6.1:GHC.Types.TyCon
+      15136528558292996368##
+      16771070469860496747##
+      Utils.UtilsTH.$trModule
+      $tcInstanceInfo2_r8AY
+      0#
+      ghc-prim-0.6.1:GHC.Types.krep$*
+
+-- RHS size: {terms: 3, types: 1, coercions: 0, joins: 0/0}
+$krep7_r8Bi :: ghc-prim-0.6.1:GHC.Types.KindRep
+[GblId, Unf=OtherCon []]
+$krep7_r8Bi
+  = ghc-prim-0.6.1:GHC.Types.KindRepTyConApp
+      Utils.UtilsTH.$tcInstanceInfo
+      (ghc-prim-0.6.1:GHC.Types.[] @ ghc-prim-0.6.1:GHC.Types.KindRep)
+
+-- RHS size: {terms: 3, types: 0, coercions: 0, joins: 0/0}
+$krep8_r8Bj :: ghc-prim-0.6.1:GHC.Types.KindRep
+[GblId, Unf=OtherCon []]
+$krep8_r8Bj
+  = ghc-prim-0.6.1:GHC.Types.KindRepFun $krep6_r8Bh $krep7_r8Bi
+
+-- RHS size: {terms: 3, types: 0, coercions: 0, joins: 0/0}
+$krep9_r8Bk :: ghc-prim-0.6.1:GHC.Types.KindRep
+[GblId, Unf=OtherCon []]
+$krep9_r8Bk
+  = ghc-prim-0.6.1:GHC.Types.KindRepFun $krep5_r8Bc $krep8_r8Bj
+
+-- RHS size: {terms: 3, types: 0, coercions: 0, joins: 0/0}
+$krep10_r8Bl :: ghc-prim-0.6.1:GHC.Types.KindRep
+[GblId, Unf=OtherCon []]
+$krep10_r8Bl
+  = ghc-prim-0.6.1:GHC.Types.KindRepFun $krep2_r8B9 $krep9_r8Bk
+
+-- RHS size: {terms: 3, types: 0, coercions: 0, joins: 0/0}
+$krep11_r8Bm :: ghc-prim-0.6.1:GHC.Types.KindRep
+[GblId, Unf=OtherCon []]
+$krep11_r8Bm
+  = ghc-prim-0.6.1:GHC.Types.KindRepFun $krep_r8B7 $krep10_r8Bl
+
+-- RHS size: {terms: 3, types: 0, coercions: 0, joins: 0/0}
+$krep12_r8Bn :: ghc-prim-0.6.1:GHC.Types.KindRep
+[GblId, Unf=OtherCon []]
+$krep12_r8Bn
+  = ghc-prim-0.6.1:GHC.Types.KindRepFun $krep_r8B7 $krep11_r8Bm
+
+-- RHS size: {terms: 7, types: 0, coercions: 0, joins: 0/0}
+Utils.UtilsTH.$tc'InstanceInfo :: ghc-prim-0.6.1:GHC.Types.TyCon
+[GblId, Unf=OtherCon []]
+Utils.UtilsTH.$tc'InstanceInfo
+  = ghc-prim-0.6.1:GHC.Types.TyCon
+      2263791985310124784##
+      9390349143278575321##
+      Utils.UtilsTH.$trModule
+      $tc'InstanceInfo2_r8AW
+      0#
+      $krep12_r8Bn
+
+-- RHS size: {terms: 16, types: 10, coercions: 0, joins: 0/3}
+getInstanceInfoNormalConstructor
+  :: ConstructorInfo -> Name -> InstanceInfo
+[GblId, Arity=2, Unf=OtherCon []]
+getInstanceInfoNormalConstructor
+  = \ (normalCons_a86F :: ConstructorInfo) (dname_a86G :: Name) ->
+      break<119>(dname_a86G,normalCons_a86F)
+      let {
+        recordFields_a86H :: forall a. [a]
+        [LclId]
+        recordFields_a86H = break<115>() ghc-prim-0.6.1:GHC.Types.[] } in
+      let {
+        recordTypes_a86I :: [Type]
+        [LclId]
+        recordTypes_a86I
+          = break<116>(normalCons_a86F)
+            constructorFields normalCons_a86F } in
+      let {
+        consName_a86J :: Name
+        [LclId]
+        consName_a86J
+          = break<117>(normalCons_a86F) constructorName normalCons_a86F } in
+      break<118>(consName_a86J,recordFields_a86H,recordTypes_a86I,dname_a86G)
+      break<0>(consName_a86J,dname_a86G,recordTypes_a86I,Utils.UtilsTH.NormalConstructorV,recordFields_a86H)
+      Utils.UtilsTH.InstanceInfo
+        dname_a86G
+        consName_a86J
+        (recordFields_a86H @ Name)
+        recordTypes_a86I
+        Utils.UtilsTH.NormalConstructorV
+
+-- RHS size: {terms: 24, types: 17, coercions: 0, joins: 0/3}
+getInstanceInfoRecordConstructor
+  :: ConstructorInfo -> Name -> InstanceInfo
+[GblId, Arity=2, Unf=OtherCon []]
+getInstanceInfoRecordConstructor
+  = \ (recordCons_a86K :: ConstructorInfo) (dname_a86L :: Name) ->
+      break<114>(dname_a86L,recordCons_a86K)
+      let {
+        consName_a86M :: Name
+        [LclId]
+        consName_a86M
+          = break<110>(recordCons_a86K) constructorName recordCons_a86K } in
+      let {
+        consVariant_a86N :: [Name]
+        [LclId]
+        consVariant_a86N
+          = case break<111>(recordCons_a86K)
+                 constructorVariant recordCons_a86K
+            of {
+              __DEFAULT ->
+                case Control.Exception.Base.patError
+                       @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                       @ (Unit [Name])
+                       "/Users/aditya.ranjan/todo-app/todo-app/src/Utils/UtilsTH.hs:143:9-69|RecordConstructor consVariant"#
+                of wild1_00 {
+                };
+              RecordConstructor consVariant1_X880 -> consVariant1_X880
+            } } in
+      let {
+        recordTypes_a86O :: [Type]
+        [LclId]
+        recordTypes_a86O
+          = break<112>(recordCons_a86K)
+            constructorFields recordCons_a86K } in
+      break<113>(consName_a86M,recordTypes_a86O,dname_a86L,consVariant_a86N)
+      break<0>(consName_a86M,dname_a86L,recordTypes_a86O,Utils.UtilsTH.RecordConstructorV,consVariant_a86N)
+      Utils.UtilsTH.InstanceInfo
+        dname_a86L
+        consName_a86M
+        consVariant_a86N
+        recordTypes_a86O
+        Utils.UtilsTH.RecordConstructorV
+
+-- RHS size: {terms: 44, types: 55, coercions: 0, joins: 0/0}
+getInstanceInfo :: Name -> [ConstructorInfo] -> Q [InstanceInfo]
+[GblId, Arity=1, Unf=OtherCon []]
+getInstanceInfo
+  = \ (dname_a86A :: Name) ->
+      break<133>(dname_a86A)
+      foldl
+        @ []
+        Data.Foldable.$fFoldable[]
+        @ (Q [InstanceInfo])
+        @ ConstructorInfo
+        (\ (acc'_a86B :: Q [InstanceInfo]) (x_a86C :: ConstructorInfo) ->
+           break<131>(x_a86C,dname_a86A,acc'_a86B)
+           >>=
+             @ Q
+             Language.Haskell.TH.Syntax.$fMonadQ
+             @ [InstanceInfo]
+             @ [InstanceInfo]
+             (break<120>(acc'_a86B) acc'_a86B)
+             (\ (acc_a86D :: [InstanceInfo]) ->
+                case break<121>(x_a86C) constructorVariant x_a86C of {
+                  NormalConstructor ->
+                    break<124>(x_a86C,acc_a86D,dname_a86A)
+                    $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                      @ [InstanceInfo]
+                      @ (Q [InstanceInfo])
+                      (return @ Q Language.Haskell.TH.Syntax.$fMonadQ @ [InstanceInfo])
+                      (break<123>(x_a86C,acc_a86D,dname_a86A)
+                       ghc-prim-0.6.1:GHC.Types.:
+                         @ InstanceInfo
+                         (break<122>(x_a86C,dname_a86A)
+                          getInstanceInfoNormalConstructor x_a86C dname_a86A)
+                         acc_a86D);
+                  InfixConstructor ->
+                    break<130>(Language.Haskell.TH.Datatype.InfixConstructor)
+                    $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                      @ String
+                      @ (Q [InstanceInfo])
+                      (fail @ Q Language.Haskell.TH.Syntax.$fMonadFailQ @ [InstanceInfo])
+                      (break<129>(Language.Haskell.TH.Datatype.InfixConstructor)
+                       <>
+                         @ String
+                         (GHC.Base.$fSemigroup[] @ Char)
+                         (ghc-prim-0.6.1:GHC.CString.unpackCString#
+                            "unsupported type variant "#)
+                         (break<128>(Language.Haskell.TH.Datatype.InfixConstructor)
+                          show
+                            @ ConstructorVariant
+                            Language.Haskell.TH.Datatype.$fShowConstructorVariant
+                            Language.Haskell.TH.Datatype.InfixConstructor));
+                  RecordConstructor ds_d8xy ->
+                    break<127>(x_a86C,acc_a86D,dname_a86A)
+                    $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                      @ [InstanceInfo]
+                      @ (Q [InstanceInfo])
+                      (return @ Q Language.Haskell.TH.Syntax.$fMonadQ @ [InstanceInfo])
+                      (break<126>(x_a86C,acc_a86D,dname_a86A)
+                       ghc-prim-0.6.1:GHC.Types.:
+                         @ InstanceInfo
+                         (break<125>(x_a86C,dname_a86A)
+                          getInstanceInfoRecordConstructor x_a86C dname_a86A)
+                         acc_a86D)
+                }))
+        (break<132>()
+         return
+           @ Q
+           Language.Haskell.TH.Syntax.$fMonadQ
+           @ [InstanceInfo]
+           (ghc-prim-0.6.1:GHC.Types.[] @ InstanceInfo))
+
+-- RHS size: {terms: 11, types: 7, coercions: 0, joins: 0/0}
+mkInstanceInfo
+  :: Name -> Name -> [Name] -> [Type] -> Variants -> InstanceInfo
+[GblId, Arity=5, Caf=NoCafRefs, Unf=OtherCon []]
+mkInstanceInfo
+  = \ (dname_a87w :: Name)
+      (consName_a87x :: Name)
+      (rf_a87y :: [Name])
+      (ty_a87z :: [Type])
+      (var_a87A :: Variants) ->
+      break<0>(consName_a87x,dname_a87w,ty_a87z,var_a87A,rf_a87y)
+      Utils.UtilsTH.InstanceInfo
+        dname_a87w consName_a87x rf_a87y ty_a87z var_a87A
+
+-- RHS size: {terms: 4, types: 1, coercions: 0, joins: 0/0}
+getfunctionName :: Name -> Name
+[GblId, Arity=1, Unf=OtherCon []]
+getfunctionName
+  = \ _ [Occ=Dead] ->
+      break<1>()
+      mkName (ghc-prim-0.6.1:GHC.CString.unpackCString# "toJsonifier"#)
+
+-- RHS size: {terms: 60, types: 22, coercions: 0, joins: 0/4}
+mkMaybeFunction :: Name -> Name -> Name -> Exp
+[GblId, Arity=3, Unf=OtherCon []]
+mkMaybeFunction
+  = \ (ty_a87o :: Name) (varx_a87p :: Name) (varName_a87q :: Name) ->
+      break<17>(varName_a87q,ty_a87o,varx_a87p)
+      let {
+        fn_a87r :: Name
+        [LclId]
+        fn_a87r = break<2>(ty_a87o) getfunctionName ty_a87o } in
+      let {
+        m1_a87s :: Match
+        [LclId]
+        m1_a87s
+          = break<6>()
+            Language.Haskell.TH.Syntax.Match
+              (break<3>()
+               Language.Haskell.TH.Syntax.ConP
+                 (Language.Haskell.TH.Syntax.mkNameG_d
+                    (ghc-prim-0.6.1:GHC.CString.unpackCString# "base"#)
+                    (ghc-prim-0.6.1:GHC.CString.unpackCString# "GHC.Maybe"#)
+                    (ghc-prim-0.6.1:GHC.CString.unpackCString# "Nothing"#))
+                 (ghc-prim-0.6.1:GHC.Types.[] @ Pat))
+              (break<5>()
+               $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                 @ Exp
+                 @ Body
+                 Language.Haskell.TH.Syntax.NormalB
+                 (break<4>()
+                  Language.Haskell.TH.Syntax.VarE
+                    (Language.Haskell.TH.Syntax.mkNameG_v
+                       (ghc-prim-0.6.1:GHC.CString.unpackCString#
+                          "jsonifier-0.2.1.2-4JhWvVFw4ca5rzGY1SgZ7e"#)
+                       (ghc-prim-0.6.1:GHC.CString.unpackCString# "Jsonifier"#)
+                       (ghc-prim-0.6.1:GHC.CString.unpackCString# "null"#))))
+              (ghc-prim-0.6.1:GHC.Types.[] @ Dec) } in
+      let {
+        m2_a87t :: Match
+        [LclId]
+        m2_a87t
+          = break<13>(fn_a87r,varx_a87p)
+            Language.Haskell.TH.Syntax.Match
+              (break<8>(varx_a87p)
+               Language.Haskell.TH.Syntax.ConP
+                 (Language.Haskell.TH.Syntax.mkNameG_d
+                    (ghc-prim-0.6.1:GHC.CString.unpackCString# "base"#)
+                    (ghc-prim-0.6.1:GHC.CString.unpackCString# "GHC.Maybe"#)
+                    (ghc-prim-0.6.1:GHC.CString.unpackCString# "Just"#))
+                 (ghc-prim-0.6.1:GHC.Types.:
+                    @ Pat
+                    (break<7>(varx_a87p) Language.Haskell.TH.Syntax.VarP varx_a87p)
+                    (ghc-prim-0.6.1:GHC.Types.[] @ Pat)))
+              (break<12>(fn_a87r,varx_a87p)
+               $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                 @ Exp
+                 @ Body
+                 Language.Haskell.TH.Syntax.NormalB
+                 (break<11>(fn_a87r,varx_a87p)
+                  Language.Haskell.TH.Syntax.AppE
+                    (break<9>(fn_a87r) Language.Haskell.TH.Syntax.VarE fn_a87r)
+                    (break<10>(varx_a87p) Language.Haskell.TH.Syntax.VarE varx_a87p)))
+              (ghc-prim-0.6.1:GHC.Types.[] @ Dec) } in
+      let {
+        matches_a87u :: [Match]
+        [LclId]
+        matches_a87u
+          = break<14>(m1_a87s,m2_a87t)
+            ghc-prim-0.6.1:GHC.Types.:
+              @ Match
+              m1_a87s
+              (ghc-prim-0.6.1:GHC.Types.:
+                 @ Match m2_a87t (ghc-prim-0.6.1:GHC.Types.[] @ Match)) } in
+      break<16>(matches_a87u,varName_a87q)
+      Language.Haskell.TH.Syntax.CaseE
+        (break<15>(varName_a87q)
+         Language.Haskell.TH.Syntax.VarE varName_a87q)
+        matches_a87u
+
+-- RHS size: {terms: 28, types: 6, coercions: 0, joins: 0/1}
+mkArrFunction :: Name -> Name -> Exp
+[GblId, Arity=2, Unf=OtherCon []]
+mkArrFunction
+  = \ (tyName_a87l :: Name) (varName_a87m :: Name) ->
+      break<26>(varName_a87m,tyName_a87l)
+      let {
+        fn_a87n :: Name
+        [LclId]
+        fn_a87n = break<18>(tyName_a87l) getfunctionName tyName_a87l } in
+      break<25>(fn_a87n,varName_a87m)
+      $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+        @ Exp
+        @ Exp
+        (break<20>()
+         Language.Haskell.TH.Syntax.AppE
+           (break<19>()
+            Language.Haskell.TH.Syntax.VarE
+              (Language.Haskell.TH.Syntax.mkNameG_v
+                 (ghc-prim-0.6.1:GHC.CString.unpackCString#
+                    "jsonifier-0.2.1.2-4JhWvVFw4ca5rzGY1SgZ7e"#)
+                 (ghc-prim-0.6.1:GHC.CString.unpackCString# "Jsonifier"#)
+                 (ghc-prim-0.6.1:GHC.CString.unpackCString# "array"#))))
+        (break<24>(fn_a87n,varName_a87m)
+         Language.Haskell.TH.Syntax.UInfixE
+           (break<21>(fn_a87n) Language.Haskell.TH.Syntax.VarE fn_a87n)
+           (break<22>()
+            Language.Haskell.TH.Syntax.VarE
+              (Language.Haskell.TH.Syntax.mkNameG_v
+                 (ghc-prim-0.6.1:GHC.CString.unpackCString# "base"#)
+                 (ghc-prim-0.6.1:GHC.CString.unpackCString# "GHC.Base"#)
+                 (ghc-prim-0.6.1:GHC.CString.unpackCString# "fmap"#)))
+           (break<23>(varName_a87m)
+            Language.Haskell.TH.Syntax.VarE varName_a87m))
+
+-- RHS size: {terms: 271, types: 139, coercions: 0, joins: 1/8}
+getJsonFunctionRecordConstructor :: Type -> Name -> Name -> Q Exp
+[GblId, Arity=3, Unf=OtherCon []]
+getJsonFunctionRecordConstructor
+  = \ (ty_a86X :: Type) (varName_a86Y :: Name) (varx_a86Z :: Name) ->
+      break<94>(varName_a86Y,ty_a86X,varx_a86Z)
+      join {
+        fail_d8x7 :: ghc-prim-0.6.1:GHC.Prim.Void# -> Q Exp
+        [LclId[JoinId(1)], Arity=1, Str=<L,U>b, Unf=OtherCon []]
+        fail_d8x7 _ [Occ=Dead, OS=OneShot]
+          = Control.Exception.Base.patError
+              @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+              @ (Q Exp)
+              "/Users/aditya.ranjan/todo-app/todo-app/src/Utils/UtilsTH.hs:(165,3)-(196,109)|case"# } in
+      case ty_a86X of {
+        __DEFAULT -> jump fail_d8x7 ghc-prim-0.6.1:GHC.Prim.void#;
+        AppT ds_d8wX ds1_d8wY ->
+          case ds_d8wX of {
+            __DEFAULT -> jump fail_d8x7 ghc-prim-0.6.1:GHC.Prim.void#;
+            AppT ds2_d8x4 ds3_d8x5 ->
+              case ds2_d8x4 of {
+                __DEFAULT -> jump fail_d8x7 ghc-prim-0.6.1:GHC.Prim.void#;
+                ConT ds4_d8x6 ->
+                  case ds3_d8x5 of {
+                    __DEFAULT -> jump fail_d8x7 ghc-prim-0.6.1:GHC.Prim.void#;
+                    VarT variable_a87f ->
+                      break<83>(varName_a86Y,varx_a86Z)
+                      break<82>(varName_a86Y,varx_a86Z)
+                      $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                        @ Exp
+                        @ (Q Exp)
+                        (return @ Q Language.Haskell.TH.Syntax.$fMonadQ @ Exp)
+                        (break<81>(varName_a86Y,varx_a86Z)
+                         Language.Haskell.TH.Syntax.AppE
+                           (break<79>(varx_a86Z)
+                            $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                              @ Name
+                              @ Exp
+                              Language.Haskell.TH.Syntax.VarE
+                              (break<78>(varx_a86Z) getfunctionName varx_a86Z))
+                           (break<80>(varName_a86Y)
+                            Language.Haskell.TH.Syntax.VarE varName_a86Y));
+                    ConT lft_a87j ->
+                      case ds1_d8wY of {
+                        __DEFAULT -> jump fail_d8x7 ghc-prim-0.6.1:GHC.Prim.void#;
+                        ConT rgt_a87k ->
+                          break<93>(varName_a86Y,varx_a86Z)
+                          $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                            @ Exp
+                            @ (Q Exp)
+                            (return @ Q Language.Haskell.TH.Syntax.$fMonadQ @ Exp)
+                            (break<92>(varName_a86Y,varx_a86Z)
+                             Language.Haskell.TH.Syntax.AppE
+                               (break<90>(varx_a86Z)
+                                $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                                  @ Name
+                                  @ Exp
+                                  Language.Haskell.TH.Syntax.VarE
+                                  (break<89>(varx_a86Z) getfunctionName varx_a86Z))
+                               (break<91>(varName_a86Y)
+                                Language.Haskell.TH.Syntax.VarE varName_a86Y))
+                      }
+                  }
+              };
+            ConT ds2_d8x1 ->
+              case ds1_d8wY of {
+                __DEFAULT -> jump fail_d8x7 ghc-prim-0.6.1:GHC.Prim.void#;
+                AppT ds3_d8x2 ds4_d8x3 ->
+                  case ds3_d8x2 of {
+                    __DEFAULT -> jump fail_d8x7 ghc-prim-0.6.1:GHC.Prim.void#;
+                    ListT ->
+                      case ds4_d8x3 of {
+                        __DEFAULT -> jump fail_d8x7 ghc-prim-0.6.1:GHC.Prim.void#;
+                        ConT y_a87a ->
+                          break<77>(y_a87a,varName_a86Y,varx_a86Z)
+                          let {
+                            m1_a87c :: Match
+                            [LclId]
+                            m1_a87c
+                              = break<67>()
+                                Language.Haskell.TH.Syntax.Match
+                                  (break<64>()
+                                   Language.Haskell.TH.Syntax.ConP
+                                     (Language.Haskell.TH.Syntax.mkNameG_d
+                                        (ghc-prim-0.6.1:GHC.CString.unpackCString# "base"#)
+                                        (ghc-prim-0.6.1:GHC.CString.unpackCString# "GHC.Maybe"#)
+                                        (ghc-prim-0.6.1:GHC.CString.unpackCString# "Nothing"#))
+                                     (ghc-prim-0.6.1:GHC.Types.[] @ Pat))
+                                  (break<66>()
+                                   $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                                     @ Exp
+                                     @ Body
+                                     Language.Haskell.TH.Syntax.NormalB
+                                     (break<65>()
+                                      Language.Haskell.TH.Syntax.VarE
+                                        (Language.Haskell.TH.Syntax.mkNameG_v
+                                           (ghc-prim-0.6.1:GHC.CString.unpackCString#
+                                              "jsonifier-0.2.1.2-4JhWvVFw4ca5rzGY1SgZ7e"#)
+                                           (ghc-prim-0.6.1:GHC.CString.unpackCString# "Jsonifier"#)
+                                           (ghc-prim-0.6.1:GHC.CString.unpackCString# "null"#))))
+                                  (ghc-prim-0.6.1:GHC.Types.[] @ Dec) } in
+                          let {
+                            m2_a87d :: Match
+                            [LclId]
+                            m2_a87d
+                              = break<72>(y_a87a,varx_a86Z)
+                                Language.Haskell.TH.Syntax.Match
+                                  (break<69>(varx_a86Z)
+                                   Language.Haskell.TH.Syntax.ConP
+                                     (Language.Haskell.TH.Syntax.mkNameG_d
+                                        (ghc-prim-0.6.1:GHC.CString.unpackCString# "base"#)
+                                        (ghc-prim-0.6.1:GHC.CString.unpackCString# "GHC.Maybe"#)
+                                        (ghc-prim-0.6.1:GHC.CString.unpackCString# "Just"#))
+                                     (ghc-prim-0.6.1:GHC.Types.:
+                                        @ Pat
+                                        (break<68>(varx_a86Z)
+                                         Language.Haskell.TH.Syntax.VarP varx_a86Z)
+                                        (ghc-prim-0.6.1:GHC.Types.[] @ Pat)))
+                                  (break<71>(y_a87a,varx_a86Z)
+                                   $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                                     @ Exp
+                                     @ Body
+                                     Language.Haskell.TH.Syntax.NormalB
+                                     (break<70>(y_a87a,varx_a86Z) mkArrFunction y_a87a varx_a86Z))
+                                  (ghc-prim-0.6.1:GHC.Types.[] @ Dec) } in
+                          let {
+                            matches_a87e :: [Match]
+                            [LclId]
+                            matches_a87e
+                              = break<73>(m1_a87c,m2_a87d)
+                                ghc-prim-0.6.1:GHC.Types.:
+                                  @ Match
+                                  m1_a87c
+                                  (ghc-prim-0.6.1:GHC.Types.:
+                                     @ Match m2_a87d (ghc-prim-0.6.1:GHC.Types.[] @ Match)) } in
+                          break<76>(matches_a87e,varName_a86Y)
+                          $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                            @ Exp
+                            @ (Q Exp)
+                            (return @ Q Language.Haskell.TH.Syntax.$fMonadQ @ Exp)
+                            (break<75>(matches_a87e,varName_a86Y)
+                             Language.Haskell.TH.Syntax.CaseE
+                               (break<74>(varName_a86Y)
+                                Language.Haskell.TH.Syntax.VarE varName_a86Y)
+                               matches_a87e)
+                      }
+                  };
+                ConT ty1_a875 ->
+                  break<62>(varName_a86Y,ty1_a875,varx_a86Z)
+                  let {
+                    fn_a876 :: Name
+                    [LclId]
+                    fn_a876 = break<46>(ty1_a875) getfunctionName ty1_a875 } in
+                  let {
+                    m1_a877 :: Match
+                    [LclId]
+                    m1_a877
+                      = break<50>()
+                        Language.Haskell.TH.Syntax.Match
+                          (break<47>()
+                           Language.Haskell.TH.Syntax.ConP
+                             (Language.Haskell.TH.Syntax.mkNameG_d
+                                (ghc-prim-0.6.1:GHC.CString.unpackCString# "base"#)
+                                (ghc-prim-0.6.1:GHC.CString.unpackCString# "GHC.Maybe"#)
+                                (ghc-prim-0.6.1:GHC.CString.unpackCString# "Nothing"#))
+                             (ghc-prim-0.6.1:GHC.Types.[] @ Pat))
+                          (break<49>()
+                           $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                             @ Exp
+                             @ Body
+                             Language.Haskell.TH.Syntax.NormalB
+                             (break<48>()
+                              Language.Haskell.TH.Syntax.VarE
+                                (Language.Haskell.TH.Syntax.mkNameG_v
+                                   (ghc-prim-0.6.1:GHC.CString.unpackCString#
+                                      "jsonifier-0.2.1.2-4JhWvVFw4ca5rzGY1SgZ7e"#)
+                                   (ghc-prim-0.6.1:GHC.CString.unpackCString# "Jsonifier"#)
+                                   (ghc-prim-0.6.1:GHC.CString.unpackCString# "null"#))))
+                          (ghc-prim-0.6.1:GHC.Types.[] @ Dec) } in
+                  let {
+                    m2_a878 :: Match
+                    [LclId]
+                    m2_a878
+                      = break<57>(fn_a876,varx_a86Z)
+                        Language.Haskell.TH.Syntax.Match
+                          (break<52>(varx_a86Z)
+                           Language.Haskell.TH.Syntax.ConP
+                             (Language.Haskell.TH.Syntax.mkNameG_d
+                                (ghc-prim-0.6.1:GHC.CString.unpackCString# "base"#)
+                                (ghc-prim-0.6.1:GHC.CString.unpackCString# "GHC.Maybe"#)
+                                (ghc-prim-0.6.1:GHC.CString.unpackCString# "Just"#))
+                             (ghc-prim-0.6.1:GHC.Types.:
+                                @ Pat
+                                (break<51>(varx_a86Z) Language.Haskell.TH.Syntax.VarP varx_a86Z)
+                                (ghc-prim-0.6.1:GHC.Types.[] @ Pat)))
+                          (break<56>(fn_a876,varx_a86Z)
+                           $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                             @ Exp
+                             @ Body
+                             Language.Haskell.TH.Syntax.NormalB
+                             (break<55>(fn_a876,varx_a86Z)
+                              Language.Haskell.TH.Syntax.AppE
+                                (break<53>(fn_a876) Language.Haskell.TH.Syntax.VarE fn_a876)
+                                (break<54>(varx_a86Z) Language.Haskell.TH.Syntax.VarE varx_a86Z)))
+                          (ghc-prim-0.6.1:GHC.Types.[] @ Dec) } in
+                  let {
+                    matches_a879 :: [Match]
+                    [LclId]
+                    matches_a879
+                      = break<58>(m1_a877,m2_a878)
+                        ghc-prim-0.6.1:GHC.Types.:
+                          @ Match
+                          m1_a877
+                          (ghc-prim-0.6.1:GHC.Types.:
+                             @ Match m2_a878 (ghc-prim-0.6.1:GHC.Types.[] @ Match)) } in
+                  break<61>(matches_a879,varName_a86Y)
+                  $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                    @ Exp
+                    @ (Q Exp)
+                    (return @ Q Language.Haskell.TH.Syntax.$fMonadQ @ Exp)
+                    (break<60>(matches_a879,varName_a86Y)
+                     Language.Haskell.TH.Syntax.CaseE
+                       (break<59>(varName_a86Y)
+                        Language.Haskell.TH.Syntax.VarE varName_a86Y)
+                       matches_a879)
+              };
+            ListT ->
+              case ds1_d8wY of {
+                __DEFAULT -> jump fail_d8x7 ghc-prim-0.6.1:GHC.Prim.void#;
+                AppT ds2_d8wZ ds3_d8x0 ->
+                  case ds2_d8wZ of {
+                    __DEFAULT -> jump fail_d8x7 ghc-prim-0.6.1:GHC.Prim.void#;
+                    ConT x_a872 ->
+                      case ds3_d8x0 of {
+                        __DEFAULT -> jump fail_d8x7 ghc-prim-0.6.1:GHC.Prim.void#;
+                        ConT y_a873 ->
+                          break<45>(y_a873,varName_a86Y)
+                          break<44>(y_a873,varName_a86Y)
+                          $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                            @ Exp
+                            @ (Q Exp)
+                            (return @ Q Language.Haskell.TH.Syntax.$fMonadQ @ Exp)
+                            (break<43>(y_a873,varName_a86Y)
+                             $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                               @ Exp
+                               @ Exp
+                               (break<32>()
+                                Language.Haskell.TH.Syntax.AppE
+                                  (break<31>()
+                                   Language.Haskell.TH.Syntax.VarE
+                                     (Language.Haskell.TH.Syntax.mkNameG_v
+                                        (ghc-prim-0.6.1:GHC.CString.unpackCString#
+                                           "jsonifier-0.2.1.2-4JhWvVFw4ca5rzGY1SgZ7e"#)
+                                        (ghc-prim-0.6.1:GHC.CString.unpackCString# "Jsonifier"#)
+                                        (ghc-prim-0.6.1:GHC.CString.unpackCString# "array"#))))
+                               (break<42>(y_a873,varName_a86Y)
+                                Language.Haskell.TH.Syntax.UInfixE
+                                  (break<39>(y_a873)
+                                   Language.Haskell.TH.Syntax.LamE
+                                     (ghc-prim-0.6.1:GHC.Types.:
+                                        @ Pat
+                                        (break<34>()
+                                         $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                                           @ Name
+                                           @ Pat
+                                           Language.Haskell.TH.Syntax.VarP
+                                           (break<33>()
+                                            mkName
+                                              (ghc-prim-0.6.1:GHC.CString.unpackCString# "axc"#)))
+                                        (ghc-prim-0.6.1:GHC.Types.[] @ Pat))
+                                     (break<38>(y_a873)
+                                      $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                                        @ Name
+                                        @ Exp
+                                        (break<36>(y_a873)
+                                         mkMaybeFunction
+                                           y_a873
+                                           (break<35>()
+                                            mkName
+                                              (ghc-prim-0.6.1:GHC.CString.unpackCString# "axc"#)))
+                                        (break<37>()
+                                         mkName
+                                           (ghc-prim-0.6.1:GHC.CString.unpackCString# "axc"#))))
+                                  (break<40>()
+                                   Language.Haskell.TH.Syntax.VarE
+                                     (Language.Haskell.TH.Syntax.mkNameG_v
+                                        (ghc-prim-0.6.1:GHC.CString.unpackCString# "base"#)
+                                        (ghc-prim-0.6.1:GHC.CString.unpackCString# "GHC.Base"#)
+                                        (ghc-prim-0.6.1:GHC.CString.unpackCString# "fmap"#)))
+                                  (break<41>(varName_a86Y)
+                                   Language.Haskell.TH.Syntax.VarE varName_a86Y)))
+                      }
+                  };
+                ConT ty1_a871 ->
+                  break<29>(varName_a86Y,ty1_a871)
+                  $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                    @ Exp
+                    @ (Q Exp)
+                    (return @ Q Language.Haskell.TH.Syntax.$fMonadQ @ Exp)
+                    (break<28>(varName_a86Y,ty1_a871)
+                     mkArrFunction ty1_a871 varName_a86Y)
+              }
+          };
+        ConT name_a87h ->
+          break<88>(name_a87h,varName_a86Y)
+          $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+            @ Exp
+            @ (Q Exp)
+            (return @ Q Language.Haskell.TH.Syntax.$fMonadQ @ Exp)
+            (break<87>(name_a87h,varName_a86Y)
+             Language.Haskell.TH.Syntax.AppE
+               (break<85>(name_a87h)
+                $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                  @ Name
+                  @ Exp
+                  Language.Haskell.TH.Syntax.VarE
+                  (break<84>(name_a87h) getfunctionName name_a87h))
+               (break<86>(varName_a86Y)
+                Language.Haskell.TH.Syntax.VarE varName_a86Y))
+      }
+
+-- RHS size: {terms: 331, types: 394, coercions: 0, joins: 0/18}
+mkMatchInstancesTH :: [InstanceInfo] -> Q [Match]
+[GblId]
+mkMatchInstancesTH
+  = break<239>()
+    foldr
+      @ []
+      Data.Foldable.$fFoldable[]
+      @ InstanceInfo
+      @ (Q [Match])
+      (\ (x_a84r :: InstanceInfo) (acc_a84s :: Q [Match]) ->
+         break<237>(x_a84r,acc_a84s)
+         >>=
+           @ Q
+           Language.Haskell.TH.Syntax.$fMonadQ
+           @ [Match]
+           @ [Match]
+           (break<142>(acc_a84s) acc_a84s)
+           (\ (acc'_a84t :: [Match]) ->
+              let {
+                cons_a84u :: Name
+                [LclId]
+                cons_a84u
+                  = break<143>(x_a84r)
+                    case x_a84r of
+                    { InstanceInfo ds_d8yW ds1_d8yX ds2_d8yY ds3_d8yZ ds4_d8z0 ->
+                    break<300>(ds1_d8yX) ds1_d8yX
+                    } } in
+              >>=
+                @ Q
+                Language.Haskell.TH.Syntax.$fMonadQ
+                @ Name
+                @ [Match]
+                (break<144>()
+                 newName (ghc-prim-0.6.1:GHC.CString.unpackCString# "maybe"#))
+                (\ (varMaybe_a84v :: Name) ->
+                   case break<145>(x_a84r)
+                        case x_a84r of
+                        { InstanceInfo ds_d8ze ds1_d8zf ds2_d8zg ds3_d8zh ds4_d8zi ->
+                        break<303>(ds4_d8zi) ds4_d8zi
+                        }
+                   of {
+                     RecordConstructorV ->
+                       break<174>(x_a84r,cons_a84u,acc'_a84t,varMaybe_a84v)
+                       >>=
+                         @ Q
+                         Language.Haskell.TH.Syntax.$fMonadQ
+                         @ [Name]
+                         @ [Match]
+                         (break<147>(x_a84r)
+                          $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                            @ [Name]
+                            @ (Q [Name])
+                            mkVariableName
+                            (break<146>(x_a84r)
+                             case x_a84r of
+                             { InstanceInfo ds_d8z2 ds1_d8z3 ds2_d8z4 ds3_d8z5 ds4_d8z6 ->
+                             break<301>(ds2_d8z4) ds2_d8z4
+                             }))
+                         (\ (varName_a84w :: [Name]) ->
+                            let {
+                              tupList_a84x :: [(Name, Name, Type)]
+                              [LclId]
+                              tupList_a84x
+                                = break<150>(x_a84r,varName_a84w)
+                                  zip3
+                                    @ Name
+                                    @ Name
+                                    @ Type
+                                    varName_a84w
+                                    (break<148>(x_a84r)
+                                     case x_a84r of
+                                     { InstanceInfo ds_d8z2 ds1_d8z3 ds2_d8z4 ds3_d8z5 ds4_d8z6 ->
+                                     break<301>(ds2_d8z4) ds2_d8z4
+                                     })
+                                    (break<149>(x_a84r)
+                                     case x_a84r of
+                                     { InstanceInfo ds_d8z8 ds1_d8z9 ds2_d8za ds3_d8zb ds4_d8zc ->
+                                     break<302>(ds3_d8zb) ds3_d8zb
+                                     }) } in
+                            >>=
+                              @ Q
+                              Language.Haskell.TH.Syntax.$fMonadQ
+                              @ [Exp]
+                              @ [Match]
+                              (break<163>(varMaybe_a84v,tupList_a84x)
+                               foldr
+                                 @ []
+                                 Data.Foldable.$fFoldable[]
+                                 @ (Name, Name, Type)
+                                 @ (Q [Exp])
+                                 (\ (ds_d8xF :: (Name, Name, Type)) (acc'1_a85N :: Q [Exp]) ->
+                                    case ds_d8xF of
+                                    { (varName1_a85K, recordName_a85L, recordType_a85M) ->
+                                    break<161>(acc'1_a85N,varMaybe_a84v,varName1_a85K,recordName_a85L,recordType_a85M)
+                                    >>=
+                                      @ Q
+                                      Language.Haskell.TH.Syntax.$fMonadQ
+                                      @ [Exp]
+                                      @ [Exp]
+                                      (break<151>(acc'1_a85N) acc'1_a85N)
+                                      (\ (acc1_a85O :: [Exp]) ->
+                                         >>=
+                                           @ Q
+                                           Language.Haskell.TH.Syntax.$fMonadQ
+                                           @ Exp
+                                           @ [Exp]
+                                           (break<152>(varMaybe_a84v,varName1_a85K,recordType_a85M)
+                                            getJsonFunctionRecordConstructor
+                                              recordType_a85M varName1_a85K varMaybe_a84v)
+                                           (\ (func_a85P :: Exp) ->
+                                              break<160>(acc1_a85O,recordName_a85L,func_a85P)
+                                              $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                                                @ [Exp]
+                                                @ (Q [Exp])
+                                                (return
+                                                   @ Q Language.Haskell.TH.Syntax.$fMonadQ @ [Exp])
+                                                (break<159>(acc1_a85O,recordName_a85L,func_a85P)
+                                                 ghc-prim-0.6.1:GHC.Types.:
+                                                   @ Exp
+                                                   (break<158>(recordName_a85L,func_a85P)
+                                                    Language.Haskell.TH.Syntax.TupE
+                                                      (ghc-prim-0.6.1:GHC.Types.:
+                                                         @ (Maybe Exp)
+                                                         (break<156>(recordName_a85L)
+                                                          $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                                                            @ Exp
+                                                            @ (Maybe Exp)
+                                                            (GHC.Maybe.Just @ Exp)
+                                                            (break<155>(recordName_a85L)
+                                                             $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                                                               @ Lit
+                                                               @ Exp
+                                                               Language.Haskell.TH.Syntax.LitE
+                                                               (break<154>(recordName_a85L)
+                                                                $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                                                                  @ String
+                                                                  @ Lit
+                                                                  Language.Haskell.TH.Syntax.StringL
+                                                                  (break<153>(recordName_a85L)
+                                                                   nameBase recordName_a85L))))
+                                                         (ghc-prim-0.6.1:GHC.Types.:
+                                                            @ (Maybe Exp)
+                                                            (break<157>(func_a85P)
+                                                             $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                                                               @ Exp
+                                                               @ (Maybe Exp)
+                                                               (GHC.Maybe.Just @ Exp)
+                                                               func_a85P)
+                                                            (ghc-prim-0.6.1:GHC.Types.[]
+                                                               @ (Maybe Exp)))))
+                                                   acc1_a85O)))
+                                    })
+                                 (break<162>()
+                                  return
+                                    @ Q
+                                    Language.Haskell.TH.Syntax.$fMonadQ
+                                    @ [Exp]
+                                    (ghc-prim-0.6.1:GHC.Types.[] @ Exp))
+                                 tupList_a84x)
+                              (\ (tupListExpr_a85Q :: [Exp]) ->
+                                 let {
+                                   expr_a85R :: Exp
+                                   [LclId]
+                                   expr_a85R
+                                     = break<166>(tupListExpr_a85Q)
+                                       Language.Haskell.TH.Syntax.AppE
+                                         (break<164>()
+                                          Language.Haskell.TH.Syntax.VarE
+                                            (Language.Haskell.TH.Syntax.mkNameG_v
+                                               (ghc-prim-0.6.1:GHC.CString.unpackCString#
+                                                  "jsonifier-0.2.1.2-4JhWvVFw4ca5rzGY1SgZ7e"#)
+                                               (ghc-prim-0.6.1:GHC.CString.unpackCString#
+                                                  "Jsonifier"#)
+                                               (ghc-prim-0.6.1:GHC.CString.unpackCString#
+                                                  "object"#)))
+                                         (break<165>(tupListExpr_a85Q)
+                                          Language.Haskell.TH.Syntax.ListE tupListExpr_a85Q) } in
+                                 let {
+                                   body_a85S :: Body
+                                   [LclId]
+                                   body_a85S
+                                     = break<167>(expr_a85R)
+                                       Language.Haskell.TH.Syntax.NormalB expr_a85R } in
+                                 let {
+                                   pat_a85T :: Pat
+                                   [LclId]
+                                   pat_a85T
+                                     = break<170>(cons_a84u,varName_a84w)
+                                       $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                                         @ [Pat]
+                                         @ Pat
+                                         (break<168>(cons_a84u)
+                                          Language.Haskell.TH.Syntax.ConP cons_a84u)
+                                         (break<169>(varName_a84w)
+                                          map
+                                            @ Name
+                                            @ Pat
+                                            Language.Haskell.TH.Syntax.VarP
+                                            varName_a84w) } in
+                                 let {
+                                   matchRecordConstructor_a85U :: Match
+                                   [LclId]
+                                   matchRecordConstructor_a85U
+                                     = break<171>(pat_a85T,body_a85S)
+                                       Language.Haskell.TH.Syntax.Match
+                                         pat_a85T body_a85S (ghc-prim-0.6.1:GHC.Types.[] @ Dec) } in
+                                 break<173>(acc'_a84t,matchRecordConstructor_a85U)
+                                 $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                                   @ [Match]
+                                   @ (Q [Match])
+                                   (return @ Q Language.Haskell.TH.Syntax.$fMonadQ @ [Match])
+                                   (break<172>(acc'_a84t,matchRecordConstructor_a85U)
+                                    ghc-prim-0.6.1:GHC.Types.:
+                                      @ Match matchRecordConstructor_a85U acc'_a84t)));
+                     NormalConstructorV ->
+                       break<235>(x_a84r,cons_a84u,acc'_a84t)
+                       >>=
+                         @ Q
+                         Language.Haskell.TH.Syntax.$fMonadQ
+                         @ Name
+                         @ [Match]
+                         (break<175>()
+                          newName (ghc-prim-0.6.1:GHC.CString.unpackCString# "normalCons"#))
+                         (\ _ [Occ=Dead] ->
+                            let {
+                              consText_a85W :: String
+                              [LclId]
+                              consText_a85W = break<176>(cons_a84u) nameBase cons_a84u } in
+                            case break<177>(x_a84r)
+                                 case x_a84r of
+                                 { InstanceInfo ds_d8z8 ds1_d8z9 ds2_d8za ds3_d8zb ds4_d8zc ->
+                                 break<302>(ds3_d8zb) ds3_d8zb
+                                 }
+                            of wild1_XT {
+                              [] ->
+                                break<187>(cons_a84u,acc'_a84t,consText_a85W)
+                                let {
+                                  expr_a85X :: Exp
+                                  [LclId]
+                                  expr_a85X
+                                    = break<181>(consText_a85W)
+                                      Language.Haskell.TH.Syntax.AppE
+                                        (break<178>()
+                                         Language.Haskell.TH.Syntax.VarE
+                                           (Language.Haskell.TH.Syntax.mkNameG_v
+                                              (ghc-prim-0.6.1:GHC.CString.unpackCString#
+                                                 "jsonifier-0.2.1.2-4JhWvVFw4ca5rzGY1SgZ7e"#)
+                                              (ghc-prim-0.6.1:GHC.CString.unpackCString#
+                                                 "Jsonifier"#)
+                                              (ghc-prim-0.6.1:GHC.CString.unpackCString#
+                                                 "textString"#)))
+                                        (break<180>(consText_a85W)
+                                         $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                                           @ Lit
+                                           @ Exp
+                                           Language.Haskell.TH.Syntax.LitE
+                                           (break<179>(consText_a85W)
+                                            Language.Haskell.TH.Syntax.StringL consText_a85W)) } in
+                                let {
+                                  body_a85Y :: Body
+                                  [LclId]
+                                  body_a85Y
+                                    = break<182>(expr_a85X)
+                                      Language.Haskell.TH.Syntax.NormalB expr_a85X } in
+                                let {
+                                  pat_a85Z :: Pat
+                                  [LclId]
+                                  pat_a85Z
+                                    = break<183>(cons_a84u)
+                                      Language.Haskell.TH.Syntax.ConP
+                                        cons_a84u (ghc-prim-0.6.1:GHC.Types.[] @ Pat) } in
+                                let {
+                                  matchNormalConstructor_a860 :: Match
+                                  [LclId]
+                                  matchNormalConstructor_a860
+                                    = break<184>(pat_a85Z,body_a85Y)
+                                      Language.Haskell.TH.Syntax.Match
+                                        pat_a85Z body_a85Y (ghc-prim-0.6.1:GHC.Types.[] @ Dec) } in
+                                break<186>(acc'_a84t,matchNormalConstructor_a860)
+                                $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                                  @ [Match]
+                                  @ (Q [Match])
+                                  (return @ Q Language.Haskell.TH.Syntax.$fMonadQ @ [Match])
+                                  (break<185>(acc'_a84t,matchNormalConstructor_a860)
+                                   ghc-prim-0.6.1:GHC.Types.:
+                                     @ Match matchNormalConstructor_a860 acc'_a84t);
+                              : ipv_s8Ae ipv1_s8Af ->
+                                break<234>(cons_a84u,acc'_a84t,consText_a85W,wild1_XT)
+                                >>=
+                                  @ Q
+                                  Language.Haskell.TH.Syntax.$fMonadQ
+                                  @ [Name]
+                                  @ [Match]
+                                  (break<194>(wild1_XT)
+                                   foldr
+                                     @ []
+                                     Data.Foldable.$fFoldable[]
+                                     @ Type
+                                     @ (Q [Name])
+                                     (\ _ [Occ=Dead] (acc'1_a862 :: Q [Name]) ->
+                                        break<192>(acc'1_a862)
+                                        >>=
+                                          @ Q
+                                          Language.Haskell.TH.Syntax.$fMonadQ
+                                          @ [Name]
+                                          @ [Name]
+                                          (break<188>(acc'1_a862) acc'1_a862)
+                                          (\ (acc1_a863 :: [Name]) ->
+                                             >>=
+                                               @ Q
+                                               Language.Haskell.TH.Syntax.$fMonadQ
+                                               @ Name
+                                               @ [Name]
+                                               (break<189>()
+                                                newName
+                                                  (ghc-prim-0.6.1:GHC.CString.unpackCString# "v"#))
+                                               (\ (v_a864 :: Name) ->
+                                                  break<191>(v_a864,acc1_a863)
+                                                  $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                                                    @ [Name]
+                                                    @ (Q [Name])
+                                                    (return
+                                                       @ Q
+                                                       Language.Haskell.TH.Syntax.$fMonadQ
+                                                       @ [Name])
+                                                    (break<190>(v_a864,acc1_a863)
+                                                     ghc-prim-0.6.1:GHC.Types.:
+                                                       @ Name v_a864 acc1_a863))))
+                                     (break<193>()
+                                      return
+                                        @ Q
+                                        Language.Haskell.TH.Syntax.$fMonadQ
+                                        @ [Name]
+                                        (ghc-prim-0.6.1:GHC.Types.[] @ Name))
+                                     wild1_XT)
+                                  (\ (varNew_a865 :: [Name]) ->
+                                     let {
+                                       tupList_a866 :: [(Type, Name)]
+                                       [LclId]
+                                       tupList_a866
+                                         = break<195>(wild1_XT,varNew_a865)
+                                           zip @ Type @ Name wild1_XT varNew_a865 } in
+                                     let {
+                                       tag_a867 :: Exp
+                                       [LclId]
+                                       tag_a867
+                                         = break<204>(consText_a85W)
+                                           Language.Haskell.TH.Syntax.TupE
+                                             (ghc-prim-0.6.1:GHC.Types.:
+                                                @ (Maybe Exp)
+                                                (break<198>()
+                                                 $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                                                   @ Exp
+                                                   @ (Maybe Exp)
+                                                   (GHC.Maybe.Just @ Exp)
+                                                   (break<197>()
+                                                    $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                                                      @ Lit
+                                                      @ Exp
+                                                      Language.Haskell.TH.Syntax.LitE
+                                                      (break<196>()
+                                                       Language.Haskell.TH.Syntax.StringL
+                                                         (ghc-prim-0.6.1:GHC.CString.unpackCString#
+                                                            "tag"#))))
+                                                (ghc-prim-0.6.1:GHC.Types.:
+                                                   @ (Maybe Exp)
+                                                   (break<203>(consText_a85W)
+                                                    $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                                                      @ Exp
+                                                      @ (Maybe Exp)
+                                                      (GHC.Maybe.Just @ Exp)
+                                                      (break<202>(consText_a85W)
+                                                       Language.Haskell.TH.Syntax.AppE
+                                                         (break<199>()
+                                                          Language.Haskell.TH.Syntax.VarE
+                                                            (Language.Haskell.TH.Syntax.mkNameG_v
+                                                               (ghc-prim-0.6.1:GHC.CString.unpackCString#
+                                                                  "jsonifier-0.2.1.2-4JhWvVFw4ca5rzGY1SgZ7e"#)
+                                                               (ghc-prim-0.6.1:GHC.CString.unpackCString#
+                                                                  "Jsonifier"#)
+                                                               (ghc-prim-0.6.1:GHC.CString.unpackCString#
+                                                                  "textString"#)))
+                                                         (break<201>(consText_a85W)
+                                                          $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                                                            @ Lit
+                                                            @ Exp
+                                                            Language.Haskell.TH.Syntax.LitE
+                                                            (break<200>(consText_a85W)
+                                                             Language.Haskell.TH.Syntax.StringL
+                                                               consText_a85W))))
+                                                   (ghc-prim-0.6.1:GHC.Types.[]
+                                                      @ (Maybe Exp)))) } in
+                                     >>=
+                                       @ Q
+                                       Language.Haskell.TH.Syntax.$fMonadQ
+                                       @ [Exp]
+                                       @ [Match]
+                                       (break<214>(tupList_a866)
+                                        foldr
+                                          @ []
+                                          Data.Foldable.$fFoldable[]
+                                          @ (Type, Name)
+                                          @ (Q [Exp])
+                                          (\ (ds_d8xU :: (Type, Name)) (acc'1_a86a :: Q [Exp]) ->
+                                             case ds_d8xU of { (ty_a868, rt_a869) ->
+                                             break<212>(acc'1_a86a,rt_a869)
+                                             >>=
+                                               @ Q
+                                               Language.Haskell.TH.Syntax.$fMonadQ
+                                               @ [Exp]
+                                               @ [Exp]
+                                               (break<205>(acc'1_a86a) acc'1_a86a)
+                                               (\ (acc1_a86b :: [Exp]) ->
+                                                  break<211>(acc1_a86b,rt_a869)
+                                                  $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                                                    @ [Exp]
+                                                    @ (Q [Exp])
+                                                    (return
+                                                       @ Q
+                                                       Language.Haskell.TH.Syntax.$fMonadQ
+                                                       @ [Exp])
+                                                    (break<210>(acc1_a86b,rt_a869)
+                                                     ghc-prim-0.6.1:GHC.Types.:
+                                                       @ Exp
+                                                       (break<209>(rt_a869)
+                                                        Language.Haskell.TH.Syntax.AppE
+                                                          (break<207>(rt_a869)
+                                                           $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                                                             @ Name
+                                                             @ Exp
+                                                             Language.Haskell.TH.Syntax.VarE
+                                                             (break<206>(rt_a869)
+                                                              getfunctionName rt_a869))
+                                                          (break<208>(rt_a869)
+                                                           Language.Haskell.TH.Syntax.VarE rt_a869))
+                                                       acc1_a86b))
+                                             })
+                                          (break<213>()
+                                           return
+                                             @ Q
+                                             Language.Haskell.TH.Syntax.$fMonadQ
+                                             @ [Exp]
+                                             (ghc-prim-0.6.1:GHC.Types.[] @ Exp))
+                                          tupList_a866)
+                                       (\ (tempExpr_a86c :: [Exp]) ->
+                                          let {
+                                            content_a86d :: Exp
+                                            [LclId]
+                                            content_a86d
+                                              = break<222>(tempExpr_a86c)
+                                                Language.Haskell.TH.Syntax.TupE
+                                                  (ghc-prim-0.6.1:GHC.Types.:
+                                                     @ (Maybe Exp)
+                                                     (break<217>()
+                                                      $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                                                        @ Exp
+                                                        @ (Maybe Exp)
+                                                        (GHC.Maybe.Just @ Exp)
+                                                        (break<216>()
+                                                         $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                                                           @ Lit
+                                                           @ Exp
+                                                           Language.Haskell.TH.Syntax.LitE
+                                                           (break<215>()
+                                                            Language.Haskell.TH.Syntax.StringL
+                                                              (ghc-prim-0.6.1:GHC.CString.unpackCString#
+                                                                 "contents"#))))
+                                                     (ghc-prim-0.6.1:GHC.Types.:
+                                                        @ (Maybe Exp)
+                                                        (break<221>(tempExpr_a86c)
+                                                         $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                                                           @ Exp
+                                                           @ (Maybe Exp)
+                                                           (GHC.Maybe.Just @ Exp)
+                                                           (break<220>(tempExpr_a86c)
+                                                            Language.Haskell.TH.Syntax.AppE
+                                                              (break<218>()
+                                                               Language.Haskell.TH.Syntax.VarE
+                                                                 (Language.Haskell.TH.Syntax.mkNameG_v
+                                                                    (ghc-prim-0.6.1:GHC.CString.unpackCString#
+                                                                       "jsonifier-0.2.1.2-4JhWvVFw4ca5rzGY1SgZ7e"#)
+                                                                    (ghc-prim-0.6.1:GHC.CString.unpackCString#
+                                                                       "Jsonifier"#)
+                                                                    (ghc-prim-0.6.1:GHC.CString.unpackCString#
+                                                                       "array"#)))
+                                                              (break<219>(tempExpr_a86c)
+                                                               Language.Haskell.TH.Syntax.ListE
+                                                                 tempExpr_a86c)))
+                                                        (ghc-prim-0.6.1:GHC.Types.[]
+                                                           @ (Maybe Exp)))) } in
+                                          let {
+                                            expr_a86e :: Exp
+                                            [LclId]
+                                            expr_a86e
+                                              = break<226>(tag_a867,content_a86d)
+                                                $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                                                  @ Exp
+                                                  @ Exp
+                                                  (break<224>()
+                                                   Language.Haskell.TH.Syntax.AppE
+                                                     (break<223>()
+                                                      Language.Haskell.TH.Syntax.VarE
+                                                        (Language.Haskell.TH.Syntax.mkNameG_v
+                                                           (ghc-prim-0.6.1:GHC.CString.unpackCString#
+                                                              "jsonifier-0.2.1.2-4JhWvVFw4ca5rzGY1SgZ7e"#)
+                                                           (ghc-prim-0.6.1:GHC.CString.unpackCString#
+                                                              "Jsonifier"#)
+                                                           (ghc-prim-0.6.1:GHC.CString.unpackCString#
+                                                              "object"#))))
+                                                  (break<225>(tag_a867,content_a86d)
+                                                   Language.Haskell.TH.Syntax.ListE
+                                                     (ghc-prim-0.6.1:GHC.Types.:
+                                                        @ Exp
+                                                        tag_a867
+                                                        (ghc-prim-0.6.1:GHC.Types.:
+                                                           @ Exp
+                                                           content_a86d
+                                                           (ghc-prim-0.6.1:GHC.Types.[]
+                                                              @ Exp)))) } in
+                                          let {
+                                            body_a86f :: Body
+                                            [LclId]
+                                            body_a86f
+                                              = break<227>(expr_a86e)
+                                                Language.Haskell.TH.Syntax.NormalB expr_a86e } in
+                                          let {
+                                            pat_a86g :: Pat
+                                            [LclId]
+                                            pat_a86g
+                                              = break<230>(cons_a84u,varNew_a865)
+                                                $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                                                  @ [Pat]
+                                                  @ Pat
+                                                  (break<228>(cons_a84u)
+                                                   Language.Haskell.TH.Syntax.ConP cons_a84u)
+                                                  (break<229>(varNew_a865)
+                                                   map
+                                                     @ Name
+                                                     @ Pat
+                                                     Language.Haskell.TH.Syntax.VarP
+                                                     varNew_a865) } in
+                                          let {
+                                            matchNormalConstructorValue_a86h :: Match
+                                            [LclId]
+                                            matchNormalConstructorValue_a86h
+                                              = break<231>(pat_a86g,body_a86f)
+                                                Language.Haskell.TH.Syntax.Match
+                                                  pat_a86g
+                                                  body_a86f
+                                                  (ghc-prim-0.6.1:GHC.Types.[] @ Dec) } in
+                                          break<233>(acc'_a84t,matchNormalConstructorValue_a86h)
+                                          $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                                            @ [Match]
+                                            @ (Q [Match])
+                                            (return
+                                               @ Q Language.Haskell.TH.Syntax.$fMonadQ @ [Match])
+                                            (break<232>(acc'_a84t,matchNormalConstructorValue_a86h)
+                                             ghc-prim-0.6.1:GHC.Types.:
+                                               @ Match matchNormalConstructorValue_a86h acc'_a84t)))
+                            });
+                     Unsupported ->
+                       break<236>()
+                       fail
+                         @ Q
+                         Language.Haskell.TH.Syntax.$fMonadFailQ
+                         @ [Match]
+                         (ghc-prim-0.6.1:GHC.CString.unpackCString# "unsupported type "#)
+                   })))
+      (break<238>()
+       return
+         @ Q
+         Language.Haskell.TH.Syntax.$fMonadQ
+         @ [Match]
+         (ghc-prim-0.6.1:GHC.Types.[] @ Match))
+
+-- RHS size: {terms: 91, types: 49, coercions: 0, joins: 0/7}
+mkJsonifierInstanceTHHelper
+  :: Name -> [InstanceInfo] -> Bool -> Q Dec
+[GblId, Arity=3, Unf=OtherCon []]
+mkJsonifierInstanceTHHelper
+  = \ (dataName_a84f :: Name)
+      (instanceInfo_a84g :: [InstanceInfo])
+      (higherKindDataType_a84h :: Bool) ->
+      break<266>(dataName_a84f,instanceInfo_a84g,higherKindDataType_a84h)
+      >>=
+        @ Q
+        Language.Haskell.TH.Syntax.$fMonadQ
+        @ [Match]
+        @ Dec
+        (break<240>(instanceInfo_a84g)
+         mkMatchInstancesTH instanceInfo_a84g)
+        (\ (matches_a84i :: [Match]) ->
+           >>=
+             @ Q
+             Language.Haskell.TH.Syntax.$fMonadQ
+             @ Name
+             @ Dec
+             (break<241>()
+              newName (ghc-prim-0.6.1:GHC.CString.unpackCString# "value"#))
+             (\ (varLamb_a84j :: Name) ->
+                let {
+                  expr_a84k :: Exp
+                  [LclId]
+                  expr_a84k
+                    = break<246>(matches_a84i,varLamb_a84j)
+                      $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                        @ Exp
+                        @ Exp
+                        (break<243>(varLamb_a84j)
+                         Language.Haskell.TH.Syntax.LamE
+                           (ghc-prim-0.6.1:GHC.Types.:
+                              @ Pat
+                              (break<242>(varLamb_a84j)
+                               Language.Haskell.TH.Syntax.VarP varLamb_a84j)
+                              (ghc-prim-0.6.1:GHC.Types.[] @ Pat)))
+                        (break<245>(matches_a84i,varLamb_a84j)
+                         Language.Haskell.TH.Syntax.CaseE
+                           (break<244>(varLamb_a84j)
+                            Language.Haskell.TH.Syntax.VarE varLamb_a84j)
+                           matches_a84i) } in
+                let {
+                  body_a84l :: Body
+                  [LclId]
+                  body_a84l
+                    = break<247>(expr_a84k)
+                      Language.Haskell.TH.Syntax.NormalB expr_a84k } in
+                let {
+                  fnClause_a84m :: Clause
+                  [LclId]
+                  fnClause_a84m
+                    = break<248>(body_a84l)
+                      Language.Haskell.TH.Syntax.Clause
+                        (ghc-prim-0.6.1:GHC.Types.[] @ Pat)
+                        body_a84l
+                        (ghc-prim-0.6.1:GHC.Types.[] @ Dec) } in
+                let {
+                  instanceBody_a84n :: Dec
+                  [LclId]
+                  instanceBody_a84n
+                    = break<250>(fnClause_a84m)
+                      Language.Haskell.TH.Syntax.FunD
+                        (break<249>()
+                         mkName (ghc-prim-0.6.1:GHC.CString.unpackCString# "toJsonifier"#))
+                        (ghc-prim-0.6.1:GHC.Types.:
+                           @ Clause fnClause_a84m (ghc-prim-0.6.1:GHC.Types.[] @ Clause)) } in
+                let {
+                  ctx_a84o :: forall a. [a]
+                  [LclId]
+                  ctx_a84o = break<251>() ghc-prim-0.6.1:GHC.Types.[] } in
+                let {
+                  instanceType_a84p :: Type
+                  [LclId]
+                  instanceType_a84p
+                    = break<263>(dataName_a84f,higherKindDataType_a84h)
+                      case higherKindDataType_a84h of {
+                        False ->
+                          break<262>(dataName_a84f)
+                          Language.Haskell.TH.Syntax.AppT
+                            (break<259>()
+                             Language.Haskell.TH.Syntax.ConT
+                               (Language.Haskell.TH.Syntax.mkNameG_tc
+                                  (ghc-prim-0.6.1:GHC.CString.unpackCString# "main"#)
+                                  (ghc-prim-0.6.1:GHC.CString.unpackCString# "Utils.Jsonifier"#)
+                                  (ghc-prim-0.6.1:GHC.CString.unpackCString# "Jsonifier"#)))
+                            (break<261>(dataName_a84f)
+                             $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                               @ Type
+                               @ Type
+                               Language.Haskell.TH.Syntax.ParensT
+                               (break<260>(dataName_a84f)
+                                Language.Haskell.TH.Syntax.ConT dataName_a84f));
+                        True ->
+                          break<258>(dataName_a84f)
+                          Language.Haskell.TH.Syntax.AppT
+                            (break<252>()
+                             Language.Haskell.TH.Syntax.ConT
+                               (Language.Haskell.TH.Syntax.mkNameG_tc
+                                  (ghc-prim-0.6.1:GHC.CString.unpackCString# "main"#)
+                                  (ghc-prim-0.6.1:GHC.CString.unpackCString# "Utils.Jsonifier"#)
+                                  (ghc-prim-0.6.1:GHC.CString.unpackCString# "Jsonifier"#)))
+                            (break<257>(dataName_a84f)
+                             $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                               @ Type
+                               @ Type
+                               Language.Haskell.TH.Syntax.ParensT
+                               (break<256>(dataName_a84f)
+                                Language.Haskell.TH.Syntax.AppT
+                                  (break<253>(dataName_a84f)
+                                   Language.Haskell.TH.Syntax.ConT dataName_a84f)
+                                  (break<255>()
+                                   $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                                     @ Name
+                                     @ Type
+                                     Language.Haskell.TH.Syntax.ConT
+                                     (break<254>()
+                                      mkName
+                                        (ghc-prim-0.6.1:GHC.CString.unpackCString#
+                                           "BM.Identity"#)))))
+                      } } in
+                let {
+                  instanceDef_a84q :: Dec
+                  [LclId]
+                  instanceDef_a84q
+                    = break<264>(ctx_a84o,instanceBody_a84n,instanceType_a84p)
+                      Language.Haskell.TH.Syntax.InstanceD
+                        (GHC.Maybe.Nothing @ Overlap)
+                        (ctx_a84o @ Pred)
+                        instanceType_a84p
+                        (ghc-prim-0.6.1:GHC.Types.:
+                           @ Dec instanceBody_a84n (ghc-prim-0.6.1:GHC.Types.[] @ Dec)) } in
+                break<265>(instanceDef_a84q)
+                return
+                  @ Q Language.Haskell.TH.Syntax.$fMonadQ @ Dec instanceDef_a84q))
+
+-- RHS size: {terms: 5, types: 9, coercions: 0, joins: 0/0}
+Utils.UtilsTH.$sel:dataName:InstanceInfo :: InstanceInfo -> Name
+[GblId[[RecSel]], Arity=1, Caf=NoCafRefs, Unf=OtherCon []]
+Utils.UtilsTH.$sel:dataName:InstanceInfo
+  = \ (ds_d8yP :: InstanceInfo) ->
+      case ds_d8yP of
+      { InstanceInfo ds1_d8yQ ds2_d8yR ds3_d8yS ds4_d8yT ds5_d8yU ->
+      break<299>(ds1_d8yQ) ds1_d8yQ
+      }
+
+-- RHS size: {terms: 5, types: 9, coercions: 0, joins: 0/0}
+Utils.UtilsTH.$sel:consName:InstanceInfo :: InstanceInfo -> Name
+[GblId[[RecSel]], Arity=1, Caf=NoCafRefs, Unf=OtherCon []]
+Utils.UtilsTH.$sel:consName:InstanceInfo
+  = \ (ds_d8yV :: InstanceInfo) ->
+      case ds_d8yV of
+      { InstanceInfo ds1_d8yW ds2_d8yX ds3_d8yY ds4_d8yZ ds5_d8z0 ->
+      break<300>(ds2_d8yX) ds2_d8yX
+      }
+
+-- RHS size: {terms: 5, types: 9, coercions: 0, joins: 0/0}
+Utils.UtilsTH.$sel:recordFields:InstanceInfo
+  :: InstanceInfo -> [Name]
+[GblId[[RecSel]], Arity=1, Caf=NoCafRefs, Unf=OtherCon []]
+Utils.UtilsTH.$sel:recordFields:InstanceInfo
+  = \ (ds_d8z1 :: InstanceInfo) ->
+      case ds_d8z1 of
+      { InstanceInfo ds1_d8z2 ds2_d8z3 ds3_d8z4 ds4_d8z5 ds5_d8z6 ->
+      break<301>(ds3_d8z4) ds3_d8z4
+      }
+
+-- RHS size: {terms: 5, types: 9, coercions: 0, joins: 0/0}
+Utils.UtilsTH.$sel:recordTypes:InstanceInfo
+  :: InstanceInfo -> [Type]
+[GblId[[RecSel]], Arity=1, Caf=NoCafRefs, Unf=OtherCon []]
+Utils.UtilsTH.$sel:recordTypes:InstanceInfo
+  = \ (ds_d8z7 :: InstanceInfo) ->
+      case ds_d8z7 of
+      { InstanceInfo ds1_d8z8 ds2_d8z9 ds3_d8za ds4_d8zb ds5_d8zc ->
+      break<302>(ds4_d8zb) ds4_d8zb
+      }
+
+-- RHS size: {terms: 5, types: 9, coercions: 0, joins: 0/0}
+Utils.UtilsTH.$sel:variants:InstanceInfo
+  :: InstanceInfo -> Variants
+[GblId[[RecSel]], Arity=1, Caf=NoCafRefs, Unf=OtherCon []]
+Utils.UtilsTH.$sel:variants:InstanceInfo
+  = \ (ds_d8zd :: InstanceInfo) ->
+      case ds_d8zd of
+      { InstanceInfo ds1_d8ze ds2_d8zf ds3_d8zg ds4_d8zh ds5_d8zi ->
+      break<303>(ds5_d8zi) ds5_d8zi
+      }
+
+-- RHS size: {terms: 2, types: 1, coercions: 0, joins: 0/0}
+$dShow1_r8Bo :: Show [Name]
+[GblId]
+$dShow1_r8Bo
+  = GHC.Show.$fShow[] @ Name Language.Haskell.TH.Syntax.$fShowName
+
+-- RHS size: {terms: 2, types: 1, coercions: 0, joins: 0/0}
+$dShow2_r8Bp :: Show [Type]
+[GblId]
+$dShow2_r8Bp
+  = GHC.Show.$fShow[] @ Type Language.Haskell.TH.Syntax.$fShowType
+
+-- RHS size: {terms: 16, types: 3, coercions: 0, joins: 0/0}
+$cshowsPrec_r8Bq :: Int -> Variants -> ShowS
+[GblId, Arity=2, Unf=OtherCon []]
+$cshowsPrec_r8Bq
+  = \ _ [Occ=Dead] (ds1_d8zl :: Variants) ->
+      case ds1_d8zl of {
+        RecordConstructorV ->
+          showString
+            (ghc-prim-0.6.1:GHC.CString.unpackCString# "RecordConstructorV"#);
+        NormalConstructorV ->
+          showString
+            (ghc-prim-0.6.1:GHC.CString.unpackCString# "NormalConstructorV"#);
+        Unsupported ->
+          showString
+            (ghc-prim-0.6.1:GHC.CString.unpackCString# "Unsupported"#)
+      }
+
+Rec {
+-- RHS size: {terms: 4, types: 1, coercions: 0, joins: 0/0}
+Utils.UtilsTH.$fShowVariants [InlPrag=NOUSERINLINE CONLIKE]
+  :: Show Variants
+[GblId[DFunId]]
+Utils.UtilsTH.$fShowVariants
+  = GHC.Show.C:Show
+      @ Variants $cshowsPrec_r8Bq $cshow_r8Bs $cshowList_r8Br
+
+-- RHS size: {terms: 2, types: 1, coercions: 0, joins: 0/0}
+$cshowList_r8Br :: [Variants] -> ShowS
+[GblId]
+$cshowList_r8Br
+  = GHC.Show.$dmshowList @ Variants Utils.UtilsTH.$fShowVariants
+
+-- RHS size: {terms: 2, types: 1, coercions: 0, joins: 0/0}
+$cshow_r8Bs :: Variants -> String
+[GblId]
+$cshow_r8Bs
+  = GHC.Show.$dmshow @ Variants Utils.UtilsTH.$fShowVariants
+end Rec }
+
+-- RHS size: {terms: 75, types: 62, coercions: 0, joins: 0/0}
+$cshowsPrec1_r8Bt :: Int -> InstanceInfo -> ShowS
+[GblId, Arity=2, Unf=OtherCon []]
+$cshowsPrec1_r8Bt
+  = \ (a_a89f :: Int) (ds_d8zj :: InstanceInfo) ->
+      case ds_d8zj of
+      { InstanceInfo b1_a89g b2_a89h b3_a89i b4_a89j b5_a89k ->
+      showParen
+        (>=
+           @ Int
+           ghc-prim-0.6.1:GHC.Classes.$fOrdInt
+           a_a89f
+           (ghc-prim-0.6.1:GHC.Types.I# 11#))
+        (. @ String
+           @ String
+           @ String
+           (showString
+              (ghc-prim-0.6.1:GHC.CString.unpackCString# "InstanceInfo {"#))
+           (. @ String
+              @ String
+              @ String
+              (showString
+                 (ghc-prim-0.6.1:GHC.CString.unpackCString# "dataName = "#))
+              (. @ String
+                 @ String
+                 @ String
+                 (showsPrec
+                    @ Name
+                    Language.Haskell.TH.Syntax.$fShowName
+                    (ghc-prim-0.6.1:GHC.Types.I# 0#)
+                    b1_a89g)
+                 (. @ String
+                    @ String
+                    @ String
+                    GHC.Show.showCommaSpace
+                    (. @ String
+                       @ String
+                       @ String
+                       (showString
+                          (ghc-prim-0.6.1:GHC.CString.unpackCString# "consName = "#))
+                       (. @ String
+                          @ String
+                          @ String
+                          (showsPrec
+                             @ Name
+                             Language.Haskell.TH.Syntax.$fShowName
+                             (ghc-prim-0.6.1:GHC.Types.I# 0#)
+                             b2_a89h)
+                          (. @ String
+                             @ String
+                             @ String
+                             GHC.Show.showCommaSpace
+                             (. @ String
+                                @ String
+                                @ String
+                                (showString
+                                   (ghc-prim-0.6.1:GHC.CString.unpackCString# "recordFields = "#))
+                                (. @ String
+                                   @ String
+                                   @ String
+                                   (showsPrec
+                                      @ [Name]
+                                      $dShow1_r8Bo
+                                      (ghc-prim-0.6.1:GHC.Types.I# 0#)
+                                      b3_a89i)
+                                   (. @ String
+                                      @ String
+                                      @ String
+                                      GHC.Show.showCommaSpace
+                                      (. @ String
+                                         @ String
+                                         @ String
+                                         (showString
+                                            (ghc-prim-0.6.1:GHC.CString.unpackCString#
+                                               "recordTypes = "#))
+                                         (. @ String
+                                            @ String
+                                            @ String
+                                            (showsPrec
+                                               @ [Type]
+                                               $dShow2_r8Bp
+                                               (ghc-prim-0.6.1:GHC.Types.I# 0#)
+                                               b4_a89j)
+                                            (. @ String
+                                               @ String
+                                               @ String
+                                               GHC.Show.showCommaSpace
+                                               (. @ String
+                                                  @ String
+                                                  @ String
+                                                  (showString
+                                                     (ghc-prim-0.6.1:GHC.CString.unpackCString#
+                                                        "variants = "#))
+                                                  (. @ String
+                                                     @ String
+                                                     @ String
+                                                     ($cshowsPrec_r8Bq
+                                                        (ghc-prim-0.6.1:GHC.Types.I# 0#) b5_a89k)
+                                                     (showString
+                                                        (ghc-prim-0.6.1:GHC.CString.unpackCString#
+                                                           "}"#)))))))))))))))))
+      }
+
+Rec {
+-- RHS size: {terms: 4, types: 1, coercions: 0, joins: 0/0}
+Utils.UtilsTH.$fShowInstanceInfo [InlPrag=NOUSERINLINE CONLIKE]
+  :: Show InstanceInfo
+[GblId[DFunId]]
+Utils.UtilsTH.$fShowInstanceInfo
+  = GHC.Show.C:Show
+      @ InstanceInfo $cshowsPrec1_r8Bt $cshow1_r8Bv $cshowList1_r8Bu
+
+-- RHS size: {terms: 2, types: 1, coercions: 0, joins: 0/0}
+$cshowList1_r8Bu :: [InstanceInfo] -> ShowS
+[GblId]
+$cshowList1_r8Bu
+  = GHC.Show.$dmshowList
+      @ InstanceInfo Utils.UtilsTH.$fShowInstanceInfo
+
+-- RHS size: {terms: 2, types: 1, coercions: 0, joins: 0/0}
+$cshow1_r8Bv :: InstanceInfo -> String
+[GblId]
+$cshow1_r8Bv
+  = GHC.Show.$dmshow @ InstanceInfo Utils.UtilsTH.$fShowInstanceInfo
+end Rec }
+
+-- RHS size: {terms: 2, types: 1, coercions: 0, joins: 0/0}
+$dShow3_r8Bw :: Show [InstanceInfo]
+[GblId]
+$dShow3_r8Bw
+  = GHC.Show.$fShow[] @ InstanceInfo Utils.UtilsTH.$fShowInstanceInfo
+
+-- RHS size: {terms: 135, types: 179, coercions: 0, joins: 0/4}
+mkJsonifierInstanceTH :: Name -> Q [Dec]
+[GblId, Arity=1, Unf=OtherCon []]
+mkJsonifierInstanceTH
+  = \ (name_a7gL :: Name) ->
+      break<298>(name_a7gL)
+      >>=
+        @ Q
+        Language.Haskell.TH.Syntax.$fMonadQ
+        @ ()
+        @ [Dec]
+        (break<271>(name_a7gL)
+         $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+           @ (IO ())
+           @ (Q ())
+           (liftIO @ Q Language.Haskell.TH.Syntax.$fMonadIOQ @ ())
+           (break<270>(name_a7gL)
+            $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+              @ String
+              @ (IO ())
+              putStrLn
+              (break<269>(name_a7gL)
+               <>
+                 @ String
+                 (GHC.Base.$fSemigroup[] @ Char)
+                 (ghc-prim-0.6.1:GHC.CString.unpackCString#
+                    "generating Jsonifier instance for : "#)
+                 (break<268>(name_a7gL)
+                  show
+                    @ String $dShow_r8zp (break<267>(name_a7gL) nameBase name_a7gL)))))
+        (\ _ [Occ=Dead] ->
+           >>=
+             @ Q
+             Language.Haskell.TH.Syntax.$fMonadQ
+             @ DatatypeInfo
+             @ [Dec]
+             (break<272>(name_a7gL) reifyDatatype name_a7gL)
+             (\ (info_a7jC :: DatatypeInfo) ->
+                >>=
+                  @ Q
+                  Language.Haskell.TH.Syntax.$fMonadQ
+                  @ ()
+                  @ [Dec]
+                  (break<276>(info_a7jC)
+                   $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                     @ (IO ())
+                     @ (Q ())
+                     (liftIO @ Q Language.Haskell.TH.Syntax.$fMonadIOQ @ ())
+                     (break<275>(info_a7jC)
+                      $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                        @ String
+                        @ (IO ())
+                        putStrLn
+                        (break<274>(info_a7jC)
+                         <>
+                           @ String
+                           (GHC.Base.$fSemigroup[] @ Char)
+                           (ghc-prim-0.6.1:GHC.CString.unpackCString# "data info : "#)
+                           (break<273>(info_a7jC)
+                            show
+                              @ DatatypeInfo
+                              Language.Haskell.TH.Datatype.$fShowDatatypeInfo
+                              info_a7jC))))
+                  (\ _ [Occ=Dead] ->
+                     >>=
+                       @ Q
+                       Language.Haskell.TH.Syntax.$fMonadQ
+                       @ ()
+                       @ [Dec]
+                       (break<278>()
+                        $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                          @ (IO ())
+                          @ (Q ())
+                          (liftIO @ Q Language.Haskell.TH.Syntax.$fMonadIOQ @ ())
+                          (break<277>()
+                           putStrLn
+                             (ghc-prim-0.6.1:GHC.CString.unpackCStringUtf8#
+                                "------------------\\194\\175"#)))
+                       (\ _ [Occ=Dead] ->
+                          let {
+                            ds3_d8yn :: DatatypeInfo
+                            [LclId]
+                            ds3_d8yn = break<279>(info_a7jC) info_a7jC } in
+                          let {
+                            dname_a7jE :: Name
+                            [LclId]
+                            dname_a7jE
+                              = case ds3_d8yn of
+                                { DatatypeInfo ctx_a7jD dname1_X7lJ tyVars_a7jF instTypes_a7jG
+                                               tyVariant_a7jH tyCons_a7jI ->
+                                dname1_X7lJ
+                                } } in
+                          let {
+                            tyVars_a7jF
+                              :: [Language.Haskell.TH.Datatype.TyVarBndr.TyVarBndrUnit]
+                            [LclId]
+                            tyVars_a7jF
+                              = case ds3_d8yn of
+                                { DatatypeInfo ctx_a7jD dname1_X7kz tyVars1_X7lN instTypes_a7jG
+                                               tyVariant_a7jH tyCons_a7jI ->
+                                tyVars1_X7lN
+                                } } in
+                          let {
+                            tyCons_a7jI :: [ConstructorInfo]
+                            [LclId]
+                            tyCons_a7jI
+                              = case ds3_d8yn of
+                                { DatatypeInfo ctx_a7jD dname1_X7kA tyVars1_X7kC instTypes_a7jG
+                                               tyVariant_a7jH tyCons1_X7lV ->
+                                tyCons1_X7lV
+                                } } in
+                          >>=
+                            @ Q
+                            Language.Haskell.TH.Syntax.$fMonadQ
+                            @ [InstanceInfo]
+                            @ [Dec]
+                            (break<280>(name_a7gL,tyCons_a7jI)
+                             getInstanceInfo name_a7gL tyCons_a7jI)
+                            (\ (instanceInfo_a7jJ :: [InstanceInfo]) ->
+                               >>=
+                                 @ Q
+                                 Language.Haskell.TH.Syntax.$fMonadQ
+                                 @ ()
+                                 @ [Dec]
+                                 (break<284>(instanceInfo_a7jJ)
+                                  $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                                    @ (IO ())
+                                    @ (Q ())
+                                    (liftIO @ Q Language.Haskell.TH.Syntax.$fMonadIOQ @ ())
+                                    (break<283>(instanceInfo_a7jJ)
+                                     $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                                       @ String
+                                       @ (IO ())
+                                       putStrLn
+                                       (break<282>(instanceInfo_a7jJ)
+                                        <>
+                                          @ String
+                                          (GHC.Base.$fSemigroup[] @ Char)
+                                          (ghc-prim-0.6.1:GHC.CString.unpackCString#
+                                             "instanceInfo info : "#)
+                                          (break<281>(instanceInfo_a7jJ)
+                                           show @ [InstanceInfo] $dShow3_r8Bw instanceInfo_a7jJ))))
+                                 (\ _ [Occ=Dead] ->
+                                    >>=
+                                      @ Q
+                                      Language.Haskell.TH.Syntax.$fMonadQ
+                                      @ ()
+                                      @ [Dec]
+                                      (break<286>()
+                                       $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                                         @ (IO ())
+                                         @ (Q ())
+                                         (liftIO @ Q Language.Haskell.TH.Syntax.$fMonadIOQ @ ())
+                                         (break<285>()
+                                          putStrLn
+                                            (ghc-prim-0.6.1:GHC.CString.unpackCStringUtf8#
+                                               "------------------\\194\\175"#)))
+                                      (\ _ [Occ=Dead] ->
+                                         >>=
+                                           @ Q
+                                           Language.Haskell.TH.Syntax.$fMonadQ
+                                           @ ()
+                                           @ [Dec]
+                                           (break<291>(tyVars_a7jF)
+                                            $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                                              @ (IO ())
+                                              @ (Q ())
+                                              (liftIO
+                                                 @ Q Language.Haskell.TH.Syntax.$fMonadIOQ @ ())
+                                              (break<290>(tyVars_a7jF)
+                                               $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                                                 @ String
+                                                 @ (IO ())
+                                                 putStrLn
+                                                 (break<289>(tyVars_a7jF)
+                                                  <>
+                                                    @ String
+                                                    (GHC.Base.$fSemigroup[] @ Char)
+                                                    (ghc-prim-0.6.1:GHC.CString.unpackCString#
+                                                       "datatypeVars null : "#)
+                                                    (break<288>(tyVars_a7jF)
+                                                     show
+                                                       @ Bool
+                                                       GHC.Show.$fShowBool
+                                                       (break<287>(tyVars_a7jF)
+                                                        null
+                                                          @ []
+                                                          Data.Foldable.$fFoldable[]
+                                                          @ Language.Haskell.TH.Datatype.TyVarBndr.TyVarBndrUnit
+                                                          tyVars_a7jF)))))
+                                           (\ _ [Occ=Dead] ->
+                                              >>=
+                                                @ Q
+                                                Language.Haskell.TH.Syntax.$fMonadQ
+                                                @ ()
+                                                @ [Dec]
+                                                (break<293>()
+                                                 $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                                                   @ (IO ())
+                                                   @ (Q ())
+                                                   (liftIO
+                                                      @ Q
+                                                      Language.Haskell.TH.Syntax.$fMonadIOQ
+                                                      @ ())
+                                                   (break<292>()
+                                                    putStrLn
+                                                      (ghc-prim-0.6.1:GHC.CString.unpackCStringUtf8#
+                                                         "------------------\\194\\175"#)))
+                                                (\ _ [Occ=Dead] ->
+                                                   >>=
+                                                     @ Q
+                                                     Language.Haskell.TH.Syntax.$fMonadQ
+                                                     @ Dec
+                                                     @ [Dec]
+                                                     (break<296>(dname_a7jE,tyVars_a7jF,instanceInfo_a7jJ)
+                                                      mkJsonifierInstanceTHHelper
+                                                        dname_a7jE
+                                                        instanceInfo_a7jJ
+                                                        (break<295>(tyVars_a7jF)
+                                                         $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                                                           @ Bool
+                                                           @ Bool
+                                                           not
+                                                           (break<294>(tyVars_a7jF)
+                                                            null
+                                                              @ []
+                                                              Data.Foldable.$fFoldable[]
+                                                              @ Language.Haskell.TH.Datatype.TyVarBndr.TyVarBndrUnit
+                                                              tyVars_a7jF)))
+                                                     (\ (resp_a84e :: Dec) ->
+                                                        break<297>(resp_a84e)
+                                                        return
+                                                          @ Q
+                                                          Language.Haskell.TH.Syntax.$fMonadQ
+                                                          @ [Dec]
+                                                          (ghc-prim-0.6.1:GHC.Types.:
+                                                             @ Dec
+                                                             resp_a84e
+                                                             (ghc-prim-0.6.1:GHC.Types.[]
+                                                                @ Dec))))))))))))
+
+

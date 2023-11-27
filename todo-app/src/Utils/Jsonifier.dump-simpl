@@ -1,0 +1,474 @@
+
+==================== Tidy Core ====================
+2023-11-27 11:45:02.012484 UTC
+
+Result size of Tidy Core
+  = {terms: 210, types: 238, coercions: 84, joins: 0/0}
+
+-- RHS size: {terms: 3, types: 4, coercions: 2, joins: 0/0}
+toJsonifier [InlPrag=INLINE]
+  :: forall a. Jsonifier a => a -> J.Json
+[GblId[ClassOp],
+ Arity=1,
+ Caf=NoCafRefs,
+ Str=<S,U>,
+ Unf=Unf{Src=InlineStable, TopLvl=True, Value=True, ConLike=True,
+         WorkFree=True, Expandable=True,
+         Guidance=ALWAYS_IF(arity=1,unsat_ok=False,boring_ok=True)
+         Tmpl= \ (@ a_a51J) (v_B1 [Occ=Once1] :: Jsonifier a_a51J) ->
+                 v_B1
+                 `cast` (Utils.Jsonifier.N:Jsonifier[0] <a_a51J>_N
+                         :: Jsonifier a_a51J ~R# (a_a51J -> J.Json))}]
+toJsonifier
+  = \ (@ a_a51J) (v_B1 :: Jsonifier a_a51J) ->
+      v_B1
+      `cast` (Utils.Jsonifier.N:Jsonifier[0] <a_a51J>_N
+              :: Jsonifier a_a51J ~R# (a_a51J -> J.Json))
+
+Rec {
+-- RHS size: {terms: 33, types: 35, coercions: 0, joins: 0/0}
+$ctoJsonifier_r5ut :: Value -> J.Json
+[GblId, Arity=1, Unf=OtherCon []]
+$ctoJsonifier_r5ut
+  = \ (val_a52M :: Value) ->
+      break<29>(val_a52M)
+      case val_a52M of {
+        Object obj_a52Z ->
+          break<28>(obj_a52Z)
+          $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+            @ [(DT.Text, J.Json)]
+            @ J.Json
+            (J.object @ [] Data.Foldable.$fFoldable[])
+            (break<27>(obj_a52Z)
+             <$>
+               @ []
+               @ (DT.Text, Value)
+               @ (DT.Text, J.Json)
+               GHC.Base.$fFunctor[]
+               (break<25>()
+                Bi.second
+                  @ (,)
+                  Data.Bifunctor.$fBifunctor(,)
+                  @ Value
+                  @ J.Json
+                  @ DT.Text
+                  $ctoJsonifier_r5ut)
+               (break<26>(obj_a52Z) HashMap.toList @ DT.Text @ Value obj_a52Z));
+        Array arr_a52N ->
+          break<21>(arr_a52N)
+          $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+            @ (vector-0.12.3.1:Data.Vector.Vector J.Json)
+            @ J.Json
+            (J.array
+               @ vector-0.12.3.1:Data.Vector.Vector
+               vector-0.12.3.1:Data.Vector.$fFoldableVector)
+            (break<20>(arr_a52N)
+             <$>
+               @ vector-0.12.3.1:Data.Vector.Vector
+               @ Value
+               @ J.Json
+               vector-0.12.3.1:Data.Vector.$fFunctorVector
+               $ctoJsonifier_r5ut
+               arr_a52N);
+        String txt_a52W -> break<22>(txt_a52W) J.textString txt_a52W;
+        Number num_a52X -> break<23>(num_a52X) J.scientificNumber num_a52X;
+        Bool bool_a52Y -> break<24>(bool_a52Y) J.bool bool_a52Y;
+        Null -> break<19>() J.null
+      }
+end Rec }
+
+-- RHS size: {terms: 1, types: 0, coercions: 3, joins: 0/0}
+Utils.Jsonifier.$fJsonifierValue [InlPrag=INLINE (sat-args=0)]
+  :: Jsonifier Value
+[GblId[DFunId(nt)], Arity=1, Unf=OtherCon []]
+Utils.Jsonifier.$fJsonifierValue
+  = $ctoJsonifier_r5ut
+    `cast` (Sym (Utils.Jsonifier.N:Jsonifier[0] <Value>_N)
+            :: (Value -> J.Json) ~R# Jsonifier Value)
+
+-- RHS size: {terms: 1, types: 0, coercions: 0, joins: 0/0}
+$ctoJsonifier1_r5uL :: Bool -> J.Json
+[GblId]
+$ctoJsonifier1_r5uL = break<18>() J.bool
+
+-- RHS size: {terms: 1, types: 0, coercions: 3, joins: 0/0}
+Utils.Jsonifier.$fJsonifierBool [InlPrag=INLINE (sat-args=0)]
+  :: Jsonifier Bool
+[GblId[DFunId(nt)]]
+Utils.Jsonifier.$fJsonifierBool
+  = $ctoJsonifier1_r5uL
+    `cast` (Sym (Utils.Jsonifier.N:Jsonifier[0] <Bool>_N)
+            :: (Bool -> J.Json) ~R# Jsonifier Bool)
+
+-- RHS size: {terms: 1, types: 0, coercions: 0, joins: 0/0}
+$ctoJsonifier2_r5uM :: Int -> J.Json
+[GblId]
+$ctoJsonifier2_r5uM = break<17>() J.intNumber
+
+-- RHS size: {terms: 1, types: 0, coercions: 3, joins: 0/0}
+Utils.Jsonifier.$fJsonifierInt [InlPrag=INLINE (sat-args=0)]
+  :: Jsonifier Int
+[GblId[DFunId(nt)]]
+Utils.Jsonifier.$fJsonifierInt
+  = $ctoJsonifier2_r5uM
+    `cast` (Sym (Utils.Jsonifier.N:Jsonifier[0] <Int>_N)
+            :: (Int -> J.Json) ~R# Jsonifier Int)
+
+-- RHS size: {terms: 1, types: 0, coercions: 0, joins: 0/0}
+$ctoJsonifier3_r5uN :: Scientific -> J.Json
+[GblId]
+$ctoJsonifier3_r5uN = break<16>() J.scientificNumber
+
+-- RHS size: {terms: 1, types: 0, coercions: 3, joins: 0/0}
+Utils.Jsonifier.$fJsonifierScientific [InlPrag=INLINE (sat-args=0)]
+  :: Jsonifier Scientific
+[GblId[DFunId(nt)]]
+Utils.Jsonifier.$fJsonifierScientific
+  = $ctoJsonifier3_r5uN
+    `cast` (Sym (Utils.Jsonifier.N:Jsonifier[0] <Scientific>_N)
+            :: (Scientific -> J.Json) ~R# Jsonifier Scientific)
+
+-- RHS size: {terms: 6, types: 5, coercions: 0, joins: 0/0}
+$ctoJsonifier4_r5uO :: Integer -> J.Json
+[GblId, Arity=1, Unf=OtherCon []]
+$ctoJsonifier4_r5uO
+  = \ (n_a52k :: Integer) ->
+      break<15>(n_a52k)
+      $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+        @ Scientific
+        @ J.Json
+        J.scientificNumber
+        (break<14>(n_a52k)
+         fromInteger @ Scientific Data.Scientific.$fNumScientific n_a52k)
+
+-- RHS size: {terms: 1, types: 0, coercions: 3, joins: 0/0}
+Utils.Jsonifier.$fJsonifierInteger [InlPrag=INLINE (sat-args=0)]
+  :: Jsonifier Integer
+[GblId[DFunId(nt)], Arity=1, Unf=OtherCon []]
+Utils.Jsonifier.$fJsonifierInteger
+  = $ctoJsonifier4_r5uO
+    `cast` (Sym (Utils.Jsonifier.N:Jsonifier[0] <Integer>_N)
+            :: (Integer -> J.Json) ~R# Jsonifier Integer)
+
+-- RHS size: {terms: 5, types: 4, coercions: 0, joins: 0/0}
+$ctoJsonifier5_r5uP :: Pico -> J.Json
+[GblId, Arity=1, Unf=OtherCon []]
+$ctoJsonifier5_r5uP
+  = \ (p_a52j :: Pico) ->
+      break<13>(p_a52j)
+      $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+        @ Integer
+        @ J.Json
+        $ctoJsonifier4_r5uO
+        (break<12>(p_a52j) DTZI.picoToInteger p_a52j)
+
+-- RHS size: {terms: 1, types: 0, coercions: 3, joins: 0/0}
+Utils.Jsonifier.$fJsonifierFixed [InlPrag=INLINE (sat-args=0)]
+  :: Jsonifier Pico
+[GblId[DFunId(nt)], Arity=1, Unf=OtherCon []]
+Utils.Jsonifier.$fJsonifierFixed
+  = $ctoJsonifier5_r5uP
+    `cast` (Sym (Utils.Jsonifier.N:Jsonifier[0] <Pico>_N)
+            :: (Pico -> J.Json) ~R# Jsonifier Pico)
+
+-- RHS size: {terms: 1, types: 0, coercions: 0, joins: 0/0}
+$ctoJsonifier6_r5uQ :: DT.Text -> J.Json
+[GblId]
+$ctoJsonifier6_r5uQ = break<11>() J.textString
+
+-- RHS size: {terms: 1, types: 0, coercions: 3, joins: 0/0}
+Utils.Jsonifier.$fJsonifierText [InlPrag=INLINE (sat-args=0)]
+  :: Jsonifier DT.Text
+[GblId[DFunId(nt)]]
+Utils.Jsonifier.$fJsonifierText
+  = $ctoJsonifier6_r5uQ
+    `cast` (Sym (Utils.Jsonifier.N:Jsonifier[0] <DT.Text>_N)
+            :: (DT.Text -> J.Json) ~R# Jsonifier DT.Text)
+
+-- RHS size: {terms: 5, types: 9, coercions: 2, joins: 0/0}
+$ctoJsonifier7_r5uR
+  :: forall a. Jsonifier a => Identity a -> J.Json
+[GblId, Arity=1, Unf=OtherCon []]
+$ctoJsonifier7_r5uR
+  = \ (@ a_a5fV) ($dJsonifier_a5fW :: Jsonifier a_a5fV) ->
+      break<10>()
+      . @ a_a5fV
+        @ J.Json
+        @ (Identity a_a5fV)
+        ($dJsonifier_a5fW
+         `cast` (Utils.Jsonifier.N:Jsonifier[0] <a_a5fV>_N
+                 :: Jsonifier a_a5fV ~R# (a_a5fV -> J.Json)))
+        (runIdentity @ a_a5fV)
+
+-- RHS size: {terms: 1, types: 0, coercions: 10, joins: 0/0}
+Utils.Jsonifier.$fJsonifierIdentity [InlPrag=INLINE (sat-args=0)]
+  :: forall a. Jsonifier a => Jsonifier (Identity a)
+[GblId[DFunId(nt)], Arity=1, Unf=OtherCon []]
+Utils.Jsonifier.$fJsonifierIdentity
+  = $ctoJsonifier7_r5uR
+    `cast` (forall (a :: <*>_N).
+            <Jsonifier a>_R
+            ->_R Sym (Utils.Jsonifier.N:Jsonifier[0] <Identity a>_N)
+            :: (forall a. Jsonifier a -> Identity a -> J.Json)
+               ~R# (forall a. Jsonifier a -> Jsonifier (Identity a)))
+
+-- RHS size: {terms: 10, types: 14, coercions: 2, joins: 0/0}
+$ctoJsonifier8_r5uS :: forall a. Jsonifier a => [a] -> J.Json
+[GblId, Arity=2, Unf=OtherCon []]
+$ctoJsonifier8_r5uS
+  = \ (@ a_a5fu)
+      ($dJsonifier_a5fv :: Jsonifier a_a5fu)
+      (arr_a52h :: [a_a5fu]) ->
+      break<9>(arr_a52h)
+      $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+        @ [J.Json]
+        @ J.Json
+        (J.array @ [] Data.Foldable.$fFoldable[])
+        (break<8>(arr_a52h)
+         fmap
+           @ []
+           GHC.Base.$fFunctor[]
+           @ a_a5fu
+           @ J.Json
+           ($dJsonifier_a5fv
+            `cast` (Utils.Jsonifier.N:Jsonifier[0] <a_a5fu>_N
+                    :: Jsonifier a_a5fu ~R# (a_a5fu -> J.Json)))
+           arr_a52h)
+
+-- RHS size: {terms: 1, types: 0, coercions: 10, joins: 0/0}
+Utils.Jsonifier.$fJsonifier[] [InlPrag=INLINE (sat-args=0)]
+  :: forall a. Jsonifier a => Jsonifier [a]
+[GblId[DFunId(nt)], Arity=2, Unf=OtherCon []]
+Utils.Jsonifier.$fJsonifier[]
+  = $ctoJsonifier8_r5uS
+    `cast` (forall (a :: <*>_N).
+            <Jsonifier a>_R ->_R Sym (Utils.Jsonifier.N:Jsonifier[0] <[a]>_N)
+            :: (forall a. Jsonifier a -> [a] -> J.Json)
+               ~R# (forall a. Jsonifier a -> Jsonifier [a]))
+
+-- RHS size: {terms: 10, types: 9, coercions: 2, joins: 0/0}
+$ctoJsonifier9_r5uT :: forall a. Jsonifier a => Maybe a -> J.Json
+[GblId, Arity=2, Unf=OtherCon []]
+$ctoJsonifier9_r5uT
+  = \ (@ a_a5fi)
+      ($dJsonifier_a5fj :: Jsonifier a_a5fi)
+      (maybeVal_a52e :: Maybe a_a5fi) ->
+      break<7>(maybeVal_a52e)
+      case maybeVal_a52e of {
+        Nothing -> break<6>() J.null;
+        Just x_a52f ->
+          break<5>(x_a52f)
+          ($dJsonifier_a5fj
+           `cast` (Utils.Jsonifier.N:Jsonifier[0] <a_a5fi>_N
+                   :: Jsonifier a_a5fi ~R# (a_a5fi -> J.Json)))
+            x_a52f
+      }
+
+-- RHS size: {terms: 1, types: 0, coercions: 10, joins: 0/0}
+Utils.Jsonifier.$fJsonifierMaybe [InlPrag=INLINE (sat-args=0)]
+  :: forall a. Jsonifier a => Jsonifier (Maybe a)
+[GblId[DFunId(nt)], Arity=2, Unf=OtherCon []]
+Utils.Jsonifier.$fJsonifierMaybe
+  = $ctoJsonifier9_r5uT
+    `cast` (forall (a :: <*>_N).
+            <Jsonifier a>_R
+            ->_R Sym (Utils.Jsonifier.N:Jsonifier[0] <Maybe a>_N)
+            :: (forall a. Jsonifier a -> Maybe a -> J.Json)
+               ~R# (forall a. Jsonifier a -> Jsonifier (Maybe a)))
+
+-- RHS size: {terms: 29, types: 34, coercions: 8, joins: 0/0}
+$ctoJsonifier10_r5uU
+  :: forall lft rgt.
+     (Jsonifier lft, Jsonifier rgt) =>
+     Either lft rgt -> J.Json
+[GblId, Arity=3, Unf=OtherCon []]
+$ctoJsonifier10_r5uU
+  = \ (@ lft_a54u)
+      (@ rgt_a54v)
+      ($dJsonifier_a54w :: Jsonifier lft_a54u)
+      ($dJsonifier1_a54x :: Jsonifier rgt_a54v)
+      (eth_a51M :: Either lft_a54u rgt_a54v) ->
+      break<4>(eth_a51M)
+      case eth_a51M of {
+        Left lft1_a51N ->
+          break<1>(lft1_a51N)
+          J.object
+            @ []
+            Data.Foldable.$fFoldable[]
+            (ghc-prim-0.6.1:GHC.Types.:
+               @ (DT.Text, J.Json)
+               ((Data.Text.$fIsStringText
+                 `cast` (Data.String.N:IsString[0] <DT.Text>_N
+                         :: Data.String.IsString DT.Text ~R# (String -> DT.Text)))
+                  (ghc-prim-0.6.1:GHC.CString.unpackCString# "Left"#),
+                break<0>(lft1_a51N)
+                ($dJsonifier_a54w
+                 `cast` (Utils.Jsonifier.N:Jsonifier[0] <lft_a54u>_N
+                         :: Jsonifier lft_a54u ~R# (lft_a54u -> J.Json)))
+                  lft1_a51N)
+               (ghc-prim-0.6.1:GHC.Types.[] @ (DT.Text, J.Json)));
+        Right rgt1_a51O ->
+          break<3>(rgt1_a51O)
+          J.object
+            @ []
+            Data.Foldable.$fFoldable[]
+            (ghc-prim-0.6.1:GHC.Types.:
+               @ (DT.Text, J.Json)
+               ((Data.Text.$fIsStringText
+                 `cast` (Data.String.N:IsString[0] <DT.Text>_N
+                         :: Data.String.IsString DT.Text ~R# (String -> DT.Text)))
+                  (ghc-prim-0.6.1:GHC.CString.unpackCString# "Right"#),
+                break<2>(rgt1_a51O)
+                ($dJsonifier1_a54x
+                 `cast` (Utils.Jsonifier.N:Jsonifier[0] <rgt_a54v>_N
+                         :: Jsonifier rgt_a54v ~R# (rgt_a54v -> J.Json)))
+                  rgt1_a51O)
+               (ghc-prim-0.6.1:GHC.Types.[] @ (DT.Text, J.Json)))
+      }
+
+-- RHS size: {terms: 1, types: 0, coercions: 17, joins: 0/0}
+Utils.Jsonifier.$fJsonifierEither [InlPrag=INLINE (sat-args=0)]
+  :: forall lft rgt.
+     (Jsonifier lft, Jsonifier rgt) =>
+     Jsonifier (Either lft rgt)
+[GblId[DFunId(nt)], Arity=3, Unf=OtherCon []]
+Utils.Jsonifier.$fJsonifierEither
+  = $ctoJsonifier10_r5uU
+    `cast` (forall (lft :: <*>_N) (rgt :: <*>_N).
+            <Jsonifier lft>_R
+            ->_R <Jsonifier rgt>_R
+            ->_R Sym (Utils.Jsonifier.N:Jsonifier[0] <Either lft rgt>_N)
+            :: (forall lft rgt.
+                Jsonifier lft -> Jsonifier rgt -> Either lft rgt -> J.Json)
+               ~R# (forall lft rgt.
+                    Jsonifier lft -> Jsonifier rgt -> Jsonifier (Either lft rgt)))
+
+-- RHS size: {terms: 1, types: 0, coercions: 0, joins: 0/0}
+$trModule1_r5uV :: ghc-prim-0.6.1:GHC.Prim.Addr#
+[GblId, Caf=NoCafRefs, Unf=OtherCon []]
+$trModule1_r5uV = "main"#
+
+-- RHS size: {terms: 2, types: 0, coercions: 0, joins: 0/0}
+$trModule2_r5uW :: ghc-prim-0.6.1:GHC.Types.TrName
+[GblId, Caf=NoCafRefs, Unf=OtherCon []]
+$trModule2_r5uW = ghc-prim-0.6.1:GHC.Types.TrNameS $trModule1_r5uV
+
+-- RHS size: {terms: 1, types: 0, coercions: 0, joins: 0/0}
+$trModule3_r5uX :: ghc-prim-0.6.1:GHC.Prim.Addr#
+[GblId, Caf=NoCafRefs, Unf=OtherCon []]
+$trModule3_r5uX = "Utils.Jsonifier"#
+
+-- RHS size: {terms: 2, types: 0, coercions: 0, joins: 0/0}
+$trModule4_r5uY :: ghc-prim-0.6.1:GHC.Types.TrName
+[GblId, Caf=NoCafRefs, Unf=OtherCon []]
+$trModule4_r5uY = ghc-prim-0.6.1:GHC.Types.TrNameS $trModule3_r5uX
+
+-- RHS size: {terms: 3, types: 0, coercions: 0, joins: 0/0}
+Utils.Jsonifier.$trModule :: ghc-prim-0.6.1:GHC.Types.Module
+[GblId, Caf=NoCafRefs, Unf=OtherCon []]
+Utils.Jsonifier.$trModule
+  = ghc-prim-0.6.1:GHC.Types.Module $trModule2_r5uW $trModule4_r5uY
+
+-- RHS size: {terms: 3, types: 1, coercions: 0, joins: 0/0}
+$krep_r5uZ :: ghc-prim-0.6.1:GHC.Types.KindRep
+[GblId, Unf=OtherCon []]
+$krep_r5uZ
+  = ghc-prim-0.6.1:GHC.Types.KindRepTyConApp
+      Jsonifier.$tcJson
+      (ghc-prim-0.6.1:GHC.Types.[] @ ghc-prim-0.6.1:GHC.Types.KindRep)
+
+-- RHS size: {terms: 3, types: 1, coercions: 0, joins: 0/0}
+$krep1_r5v0 :: ghc-prim-0.6.1:GHC.Types.KindRep
+[GblId, Unf=OtherCon []]
+$krep1_r5v0
+  = ghc-prim-0.6.1:GHC.Types.KindRepTyConApp
+      ghc-prim-0.6.1:GHC.Types.$tcConstraint
+      (ghc-prim-0.6.1:GHC.Types.[] @ ghc-prim-0.6.1:GHC.Types.KindRep)
+
+-- RHS size: {terms: 3, types: 0, coercions: 0, joins: 0/0}
+$krep2_r5v1 :: ghc-prim-0.6.1:GHC.Types.KindRep
+[GblId, Unf=OtherCon []]
+$krep2_r5v1
+  = ghc-prim-0.6.1:GHC.Types.KindRepFun
+      ghc-prim-0.6.1:GHC.Types.krep$* $krep1_r5v0
+
+-- RHS size: {terms: 2, types: 0, coercions: 0, joins: 0/0}
+$krep3_r5v2 :: ghc-prim-0.6.1:GHC.Types.KindRep
+[GblId, Caf=NoCafRefs, Unf=OtherCon []]
+$krep3_r5v2 = ghc-prim-0.6.1:GHC.Types.KindRepVar 0#
+
+-- RHS size: {terms: 3, types: 0, coercions: 0, joins: 0/0}
+$krep4_r5v3 :: ghc-prim-0.6.1:GHC.Types.KindRep
+[GblId, Unf=OtherCon []]
+$krep4_r5v3
+  = ghc-prim-0.6.1:GHC.Types.KindRepFun $krep3_r5v2 $krep_r5uZ
+
+-- RHS size: {terms: 1, types: 0, coercions: 0, joins: 0/0}
+$tcJsonifier1_r5v4 :: ghc-prim-0.6.1:GHC.Prim.Addr#
+[GblId, Caf=NoCafRefs, Unf=OtherCon []]
+$tcJsonifier1_r5v4 = "Jsonifier"#
+
+-- RHS size: {terms: 2, types: 0, coercions: 0, joins: 0/0}
+$tcJsonifier2_r5v5 :: ghc-prim-0.6.1:GHC.Types.TrName
+[GblId, Caf=NoCafRefs, Unf=OtherCon []]
+$tcJsonifier2_r5v5
+  = ghc-prim-0.6.1:GHC.Types.TrNameS $tcJsonifier1_r5v4
+
+-- RHS size: {terms: 7, types: 0, coercions: 0, joins: 0/0}
+Utils.Jsonifier.$tcJsonifier :: ghc-prim-0.6.1:GHC.Types.TyCon
+[GblId, Unf=OtherCon []]
+Utils.Jsonifier.$tcJsonifier
+  = ghc-prim-0.6.1:GHC.Types.TyCon
+      14266845362099164572##
+      6927277314648008580##
+      Utils.Jsonifier.$trModule
+      $tcJsonifier2_r5v5
+      0#
+      $krep2_r5v1
+
+-- RHS size: {terms: 3, types: 2, coercions: 0, joins: 0/0}
+$krep5_r5v6 :: [ghc-prim-0.6.1:GHC.Types.KindRep]
+[GblId, Caf=NoCafRefs, Unf=OtherCon []]
+$krep5_r5v6
+  = ghc-prim-0.6.1:GHC.Types.:
+      @ ghc-prim-0.6.1:GHC.Types.KindRep
+      $krep3_r5v2
+      (ghc-prim-0.6.1:GHC.Types.[] @ ghc-prim-0.6.1:GHC.Types.KindRep)
+
+-- RHS size: {terms: 3, types: 0, coercions: 0, joins: 0/0}
+$krep6_r5v7 :: ghc-prim-0.6.1:GHC.Types.KindRep
+[GblId, Unf=OtherCon []]
+$krep6_r5v7
+  = ghc-prim-0.6.1:GHC.Types.KindRepTyConApp
+      Utils.Jsonifier.$tcJsonifier $krep5_r5v6
+
+-- RHS size: {terms: 3, types: 0, coercions: 0, joins: 0/0}
+$krep7_r5v8 :: ghc-prim-0.6.1:GHC.Types.KindRep
+[GblId, Unf=OtherCon []]
+$krep7_r5v8
+  = ghc-prim-0.6.1:GHC.Types.KindRepFun $krep4_r5v3 $krep6_r5v7
+
+-- RHS size: {terms: 1, types: 0, coercions: 0, joins: 0/0}
+$tc'C:Jsonifier1_r5v9 :: ghc-prim-0.6.1:GHC.Prim.Addr#
+[GblId, Caf=NoCafRefs, Unf=OtherCon []]
+$tc'C:Jsonifier1_r5v9 = "'C:Jsonifier"#
+
+-- RHS size: {terms: 2, types: 0, coercions: 0, joins: 0/0}
+$tc'C:Jsonifier2_r5va :: ghc-prim-0.6.1:GHC.Types.TrName
+[GblId, Caf=NoCafRefs, Unf=OtherCon []]
+$tc'C:Jsonifier2_r5va
+  = ghc-prim-0.6.1:GHC.Types.TrNameS $tc'C:Jsonifier1_r5v9
+
+-- RHS size: {terms: 7, types: 0, coercions: 0, joins: 0/0}
+Utils.Jsonifier.$tc'C:Jsonifier :: ghc-prim-0.6.1:GHC.Types.TyCon
+[GblId, Unf=OtherCon []]
+Utils.Jsonifier.$tc'C:Jsonifier
+  = ghc-prim-0.6.1:GHC.Types.TyCon
+      18067962044090811000##
+      10080257062699440153##
+      Utils.Jsonifier.$trModule
+      $tc'C:Jsonifier2_r5va
+      1#
+      $krep7_r5v8
+
+

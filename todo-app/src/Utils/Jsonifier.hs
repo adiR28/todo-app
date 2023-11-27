@@ -15,8 +15,8 @@ import Data.Either
 class Jsonifier a where
   toJsonifier :: a -> J.Json
 
-instance Show J.Json where
-  show a = DSU.toString $ J.toByteString a
+-- instance Show J.Json where
+--   show a = DSU.toString $ J.toByteString a
 
 instance Jsonifier Value where 
   toJsonifier val =

@@ -27,6 +27,8 @@ library
   exposed-modules:
       App.App
       App.Server
+      Benchmark.Main
+      Benchmark.Models
       Config.Config
       Config.Types
       Controller.Todo
@@ -79,6 +81,7 @@ library
     , beam-postgres
     , bytestring
     , containers
+    , criterion
     , extra
     , hedis
     , http-client
@@ -137,6 +140,7 @@ executable todo-app-exe
     , beam-postgres
     , bytestring
     , containers
+    , criterion
     , extra
     , hedis
     , http-client
@@ -197,6 +201,7 @@ test-suite todo-app-test
     , beam-postgres
     , bytestring
     , containers
+    , criterion
     , extra
     , hedis
     , http-client

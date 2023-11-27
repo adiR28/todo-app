@@ -70,6 +70,7 @@ dependencies:
 - extra
 - utf8-string
 - http-media
+- criterion
 
 ghc-options:
 - -Wall

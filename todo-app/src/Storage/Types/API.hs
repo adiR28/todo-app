@@ -151,11 +151,11 @@ data JsonifierExp =
       createdAt :: Text,
       status :: [Text],
       abc :: Maybe Bool,
-      -- localTime :: LocalTime,
-      -- maybeLocalTime :: Maybe LocalTime,
+      localTime :: LocalTime,
+      maybeLocalTime :: Maybe LocalTime,
       maybeList ::  Maybe [Text],
       temp :: [Maybe Text]
-      -- eth :: Either Text Int
+      eth :: Either Text Int
 
     } deriving (Show,Generic,FromJSON)
 

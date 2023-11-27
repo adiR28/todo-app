@@ -73,7 +73,7 @@ mkMatchInstancesTH =
                 foldr (\(varName,recordName,recordType) acc' -> do
                   acc <- acc'
                   func <- getJsonFunctionRecordConstructor recordType varName varMaybe
-                  return $ TupE [LitE $ StringL $ nameBase recordName, func] :acc
+                  return $ TupE [Just $ LitE $ StringL $ nameBase recordName, Just $ func] :acc
                   ) (return []) tupList -- check for Bang types also
           let expr = AppE (VarE 'J.object) (ListE tupListExpr)
           let body = NormalB expr
@@ -96,12 +96,12 @@ mkMatchInstancesTH =
                       v <- newName "v"
                       return $ v:acc ) (return []) recType
                 let tupList = zip recType varNew    
-                let tag = TupE [LitE $ StringL "tag",AppE (VarE 'J.textString) (LitE $ StringL consText )]
+                let tag = TupE [Just $ LitE $ StringL "tag",Just $ AppE (VarE 'J.textString) (LitE $ StringL consText )]
                 tempExpr <- 
                       foldr (\(ty,rt) acc' -> do
                         acc <- acc'
                         return $ (AppE (VarE $ getfunctionName rt) (VarE rt)) :acc ) (return []) tupList
-                let content = TupE [LitE $ StringL "contents",AppE (VarE 'J.array) (ListE tempExpr)]
+                let content = TupE [Just $ LitE $ StringL "contents",Just $ AppE (VarE 'J.array) (ListE tempExpr)]
                 let expr = AppE (VarE 'J.object) $ ListE [tag,content]
                 let body = NormalB expr
                 let pat = ConP cons $ map VarP varNew
