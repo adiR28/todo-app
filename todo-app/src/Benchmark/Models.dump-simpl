@@ -1,6 +1,6 @@
 
 ==================== Simplified expression ====================
-2023-11-27 11:45:02.361387 UTC
+2023-11-27 15:51:22.517783 UTC
 
 Utils.UtilsTH.mkJsonifierInstanceTH
   (Language.Haskell.TH.Syntax.mkNameG_tc
@@ -10,7 +10,7 @@ Utils.UtilsTH.mkJsonifierInstanceTH
 
 
 ==================== Simplified expression ====================
-2023-11-27 11:45:02.401671 UTC
+2023-11-27 15:51:22.558291 UTC
 
 Utils.UtilsTH.mkJsonifierInstanceTH
   (Language.Haskell.TH.Syntax.mkNameG_tc
@@ -21,7 +21,7 @@ Utils.UtilsTH.mkJsonifierInstanceTH
 
 
 ==================== Simplified expression ====================
-2023-11-27 11:45:02.40537 UTC
+2023-11-27 15:51:22.561368 UTC
 
 Utils.UtilsTH.mkJsonifierInstanceTH
   (Language.Haskell.TH.Syntax.mkNameG_tc
@@ -32,7 +32,7 @@ Utils.UtilsTH.mkJsonifierInstanceTH
 
 
 ==================== Simplified expression ====================
-2023-11-27 11:45:02.40853 UTC
+2023-11-27 15:51:22.562821 UTC
 
 Utils.UtilsTH.mkJsonifierInstanceTH
   (Language.Haskell.TH.Syntax.mkNameG_tc
@@ -42,7 +42,7 @@ Utils.UtilsTH.mkJsonifierInstanceTH
 
 
 ==================== Simplified expression ====================
-2023-11-27 11:45:02.410608 UTC
+2023-11-27 15:51:22.564087 UTC
 
 Utils.UtilsTH.mkJsonifierInstanceTH
   (Language.Haskell.TH.Syntax.mkNameG_tc
@@ -52,7 +52,7 @@ Utils.UtilsTH.mkJsonifierInstanceTH
 
 
 ==================== Simplified expression ====================
-2023-11-27 11:45:02.412434 UTC
+2023-11-27 15:51:22.565468 UTC
 
 Utils.UtilsTH.mkJsonifierInstanceTH
   (Language.Haskell.TH.Syntax.mkNameG_tc
@@ -62,7 +62,7 @@ Utils.UtilsTH.mkJsonifierInstanceTH
 
 
 ==================== Simplified expression ====================
-2023-11-27 11:45:02.429284 UTC
+2023-11-27 15:51:22.579356 UTC
 
 Utils.UtilsTH.mkJsonifierInstanceTH
   (Language.Haskell.TH.Syntax.mkNameG_tc
@@ -72,7 +72,7 @@ Utils.UtilsTH.mkJsonifierInstanceTH
 
 
 ==================== Tidy Core ====================
-2023-11-27 11:45:02.560614 UTC
+2023-11-27 15:51:22.703389 UTC
 
 Result size of Tidy Core
   = {terms: 4,641, types: 61,922, coercions: 3,972, joins: 0/0}

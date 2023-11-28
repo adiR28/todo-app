@@ -37,11 +37,11 @@ createTask req@SA.CreateTodoRequest {task,description} = do
   -- let testing = mkDummyJsonifierExp
   -- let ctx = SA.ABC "hello" ["Aditya","Ranjan"]
   -- let status = SA.SUCCESS
-  let toJSONValtesting = Aeson.toJSON respBody
-  let toJSONFierValtesting = UJ.toJsonifier respBody
-  _ <- liftIO $ putStrLn $ "toJSONtesting value : " <> show toJSONValtesting
-  _ <- liftIO $ putStrLn $ "toJSONFiertesting value : " <> show toJSONFierValtesting
-  _ <- liftIO $ putStrLn $ "---------------------------------"
+  -- let toJSONValtesting = Aeson.toJSON respBody
+  -- let toJSONFierValtesting = UJ.toJsonifier respBody
+  -- _ <- liftIO $ putStrLn $ "toJSONtesting value : " <> show toJSONValtesting
+  -- _ <- liftIO $ putStrLn $ "toJSONFiertesting value : " <> show toJSONFierValtesting
+  -- _ <- liftIO $ putStrLn $ "---------------------------------"
   -- let toJSONValStatus = Aeson.toJSON status
   -- let toJSONFierValStatus = UJ.toJsonifier status
   -- _ <- liftIO $ putStrLn $ "toJSONStatus value : " <> show toJSONValStatus
@@ -61,5 +61,5 @@ createTask req@SA.CreateTodoRequest {task,description} = do
 -- deleteTask
 
 
-mkDummyJsonifierExp :: SA.JsonifierExp
-mkDummyJsonifierExp = SA.JsonifierExp "aditya" True (Just "Tetsing") (Aeson.String "value") "now" ["hello"] Nothing Nothing []
+-- mkDummyJsonifierExp :: SA.JsonifierExp
+-- mkDummyJsonifierExp = SA.JsonifierExp "aditya" True (Just "Tetsing") (Aeson.String "value") "now" ["hello"] Nothing Nothing [] (Left "abc")

@@ -1,9 +1,9 @@
 
 ==================== Tidy Core ====================
-2023-11-27 11:45:03.094794 UTC
+2023-11-27 15:51:23.259833 UTC
 
 Result size of Tidy Core
-  = {terms: 186, types: 187, coercions: 6, joins: 0/4}
+  = {terms: 222, types: 225, coercions: 6, joins: 0/4}
 
 -- RHS size: {terms: 19, types: 18, coercions: 0, joins: 0/0}
 mapResultsOfResult
@@ -14,49 +14,49 @@ mapResultsOfResult
       (a_aeN6 :: Model.Result) ->
       break<5>(a_aeN6,f_aeN5)
       case a_aeN6 of wild_X7
-      { Model.Result ds_deV4 ds1_deV5 ds2_deV6 ds3_deV7 ds4_deV8 ds5_deV9
-                     ds6_deVa ds7_deVb ds8_deVc ds9_deVd ds10_deVe ->
+      { Model.Result ds_deVy ds1_deVz ds2_deVA ds3_deVB ds4_deVC ds5_deVD
+                     ds6_deVE ds7_deVF ds8_deVG ds9_deVH ds10_deVI ->
       Benchmark.Models.Result
         (break<4>(wild_X7,f_aeN5)
          f_aeN5
            (break<3>(wild_X7) Benchmark.Models.$sel:results:Result wild_X7))
-        ds1_deV5
-        ds2_deV6
-        ds3_deV7
-        ds4_deV8
-        ds5_deV9
-        ds6_deVa
-        ds7_deVb
-        ds8_deVc
-        ds9_deVd
-        ds10_deVe
+        ds1_deVz
+        ds2_deVA
+        ds3_deVB
+        ds4_deVC
+        ds5_deVD
+        ds6_deVE
+        ds7_deVF
+        ds8_deVG
+        ds9_deVH
+        ds10_deVI
       }
 
 -- RHS size: {terms: 1, types: 0, coercions: 0, joins: 0/0}
-$trModule1_reV2 :: ghc-prim-0.6.1:GHC.Prim.Addr#
+$trModule1_reVw :: ghc-prim-0.6.1:GHC.Prim.Addr#
 [GblId, Caf=NoCafRefs, Unf=OtherCon []]
-$trModule1_reV2 = "main"#
+$trModule1_reVw = "main"#
 
 -- RHS size: {terms: 2, types: 0, coercions: 0, joins: 0/0}
-$trModule2_reVy :: ghc-prim-0.6.1:GHC.Types.TrName
+$trModule2_reW2 :: ghc-prim-0.6.1:GHC.Types.TrName
 [GblId, Caf=NoCafRefs, Unf=OtherCon []]
-$trModule2_reVy = ghc-prim-0.6.1:GHC.Types.TrNameS $trModule1_reV2
+$trModule2_reW2 = ghc-prim-0.6.1:GHC.Types.TrNameS $trModule1_reVw
 
 -- RHS size: {terms: 1, types: 0, coercions: 0, joins: 0/0}
-$trModule3_reVz :: ghc-prim-0.6.1:GHC.Prim.Addr#
+$trModule3_reW3 :: ghc-prim-0.6.1:GHC.Prim.Addr#
 [GblId, Caf=NoCafRefs, Unf=OtherCon []]
-$trModule3_reVz = "Benchmark.Main"#
+$trModule3_reW3 = "Benchmark.Main"#
 
 -- RHS size: {terms: 2, types: 0, coercions: 0, joins: 0/0}
-$trModule4_reVA :: ghc-prim-0.6.1:GHC.Types.TrName
+$trModule4_reW4 :: ghc-prim-0.6.1:GHC.Types.TrName
 [GblId, Caf=NoCafRefs, Unf=OtherCon []]
-$trModule4_reVA = ghc-prim-0.6.1:GHC.Types.TrNameS $trModule3_reVz
+$trModule4_reW4 = ghc-prim-0.6.1:GHC.Types.TrNameS $trModule3_reW3
 
 -- RHS size: {terms: 3, types: 0, coercions: 0, joins: 0/0}
 Benchmark.Main.$trModule :: ghc-prim-0.6.1:GHC.Types.Module
 [GblId, Caf=NoCafRefs, Unf=OtherCon []]
 Benchmark.Main.$trModule
-  = ghc-prim-0.6.1:GHC.Types.Module $trModule2_reVy $trModule4_reVA
+  = ghc-prim-0.6.1:GHC.Types.Module $trModule2_reW2 $trModule4_reW4
 
 -- RHS size: {terms: 11, types: 15, coercions: 0, joins: 0/0}
 load :: FilePath -> IO Model.Result
@@ -80,11 +80,11 @@ load
            (fail @ IO Control.Monad.Fail.$fMonadFailIO @ Model.Result)
            (return @ IO GHC.Base.$fMonadIO @ Model.Result))
 
--- RHS size: {terms: 139, types: 138, coercions: 6, joins: 0/4}
+-- RHS size: {terms: 175, types: 176, coercions: 6, joins: 0/4}
 main :: IO ()
 [GblId]
 main
-  = break<50>()
+  = break<66>()
     >>=
       @ IO
       GHC.Base.$fMonadIO
@@ -113,22 +113,22 @@ main
                         replicate @ [Model.Story] (ghc-prim-0.6.1:GHC.Types.I# 10#)) } in
                break<5>(twitter1Data_aeN2,f_aeN5)
                case twitter1Data_aeN2 of wild_X7
-               { Model.Result ds_deV4 ds1_deV5 ds2_deV6 ds3_deV7 ds4_deV8 ds5_deV9
-                              ds6_deVa ds7_deVb ds8_deVc ds9_deVd ds10_deVe ->
+               { Model.Result ds_deVy ds1_deVz ds2_deVA ds3_deVB ds4_deVC ds5_deVD
+                              ds6_deVE ds7_deVF ds8_deVG ds9_deVH ds10_deVI ->
                Benchmark.Models.Result
                  (break<4>(wild_X7,f_aeN5)
                   f_aeN5
                     (break<3>(wild_X7) Benchmark.Models.$sel:results:Result wild_X7))
-                 ds1_deV5
-                 ds2_deV6
-                 ds3_deV7
-                 ds4_deV8
-                 ds5_deV9
-                 ds6_deVa
-                 ds7_deVb
-                 ds8_deVc
-                 ds9_deVd
-                 ds10_deVe
+                 ds1_deVz
+                 ds2_deVA
+                 ds3_deVB
+                 ds4_deVC
+                 ds5_deVD
+                 ds6_deVE
+                 ds7_deVF
+                 ds8_deVG
+                 ds9_deVH
+                 ds10_deVI
                } } in
          let {
            twitter100Data_aeN4 :: Model.Result
@@ -148,196 +148,237 @@ main
                         replicate @ [Model.Story] (ghc-prim-0.6.1:GHC.Types.I# 100#)) } in
                break<5>(twitter1Data_aeN2,f_aeN5)
                case twitter1Data_aeN2 of wild_X7
-               { Model.Result ds_deV4 ds1_deV5 ds2_deV6 ds3_deV7 ds4_deV8 ds5_deV9
-                              ds6_deVa ds7_deVb ds8_deVc ds9_deVd ds10_deVe ->
+               { Model.Result ds_deVy ds1_deVz ds2_deVA ds3_deVB ds4_deVC ds5_deVD
+                              ds6_deVE ds7_deVF ds8_deVG ds9_deVH ds10_deVI ->
                Benchmark.Models.Result
                  (break<4>(wild_X7,f_aeN5)
                   f_aeN5
                     (break<3>(wild_X7) Benchmark.Models.$sel:results:Result wild_X7))
-                 ds1_deV5
-                 ds2_deV6
-                 ds3_deV7
-                 ds4_deV8
-                 ds5_deV9
-                 ds6_deVa
-                 ds7_deVb
-                 ds8_deVc
-                 ds9_deVd
-                 ds10_deVe
+                 ds1_deVz
+                 ds2_deVA
+                 ds3_deVB
+                 ds4_deVC
+                 ds5_deVD
+                 ds6_deVE
+                 ds7_deVF
+                 ds8_deVG
+                 ds9_deVH
+                 ds10_deVI
                } } in
-         break<49>(twitter1Data_aeN2,twitter10Data_aeN3,twitter100Data_aeN4)
+         break<65>(twitter1Data_aeN2,twitter10Data_aeN3,twitter100Data_aeN4)
          C.defaultMain
            (ghc-prim-0.6.1:GHC.Types.:
               @ C.Benchmark
-              (break<18>(twitter1Data_aeN2)
+              (break<19>(twitter1Data_aeN2)
                $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
                  @ C.Benchmarkable
                  @ C.Benchmark
                  (break<13>()
                   C.bench (ghc-prim-0.6.1:GHC.CString.unpackCString# "aeson1"#))
-                 (break<17>(twitter1Data_aeN2)
+                 (break<18>(twitter1Data_aeN2)
                   $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
-                    @ Data.ByteString.Internal.ByteString
+                    @ String
                     @ C.Benchmarkable
-                    (break<14>()
-                     C.nf
-                       @ Data.Text.Internal.Text
-                       @ Data.ByteString.Internal.ByteString
-                       Data.Text.$fNFDataText
-                       T.decodeUtf8)
-                    (break<16>(twitter1Data_aeN2)
+                    (break<14>() C.nf @ T.Text @ String Data.Text.$fNFDataText T.pack)
+                    (break<17>(twitter1Data_aeN2)
                      $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
-                       @ BSL.ByteString
-                       @ Data.ByteString.Internal.ByteString
-                       BSL.toStrict
-                       (break<15>(twitter1Data_aeN2)
-                        encode
-                          @ Model.Result
-                          Benchmark.Models.$fToJSONResult
-                          twitter1Data_aeN2))))
-              (ghc-prim-0.6.1:GHC.Types.:
-                 @ C.Benchmark
-                 (break<24>(twitter10Data_aeN3)
-                  $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
-                    @ C.Benchmarkable
-                    @ C.Benchmark
-                    (break<19>()
-                     C.bench (ghc-prim-0.6.1:GHC.CString.unpackCString# "aeson10"#))
-                    (break<23>(twitter10Data_aeN3)
-                     $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
-                       @ Data.ByteString.Internal.ByteString
-                       @ C.Benchmarkable
-                       (break<20>()
-                        C.nf
-                          @ Data.Text.Internal.Text
-                          @ Data.ByteString.Internal.ByteString
-                          Data.Text.$fNFDataText
-                          T.decodeUtf8)
-                       (break<22>(twitter10Data_aeN3)
+                       @ BSU.ByteString
+                       @ String
+                       BSU.toString
+                       (break<16>(twitter1Data_aeN2)
                         $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
                           @ BSL.ByteString
-                          @ Data.ByteString.Internal.ByteString
+                          @ BSU.ByteString
                           BSL.toStrict
-                          (break<21>(twitter10Data_aeN3)
+                          (break<15>(twitter1Data_aeN2)
                            encode
                              @ Model.Result
                              Benchmark.Models.$fToJSONResult
-                             twitter10Data_aeN3))))
-                 (ghc-prim-0.6.1:GHC.Types.:
+                             twitter1Data_aeN2)))))
+              (ghc-prim-0.6.1:GHC.Types.:
+                 @ C.Benchmark
+                 (break<26>(twitter10Data_aeN3)
+                  $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                    @ C.Benchmarkable
                     @ C.Benchmark
-                    (break<30>(twitter100Data_aeN4)
+                    (break<20>()
+                     C.bench (ghc-prim-0.6.1:GHC.CString.unpackCString# "aeson10"#))
+                    (break<25>(twitter10Data_aeN3)
                      $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                       @ String
                        @ C.Benchmarkable
-                       @ C.Benchmark
-                       (break<25>()
-                        C.bench (ghc-prim-0.6.1:GHC.CString.unpackCString# "aeson100"#))
-                       (break<29>(twitter100Data_aeN4)
+                       (break<21>() C.nf @ T.Text @ String Data.Text.$fNFDataText T.pack)
+                       (break<24>(twitter10Data_aeN3)
                         $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
-                          @ Data.ByteString.Internal.ByteString
-                          @ C.Benchmarkable
-                          (break<26>()
-                           C.nf
-                             @ Data.Text.Internal.Text
-                             @ Data.ByteString.Internal.ByteString
-                             Data.Text.$fNFDataText
-                             T.decodeUtf8)
-                          (break<28>(twitter100Data_aeN4)
+                          @ BSU.ByteString
+                          @ String
+                          BSU.toString
+                          (break<23>(twitter10Data_aeN3)
                            $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
                              @ BSL.ByteString
-                             @ Data.ByteString.Internal.ByteString
+                             @ BSU.ByteString
                              BSL.toStrict
-                             (break<27>(twitter100Data_aeN4)
+                             (break<22>(twitter10Data_aeN3)
                               encode
                                 @ Model.Result
                                 Benchmark.Models.$fToJSONResult
-                                twitter100Data_aeN4))))
+                                twitter10Data_aeN3)))))
+                 (ghc-prim-0.6.1:GHC.Types.:
+                    @ C.Benchmark
+                    (break<33>(twitter100Data_aeN4)
+                     $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                       @ C.Benchmarkable
+                       @ C.Benchmark
+                       (break<27>()
+                        C.bench (ghc-prim-0.6.1:GHC.CString.unpackCString# "aeson100"#))
+                       (break<32>(twitter100Data_aeN4)
+                        $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                          @ String
+                          @ C.Benchmarkable
+                          (break<28>() C.nf @ T.Text @ String Data.Text.$fNFDataText T.pack)
+                          (break<31>(twitter100Data_aeN4)
+                           $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                             @ BSU.ByteString
+                             @ String
+                             BSU.toString
+                             (break<30>(twitter100Data_aeN4)
+                              $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                                @ BSL.ByteString
+                                @ BSU.ByteString
+                                BSL.toStrict
+                                (break<29>(twitter100Data_aeN4)
+                                 encode
+                                   @ Model.Result
+                                   Benchmark.Models.$fToJSONResult
+                                   twitter100Data_aeN4)))))
                     (ghc-prim-0.6.1:GHC.Types.:
                        @ C.Benchmark
-                       (break<36>(twitter1Data_aeN2)
+                       (break<40>(twitter1Data_aeN2)
                         $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
                           @ C.Benchmarkable
                           @ C.Benchmark
-                          (break<31>()
+                          (break<34>()
                            C.bench (ghc-prim-0.6.1:GHC.CString.unpackCString# "json1"#))
-                          (break<35>(twitter1Data_aeN2)
+                          (break<39>(twitter1Data_aeN2)
                            $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
-                             @ Data.ByteString.Internal.ByteString
+                             @ String
                              @ C.Benchmarkable
-                             (break<32>()
-                              C.nf
-                                @ Data.Text.Internal.Text
-                                @ Data.ByteString.Internal.ByteString
-                                Data.Text.$fNFDataText
-                                T.decodeUtf8)
-                             (break<34>(twitter1Data_aeN2)
+                             (break<35>() C.nf @ T.Text @ String Data.Text.$fNFDataText T.pack)
+                             (break<38>(twitter1Data_aeN2)
                               $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
-                                @ J.Json
-                                @ Data.ByteString.Internal.ByteString
-                                J.toByteString
-                                (break<33>(twitter1Data_aeN2)
-                                 (Benchmark.Models.$fJsonifierResult
-                                  `cast` (Utils.Jsonifier.N:Jsonifier[0] <Model.Result>_N
-                                          :: UJ.Jsonifier Model.Result
-                                             ~R# (Model.Result -> J.Json)))
-                                   twitter1Data_aeN2))))
-                       (ghc-prim-0.6.1:GHC.Types.:
-                          @ C.Benchmark
-                          (break<42>(twitter10Data_aeN3)
-                           $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
-                             @ C.Benchmarkable
-                             @ C.Benchmark
-                             (break<37>()
-                              C.bench (ghc-prim-0.6.1:GHC.CString.unpackCString# "json10"#))
-                             (break<41>(twitter10Data_aeN3)
-                              $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
-                                @ Data.ByteString.Internal.ByteString
-                                @ C.Benchmarkable
-                                (break<38>()
-                                 C.nf
-                                   @ Data.Text.Internal.Text
-                                   @ Data.ByteString.Internal.ByteString
-                                   Data.Text.$fNFDataText
-                                   T.decodeUtf8)
-                                (break<40>(twitter10Data_aeN3)
+                                @ BSU.ByteString
+                                @ String
+                                BSU.toString
+                                (break<37>(twitter1Data_aeN2)
                                  $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
                                    @ J.Json
-                                   @ Data.ByteString.Internal.ByteString
+                                   @ BSU.ByteString
                                    J.toByteString
-                                   (break<39>(twitter10Data_aeN3)
+                                   (break<36>(twitter1Data_aeN2)
                                     (Benchmark.Models.$fJsonifierResult
                                      `cast` (Utils.Jsonifier.N:Jsonifier[0] <Model.Result>_N
                                              :: UJ.Jsonifier Model.Result
                                                 ~R# (Model.Result -> J.Json)))
-                                      twitter10Data_aeN3))))
-                          (ghc-prim-0.6.1:GHC.Types.:
+                                      twitter1Data_aeN2)))))
+                       (ghc-prim-0.6.1:GHC.Types.:
+                          @ C.Benchmark
+                          (break<47>(twitter10Data_aeN3)
+                           $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                             @ C.Benchmarkable
                              @ C.Benchmark
-                             (break<48>(twitter100Data_aeN4)
+                             (break<41>()
+                              C.bench (ghc-prim-0.6.1:GHC.CString.unpackCString# "json10"#))
+                             (break<46>(twitter10Data_aeN3)
                               $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                                @ String
                                 @ C.Benchmarkable
-                                @ C.Benchmark
-                                (break<43>()
-                                 C.bench (ghc-prim-0.6.1:GHC.CString.unpackCString# "json100"#))
-                                (break<47>(twitter100Data_aeN4)
+                                (break<42>() C.nf @ T.Text @ String Data.Text.$fNFDataText T.pack)
+                                (break<45>(twitter10Data_aeN3)
                                  $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
-                                   @ Data.ByteString.Internal.ByteString
-                                   @ C.Benchmarkable
-                                   (break<44>()
-                                    C.nf
-                                      @ Data.Text.Internal.Text
-                                      @ Data.ByteString.Internal.ByteString
-                                      Data.Text.$fNFDataText
-                                      T.decodeUtf8)
-                                   (break<46>(twitter100Data_aeN4)
+                                   @ BSU.ByteString
+                                   @ String
+                                   BSU.toString
+                                   (break<44>(twitter10Data_aeN3)
                                     $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
                                       @ J.Json
-                                      @ Data.ByteString.Internal.ByteString
+                                      @ BSU.ByteString
                                       J.toByteString
-                                      (break<45>(twitter100Data_aeN4)
+                                      (break<43>(twitter10Data_aeN3)
                                        (Benchmark.Models.$fJsonifierResult
                                         `cast` (Utils.Jsonifier.N:Jsonifier[0] <Model.Result>_N
                                                 :: UJ.Jsonifier Model.Result
                                                    ~R# (Model.Result -> J.Json)))
-                                         twitter100Data_aeN4))))
-                             (ghc-prim-0.6.1:GHC.Types.[] @ C.Benchmark))))))))
+                                         twitter10Data_aeN3)))))
+                          (ghc-prim-0.6.1:GHC.Types.:
+                             @ C.Benchmark
+                             (break<54>(twitter100Data_aeN4)
+                              $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                                @ C.Benchmarkable
+                                @ C.Benchmark
+                                (break<48>()
+                                 C.bench (ghc-prim-0.6.1:GHC.CString.unpackCString# "json100"#))
+                                (break<53>(twitter100Data_aeN4)
+                                 $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                                   @ String
+                                   @ C.Benchmarkable
+                                   (break<49>()
+                                    C.nf @ T.Text @ String Data.Text.$fNFDataText T.pack)
+                                   (break<52>(twitter100Data_aeN4)
+                                    $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                                      @ BSU.ByteString
+                                      @ String
+                                      BSU.toString
+                                      (break<51>(twitter100Data_aeN4)
+                                       $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                                         @ J.Json
+                                         @ BSU.ByteString
+                                         J.toByteString
+                                         (break<50>(twitter100Data_aeN4)
+                                          (Benchmark.Models.$fJsonifierResult
+                                           `cast` (Utils.Jsonifier.N:Jsonifier[0] <Model.Result>_N
+                                                   :: UJ.Jsonifier Model.Result
+                                                      ~R# (Model.Result -> J.Json)))
+                                            twitter100Data_aeN4)))))
+                             (ghc-prim-0.6.1:GHC.Types.:
+                                @ C.Benchmark
+                                (break<59>(twitter100Data_aeN4)
+                                 $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                                   @ C.Benchmarkable
+                                   @ C.Benchmark
+                                   (break<55>()
+                                    C.bench
+                                      (ghc-prim-0.6.1:GHC.CString.unpackCString# "showaeon100"#))
+                                   (break<58>(twitter100Data_aeN4)
+                                    $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                                      @ String
+                                      @ C.Benchmarkable
+                                      (break<56>()
+                                       C.nf @ T.Text @ String Data.Text.$fNFDataText T.pack)
+                                      (break<57>(twitter100Data_aeN4)
+                                       show
+                                         @ Model.Result
+                                         Benchmark.Models.$fShowResult
+                                         twitter100Data_aeN4)))
+                                (ghc-prim-0.6.1:GHC.Types.:
+                                   @ C.Benchmark
+                                   (break<64>(twitter100Data_aeN4)
+                                    $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                                      @ C.Benchmarkable
+                                      @ C.Benchmark
+                                      (break<60>()
+                                       C.bench
+                                         (ghc-prim-0.6.1:GHC.CString.unpackCString# "showjson100"#))
+                                      (break<63>(twitter100Data_aeN4)
+                                       $ @ 'ghc-prim-0.6.1:GHC.Types.LiftedRep
+                                         @ String
+                                         @ C.Benchmarkable
+                                         (break<61>()
+                                          C.nf @ T.Text @ String Data.Text.$fNFDataText T.pack)
+                                         (break<62>(twitter100Data_aeN4)
+                                          show
+                                            @ Model.Result
+                                            Benchmark.Models.$fShowResult
+                                            twitter100Data_aeN4)))
+                                   (ghc-prim-0.6.1:GHC.Types.[] @ C.Benchmark))))))))))
 
 
