@@ -71,6 +71,7 @@ dependencies:
 - utf8-string
 - http-media
 - criterion
+- deepseq
 
 ghc-options:
 - -Wall
@@ -83,9 +84,9 @@ ghc-options:
 - -Wpartial-fields
 - -Wredundant-constraints
 # - -Werror=unused-imports
-- -ddump-simpl
-- -ddump-to-file
-- -dth-dec-file
+# - -ddump-simpl
+# - -ddump-to-file
+# - -dth-dec-file
 
 library:
   source-dirs: src

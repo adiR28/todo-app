@@ -9,7 +9,6 @@ import Data.Time
 import Utils.Jsonifier
 import Data.Scientific
 
-
 data Metadata = Metadata
   { result_type :: Text
   }

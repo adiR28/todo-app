@@ -73,7 +73,7 @@ library
       DataKinds
       LambdaCase
       TemplateHaskell
-  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -ddump-simpl -ddump-to-file -dth-dec-file
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
   build-depends:
       aeson
     , base >=4.7 && <5
@@ -82,6 +82,7 @@ library
     , bytestring
     , containers
     , criterion
+    , deepseq
     , extra
     , hedis
     , http-client
@@ -132,7 +133,7 @@ executable todo-app-exe
       DataKinds
       LambdaCase
       TemplateHaskell
-  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -ddump-simpl -ddump-to-file -dth-dec-file -threaded -rtsopts -with-rtsopts=-N
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       aeson
     , base >=4.7 && <5
@@ -141,6 +142,7 @@ executable todo-app-exe
     , bytestring
     , containers
     , criterion
+    , deepseq
     , extra
     , hedis
     , http-client
@@ -193,7 +195,7 @@ test-suite todo-app-test
       DataKinds
       LambdaCase
       TemplateHaskell
-  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -ddump-simpl -ddump-to-file -dth-dec-file -threaded -rtsopts -with-rtsopts=-N
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       aeson
     , base >=4.7 && <5
@@ -202,6 +204,7 @@ test-suite todo-app-test
     , bytestring
     , containers
     , criterion
+    , deepseq
     , extra
     , hedis
     , http-client

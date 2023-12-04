@@ -16,12 +16,14 @@ main = do
   let twitter100Data = mapResultsOfResult (concat . replicate 100) twitter1Data
   C.defaultMain
     [
-      C.bench "aeson1" $ C.nf   Aeson.encode twitter1Data,
-      C.bench "aeson10" $ C.nf   Aeson.encode twitter10Data,
-      C.bench "aeson100" $ C.nf   Aeson.encode twitter100Data,
-      C.bench "json1" $ C.nf   J.toByteString  $ UJ.toJsonifier twitter1Data,
-      C.bench "json10" $ C.nf  J.toByteString  $ UJ.toJsonifier twitter10Data,
-      C.bench "json100" $ C.nf  J.toByteString  $ UJ.toJsonifier twitter100Data
+      -- C.bench "aeson1" $ C.nf T.decodeUtf8 $ BSL.toStrict $ Aeson.encode twitter1Data,
+      -- C.bench "aeson10" $ C.nf T.decodeUtf8 $ BSL.toStrict $ Aeson.encode twitter10Data,
+      -- C.bench "aeson100" $ C.nf T.decodeUtf8 $ BSL.toStrict $ Aeson.encode twitter100Data,
+      -- C.bench "json1" $ C.nf T.decodeUtf8 $ J.toByteString  $ UJ.toJsonifier twitter1Data,
+      -- C.bench "json10" $ C.nf T.decodeUtf8 $ J.toByteString  $ UJ.toJsonifier twitter10Data,
+      -- C.bench "json100" $ C.nf T.decodeUtf8 $ J.toByteString  $ UJ.toJsonifier twitter100Data,
+      C.bench "aesonDecode100" $ C.nf T.decodeUtf8 $ BSL.toStrict $ Aeson.encode twitter100Data,
+      C.bench "aeson100" $ C.nf Aeson.encode twitter100Data
     ]
 
 

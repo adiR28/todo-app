@@ -19,6 +19,7 @@ import qualified Jsonifier as J
 import qualified Data.ByteString.Lazy as BSL
 import Data.Data (Typeable)
 import Data.Aeson
+import qualified Data.Text as DT
 
 data JSONIFIER deriving Typeable
 instance Accept JSONIFIER where
@@ -29,15 +30,16 @@ instance Accept JSONIFIER where
 instance {-# OVERLAPPABLE #-} UJ.Jsonifier a => MimeRender JSONIFIER a where
   mimeRender _ val = BSL.fromStrict $ J.toByteString $ UJ.toJsonifier val
 
-instance FromJSON a => MimeUnrender JSONIFIER a where
-    mimeUnrender _ = eitherDecodeLenient
+-- instance FromJSON a => MimeUnrender JSONIFIER a where
+--     mimeUnrender _ = eitherDecodeLenient
 
 
 type TodoAPIs = "todo" :>
   ("create" :> ReqBody '[JSON] SA.CreateTodoRequest :> Post '[JSONIFIER] (SA.CreateTodoResponse)
     :<|> "update" :> ReqBody '[JSON] String :> Post '[JSON] String
     :<|> "fetchAll" :> ReqBody '[JSON] String :> Post '[JSON] String
-    :<|> "getDetails" :> Capture "taskName" String :> Get '[JSON] String )
+    :<|> "getDetails" :> Capture "taskName" String :> Get '[JSON] String
+    :<|> "loadTest" :> Get '[JSON] DT.Text )
  
 type ApplicationAPIs = "application" :> "app" :> Get '[JSON,PlainText] String
 
@@ -54,7 +56,7 @@ createTodo req =  do
   liftIO $ putStrLn  $ "createTODO API called " <> show req
   flowHandlerWithEnv(CT.createTask req)
 
-updateTodo :: String-> FlowHandler String
+updateTodo :: String -> FlowHandler String
 updateTodo = return 
 
 fetchAllTodo :: String -> FlowHandler String
@@ -74,6 +76,10 @@ createUser = return
 
 updateUser :: String -> FlowHandler String
 updateUser = return
+
+loadTest :: FlowHandler DT.Text
+loadTest = flowHandlerWithEnv(CT.loadTest)
+
 
 flowHandlerWithEnv :: F.Flow a -> FlowHandler a
 flowHandlerWithEnv flowFunc = do

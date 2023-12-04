@@ -36,7 +36,7 @@ todoServer env = hoistServer todoProxy (f env ) todoServers'
 todoServers' :: FlowServer        
 todoServers' = todoAPI :<|> userAPI :<|> applicationAPI
 
-todoAPI = R.createTodo :<|> R.updateTodo :<|> R.fetchAllTodo :<|> R.getDetailsTodo
+todoAPI = R.createTodo :<|> R.updateTodo :<|> R.fetchAllTodo :<|> R.getDetailsTodo :<|> R.loadTest
 
 userAPI = R.createUser :<|> R.updateUser
 
