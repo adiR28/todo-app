@@ -1,0 +1,239 @@
+module APIFlow.Plugin where 
+
+-- import GhcPlugins
+-- import GHC.Hs
+-- import qualified Data.Foldable as DF
+-- import Data.Text (Text)
+-- import qualified Data.Text as T
+-- import Control.Reference (biplateRef, (^?))
+-- import Control.Exception ( evaluate)
+-- import Control.DeepSeq (force)
+-- import Name (nameStableString)
+-- -- import qualified Prelude as P
+
+-- -- import GHC.Hs.Expr
+-- -- import qualified Data.Foldable as DF
+-- -- import Outputable
+-- -- import GHC.Plugins
+-- -- import HscTypes (ModSummary (..))
+
+-- -- data 
+-- ignore :: String
+-- ignore = "ignore"
+
+
+-- plugin :: Plugin
+-- plugin = defaultPlugin {
+--     installCoreToDos = install
+--   -- , parsedResultAction = extractFunctionCalls
+--   , typeCheckResultAction = extractFunctionCalls
+--   }
+
+-- install :: [CommandLineOption] -> [CoreToDo] -> CoreM [CoreToDo]
+-- install _ todo = do
+--   putMsgS "Hello! Compiler"
+--   return todo
+
+-- -- plugin :: Plugin
+-- -- plugin = defaultPlugin { parsedResultAction = \_ _ -> extractFunctionCalls }
+
+-- decodeBlacklistedFunctions :: IO [Text]
+-- decodeBlacklistedFunctions = do
+--     mBlackListedFunctions <- lookupEnv "BLACKLIST_FUNCTIONS_FDEP"
+--     pure $ case mBlackListedFunctions of
+--         Just val' ->
+--             case A.decode $ BL.fromStrict $ encodeUtf8 (T.pack val') of
+--                 Just val -> filterList <> val
+--                 _ -> filterList
+--         _ -> filterList
+
+-- extractFunctionCalls :: [CommandLineOption] -> ModSummary -> TcGblEnv -> TcM TcGblEnv
+-- extractFunctionCalls _ modSummary tcEnv = do
+--     let L _ parsedAST = hpm_module modParsed
+--     let functionsWithCalls = collectFunctionCalls parsedAST
+--     liftIO $ mapM_ (printFunctionInfo modSummary) functionsWithCalls
+--     return tcEnv
+
+-- loopOverLHsBindLR :: LHsBindLR GhcTc GhcTc -> IO ()
+-- loopOverLHsBindLR (L _ x@(FunBind fun_ext id matches _ _)) = do
+--     funName <- evaluate $ force $ T.pack $ getOccString $ unLoc id
+--     fName <- evaluate $ force $ T.pack $ nameStableString $ getName id
+--     let matchList = mg_alts matches
+--     if funName `elem` (unsafePerformIO $ decodeBlacklistedFunctions) || ("$_in$$" `T.isPrefixOf` fName)
+--         then pure mempty
+--         else do
+--             -- when (shouldLog) $ print ("processing function: " <> fName)
+--             name <- evaluate $ force (fName <> "**" <> (T.pack $ showSDocUnsafe (ppr (getLoc id))))
+--             -- typeSignature <- evaluate $ force $ (T.pack $ showSDocUnsafe (ppr (varType (unLoc id))))
+--             -- nestedNameWithParent <- evaluate $ force $ (maybe (name) (\x -> x <> "::" <> name) mParentName)
+--             functionInfoList <- DF.foldl' (\acc' x -> do
+--                 acc <- acc'
+--                 functionInfo <- processMatch nestedNameWithParent path x
+--                 return $ functionInfo ++ acc) (return []) (unLoc matchList)
+--             let functionInfoListUnique = DL.filter (\x@FT.FunctionInfo{module_name} -> module_name `notElem` blackListedModuleName ) $ DM.catMaybes $ DL.nub functionInfoList
+--             -- when (shouldLog) $ putStrLn ("processing function: " <> (show fName))
+--             -- when (shouldLog) $ putStrLn ("functionInfo :")
+--             -- when (shouldLog) $ putStrLn $ show functionInfoListUnique
+-- loopOverLHsBindLR (L _ AbsBinds{abs_binds = binds}) =
+--     mapM_ (loopOverLHsBindLR  ) $ fromList $ bagToList binds
+-- loopOverLHsBindLR (L _ VarBind{var_rhs = rhs}) = pure mempty
+-- loopOverLHsBindLR (L _ (PatSynBind _ PSB{psb_def = def})) = pure mempty
+-- loopOverLHsBindLR (L _ (PatSynBind _ (XPatSynBind _))) = pure mempty
+-- loopOverLHsBindLR (L _ (XHsBindsLR _)) = pure mempty
+-- loopOverLHsBindLR (L _ (PatBind _ _ pat_rhs _)) = pure mempty
+
+
+-- printFunctionInfo :: ModSummary -> (RdrName, [Maybe (Text,Text)], SrcSpan) -> IO ()
+-- printFunctionInfo modSummary (funcName, calls, span) = do
+--     let RealSrcSpan realSpan =  span
+--     putStrLn $ "Module: " ++ ( show $  ml_hs_file $ ms_location modSummary)
+--     putStrLn $ "Function: " ++ ( showSDocUnsafe $ ppr funcName)
+--     putStrLn $ "  Calls: " ++ ( show calls)
+--     putStrLn $ "  Start Line: " ++ show (srcSpanStartLine realSpan)
+--     putStrLn $ "  End Line: " ++ show (srcSpanEndLine realSpan)
+--     putStrLn $ "  Start Column: " ++ show (srcSpanStartCol realSpan)
+--     putStrLn $ "  End Column: " ++ show (srcSpanEndCol realSpan)
+
+-- collectFunctionCalls :: HsModule GhcPs -> [(RdrName, [Maybe (Text,Text)], SrcSpan)]
+-- collectFunctionCalls HsModule{..} = concatMap extractFromDecl hsmodDecls
+--   where
+--     extractFromDecl :: LHsDecl GhcPs -> [(RdrName, [Maybe (Text,Text)], SrcSpan)]
+--     extractFromDecl (L l (ValD _ (FunBind _ (L _ funcName) (MG _ (L _ matches) _) _ _))) =
+--         let calls = concatMap extractCallsFromMatch matches
+--         in [(funcName, calls, l)]
+--     extractFromDecl _ = []
+
+--     extractCallsFromMatch :: LMatch GhcPs (LHsExpr GhcPs) -> [Maybe (Text,Text)]
+--     extractCallsFromMatch (L _ (Match _ _ _ (GRHSs _ grhss _))) =
+--         concatMap extractCallsFromGRHS grhss
+
+--     -- Extract function calls from guarded right-hand sides
+--     extractCallsFromGRHS :: LGRHS GhcPs (LHsExpr GhcPs) -> [Maybe (Text,Text)]
+--     extractCallsFromGRHS (L _ (GRHS _ _ body)) = processExpr body
+
+--     processExpr ::  LHsExpr GhcPs -> [Maybe (Text,Text)]
+--     processExpr x@(L _ (HsVar _ (L _ var))) = do
+--         let name = T.pack $ nameStableString $ varName var
+--             _type = T.pack $ showSDocUnsafe $ ppr $ varType var
+--         let expr = transformFromNameStableString (Just name)
+--         [expr]
+--         -- sendTextData' path (decodeUtf8 $ toStrict $ Data.Aeson.encode $ Object $ HM.fromList [("key", String keyFunction), ("expr", toJSON expr)])
+--     processExpr (L _ (HsUnboundVar _ _)) = pure mempty
+--     processExpr(L _ (HsApp _ funl funr)) = do
+--         let fl = processExpr funl
+--             fr = processExpr funr
+--         fl ++ fr
+--     processExpr (L _ (OpApp _ funl funm funr)) = do
+--         let fl = processExpr funl
+--         let fnm = processExpr funm
+--         let fr = processExpr funr
+--         fl ++ fnm ++ fr
+--     processExpr (L _ (NegApp _ funl _)) =
+--         processExpr funl
+--     processExpr (L _ (HsTick _ _ fun)) =
+--         processExpr fun
+--     processExpr (L _ (HsStatic _ fun)) =
+--         processExpr fun
+--     processExpr (L _ x@(HsWrap _ _ fun)) =
+--         processExpr (noLoc fun)
+--     processExpr (L _ (HsBinTick _ _ _ fun)) =
+--         processExpr fun
+--     processExpr (L _ (ExplicitList _ _ funList)) = do
+--         -- mapM_ (processExpr  (fromList funList)
+--         DF.foldl' (\acc x -> processExpr x ++ acc  ) ([]) funList
+--     processExpr (L _ (HsTickPragma _ _ _ _ fun)) =
+--         processExpr fun
+--     processExpr (L _ (HsSCC _ _ _ fun)) =
+--         processExpr fun
+--     processExpr (L _ (HsCoreAnn _ _ _ fun)) =
+--         processExpr fun
+--     processExpr (L _ (ExprWithTySig _ fun _)) =
+--         processExpr fun
+--     processExpr (L _ (HsDo _ _ exprLStmt)) = do
+--         let stmts = exprLStmt ^? biplateRef :: [LHsExpr GhcPs]
+--         DF.foldl' (\acc x -> processExpr x ++ acc) ([]) stmts
+--     processExpr (L _ (HsLet _ exprLStmt func)) = do
+--         let stmts = exprLStmt ^? biplateRef :: [LHsExpr GhcPs]
+--         DF.foldl' (\acc x -> processExpr x ++ acc) ([]) $ [func] ++ stmts
+--     processExpr (L _ (HsMultiIf _ exprLStmt)) = do
+--         let stmts = exprLStmt ^? biplateRef :: [LHsExpr GhcPs]
+--         DF.foldl' (\acc x -> processExpr x ++ acc) ([]) stmts
+--     processExpr (L _ (HsIf _ exprLStmt funl funm funr)) = do
+--         let stmts = (exprLStmt ^? biplateRef :: [LHsExpr GhcPs])
+--         DF.foldl' (\acc x -> processExpr x ++ acc) ([]) $ [funl, funm, funr] ++ stmts
+--     processExpr (L _ (HsCase _ funl exprLStmt)) = do
+--         let stmts = (exprLStmt ^? biplateRef :: [LHsExpr GhcPs])
+--         DF.foldl' (\acc x -> processExpr x ++ acc) ([]) $ [funl] ++ stmts
+--     processExpr (L _ (ExplicitSum _ _ _ fun)) = processExpr fun
+--     processExpr (L _ (SectionR _ funl funr)) = processExpr funl ++ processExpr funr
+--     processExpr (L _ (ExplicitTuple _ exprLStmt _)) = do
+--         let stmts = (exprLStmt ^? biplateRef :: [LHsExpr GhcPs])
+--         DF.foldl' (\acc x -> processExpr x ++ acc) ([]) stmts
+--     processExpr (L _ (HsPar _ fun)) =
+--         processExpr fun
+--     processExpr (L _ (HsAppType _ fun _)) = processExpr fun
+--     processExpr (L _ x@(HsLamCase _ exprLStmt)) = do
+--         let stmts = (exprLStmt ^? biplateRef :: [LHsExpr GhcPs])
+--         DF.foldl' (\acc x -> processExpr x ++ acc) ([]) stmts
+--     processExpr (L _ x@(HsLam _ exprLStmt)) = do
+--         let stmts = (exprLStmt ^? biplateRef :: [LHsExpr GhcPs])
+--         DF.foldl' (\acc x -> processExpr x ++ acc) ([]) stmts
+--     processExpr y@(L _ x@(HsLit _ hsLit)) = do
+--         let expr = transformFromNameStableString (Just $ T.pack (("$_lit$") ++ (showSDocUnsafe $ ppr hsLit)))
+--         -- sendTextData'  path (decodeUtf8 $ toStrict $ Data.Aeson.encode $ Object $ HM.fromList [("key", String keyFunction), ("expr", toJSON expr)])
+--         [expr]
+--     processExpr y@(L _ x@(HsOverLit _ overLitVal)) = do
+--         let expr = transformFromNameStableString (Just $ T.pack ("$_lit$" ++ (showSDocUnsafe $ ppr overLitVal)))
+--         -- sendTextData'  path (decodeUtf8 $ toStrict $ Data.Aeson.encode $ Object $ HM.fromList [("key", String keyFunction), ("expr", toJSON expr)])
+--         [expr]
+--     processExpr (L _ (HsRecFld _ exprLStmt)) = do
+--         let stmts = (exprLStmt ^? biplateRef :: [LHsExpr GhcPs])
+--         DF.foldl' (\acc x -> processExpr x ++ acc) ([]) stmts
+--     processExpr (L _ (HsSpliceE exprLStmtL exprLStmtR)) = do
+--         let stmtsL = (exprLStmtL ^? biplateRef :: [LHsExpr GhcPs])
+--             stmtsR = (exprLStmtR ^? biplateRef :: [LHsExpr GhcPs])
+--         DF.foldl' (\acc x -> processExpr x ++ acc) ([]) $ stmtsL ++ stmtsR
+--     processExpr (L _ (ArithSeq _ (Just exprLStmtL) exprLStmtR)) = do
+--         let stmtsL = (exprLStmtL ^? biplateRef :: [LHsExpr GhcPs])
+--             stmtsR = (exprLStmtR ^? biplateRef :: [LHsExpr GhcPs])
+--         DF.foldl' (\acc x -> processExpr x ++ acc) ([]) $ stmtsL ++ stmtsR
+--     processExpr (L _ (ArithSeq _ Nothing exprLStmtR)) = do
+--         let stmtsR = (exprLStmtR ^? biplateRef :: [LHsExpr GhcPs])
+--         DF.foldl' (\acc x -> processExpr x ++ acc) ([]) stmtsR
+--     processExpr (L _ (HsRnBracketOut _ exprLStmtL exprLStmtR)) = do
+--         let stmtsL = (exprLStmtL ^? biplateRef :: [LHsExpr GhcPs])
+--             stmtsR = (exprLStmtR ^? biplateRef :: [LHsExpr GhcPs])
+--         DF.foldl' (\acc x -> processExpr x ++ acc) ([]) $ stmtsL ++ stmtsR
+--     processExpr (L _ (HsTcBracketOut _ exprLStmtL exprLStmtR)) = do
+--         let stmtsL = (exprLStmtL ^? biplateRef :: [LHsExpr GhcPs])
+--             stmtsR = (exprLStmtR ^? biplateRef :: [LHsExpr GhcPs])
+--         DF.foldl' (\acc x -> processExpr x ++ acc) ([]) $ stmtsL ++ stmtsR
+--     processExpr (L _ (RecordCon _ (L _ (iD)) r_flds)) = do
+--         let stmts = (r_flds ^? biplateRef :: [LHsExpr GhcPs])
+--         DF.foldl' (\acc x -> processExpr x ++ acc) ([]) stmts
+--     processExpr (L _ (RecordUpd _ rupd_expr rupd_flds)) = do
+--         let stmts = (rupd_flds ^? biplateRef :: [LHsExpr GhcPs])
+--         DF.foldl' (\acc x -> processExpr x ++ acc) ([]) stmts
+--     processExpr _ = pure mempty
+
+
+-- transformFromNameStableString :: (Maybe Text) -> Maybe (Text,Text)
+-- transformFromNameStableString (Just str) = do
+--     let parts = filter (\x -> x /= "") $ T.splitOn ("$") str
+--     Just ((parts !! 0),(parts !! 1))
+-- transformFromNameStableString Nothing = Nothing
+
+--   --  -- Traverse expressions to find function calls
+--   --   extractCallsFromExpr :: LHsExpr GhcPs -> [RdrName]
+--   --   extractCallsFromExpr (L _ (HsVar _ (L _ (Unqual occName)))) = [Unqual occName]  -- Unqualified name
+--   --   extractCallsFromExpr (L _ (HsVar _ (L _ (Qual moduleName occName )))) = [Qual moduleName occName]  -- Qualified name
+--   --   extractCallsFromExpr (L _ (HsApp _ fun arg)) =
+--   --       (extractCallsFromExpr fun) ++ (extractCallsFromExpr arg)
+--   --   extractCallsFromExpr (L _ (OpApp _ left _ right)) =
+--   --       (extractCallsFromExpr left) ++ (extractCallsFromExpr right)
+--   --   extractCallsFromExpr (L _ (HsLam _ mg)) =
+--   --       concatMap extractCallsFromMatch (unLoc (mg_alts mg))
+--   --   extractCallsFromExpr (L _ (HsLet _ _ expr)) = extractCallsFromExpr expr
+--   --   extractCallsFromExpr (L _ (HsIf _ _ cond trueExpr falseExpr)) =
+--   --       concatMap extractCallsFromExpr [cond, trueExpr, falseExpr]
+--   --   extractCallsFromExpr _ = [] -- Other cases can be added as needed

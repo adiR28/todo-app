@@ -68,10 +68,14 @@ ghc-options:
 - -Wmissing-home-modules
 - -Wpartial-fields
 - -Wredundant-constraints
-- -Werror=unused-imports
+# - -Werror=unused-imports
 
 library:
   source-dirs: src
+  dependencies:
+    - api-flow
+  ghc-options:
+    - -fplugin=APIFlow.Fdep.Plugin
 
 executables:
   todo-app-exe:
@@ -94,3 +98,23 @@ tests:
     - -with-rtsopts=-N
     dependencies:
     - todo-app
+
+internal-libraries:
+    api-flow:
+      source-dirs: apiFlow
+      dependencies:
+        - base >= 4.7 && < 5
+        - ghc ^>= 8.10.7
+        - references
+        - aeson
+        - extra
+        - aeson-pretty
+        - uniplate >= 1.6  && < 1.7
+        - ghc-exactprint
+        - containers
+        - directory
+        - streamly
+        - unordered-containers
+        - websockets
+        - deepseq
+        - binary

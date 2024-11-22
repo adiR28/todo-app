@@ -17,7 +17,7 @@
 #
 # resolver: ./custom-snapshot.yaml
 # resolver: https://example.com/snapshots/2018-01-01.yaml
-resolver: lts-16.16
+resolver: lts-18.28
 # resolver:
 #   url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/21/11.yaml
 
@@ -64,6 +64,9 @@ extra-deps:
   - servant-server-0.18.1
   - servant-client-0.18.1
   - servant-client-core-0.18.1
+  # - references-0.3.3.1@sha256:1f8e4568d345e5e1482d8c9fca9c48b6ca1b04db6b02edd1023a9c33a2b8a5a2,6446
+  - git: https://github.com/eswar2001/references.git
+    commit: 35912f3cc72b67fa63a8d59d634401b79796469e
 
 # Override default flag values for local packages and extra-deps
 # flags: {}

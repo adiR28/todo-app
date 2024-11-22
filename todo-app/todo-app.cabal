@@ -1,6 +1,6 @@
-cabal-version: 1.12
+cabal-version: 2.0
 
--- This file has been generated from package.yaml by hpack version 0.35.2.
+-- This file has been generated from package.yaml by hpack version 0.37.0.
 --
 -- see: https://github.com/sol/hpack
 
@@ -48,6 +48,8 @@ library
       Utils.DateTime
   other-modules:
       Paths_todo_app
+  autogen-modules:
+      Paths_todo_app
   hs-source-dirs:
       src
   default-extensions:
@@ -67,9 +69,10 @@ library
       TypeOperators
       DataKinds
       LambdaCase
-  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Werror=unused-imports
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -fplugin=APIFlow.Fdep.Plugin
   build-depends:
       aeson
+    , api-flow
     , base >=4.7 && <5
     , beam-core
     , beam-postgres
@@ -90,9 +93,74 @@ library
     , warp
   default-language: Haskell2010
 
+library api-flow
+  exposed-modules:
+      APIFlow.Fdep.Plugin
+      APIFlow.Fdep.Types
+      APIFlow.Plugin
+  other-modules:
+      Paths_todo_app
+  autogen-modules:
+      Paths_todo_app
+  hs-source-dirs:
+      apiFlow
+  default-extensions:
+      TypeFamilies
+      TypeSynonymInstances
+      FlexibleInstances
+      DeriveGeneric
+      DeriveAnyClass
+      FlexibleContexts
+      OverloadedStrings
+      RecordWildCards
+      StandaloneDeriving
+      DuplicateRecordFields
+      RankNTypes
+      NamedFieldPuns
+      ScopedTypeVariables
+      TypeOperators
+      DataKinds
+      LambdaCase
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      aeson
+    , aeson-pretty
+    , base >=4.7 && <5
+    , beam-core
+    , beam-postgres
+    , binary
+    , bytestring
+    , containers
+    , deepseq
+    , directory
+    , extra
+    , ghc >=8.10.7 && <8.11
+    , ghc-exactprint
+    , hedis
+    , http-client
+    , references
+    , servant
+    , servant-client
+    , servant-client-core
+    , servant-server
+    , streamly
+    , text
+    , time
+    , transformers
+    , uniplate ==1.6.*
+    , universum
+    , unordered-containers
+    , uuid
+    , wai
+    , warp
+    , websockets
+  default-language: Haskell2010
+
 executable todo-app-exe
   main-is: Main.hs
   other-modules:
+      Paths_todo_app
+  autogen-modules:
       Paths_todo_app
   hs-source-dirs:
       app
@@ -113,7 +181,7 @@ executable todo-app-exe
       TypeOperators
       DataKinds
       LambdaCase
-  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Werror=unused-imports -threaded -rtsopts -with-rtsopts=-N
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       aeson
     , base >=4.7 && <5
@@ -142,6 +210,8 @@ test-suite todo-app-test
   main-is: Spec.hs
   other-modules:
       Paths_todo_app
+  autogen-modules:
+      Paths_todo_app
   hs-source-dirs:
       test
   default-extensions:
@@ -161,7 +231,7 @@ test-suite todo-app-test
       TypeOperators
       DataKinds
       LambdaCase
-  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Werror=unused-imports -threaded -rtsopts -with-rtsopts=-N
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       aeson
     , base >=4.7 && <5
