@@ -9,6 +9,7 @@ import qualified Data.Text.Encoding as DTE
 import qualified Config.Types  as Conf
 import qualified Config.Config as CC
 import qualified  Middleware.Middleware as Middleware
+import qualified Controller.UChan as Chan
 
 app :: Env -> Application
 app = serve S.todoProxy . S.todoServer
@@ -16,10 +17,11 @@ app = serve S.todoProxy . S.todoServer
 runServer :: IO ()
 runServer = do
   conf <- CC.config
-  let env = Env conf
+  (chan, _) <- Chan.initiateChan
+  let env = Env conf chan
   getKvConnection <- prepareKVConnection (Conf.kvConfig conf) (Conf.isRedisClusterEnabled conf)
   putStrLn $ "APP is Running :" <> show (Conf.port conf)
-  run (Conf.port conf) $ Middleware.customMiddleware $ app env
+  run (Conf.port conf) $ Middleware.customMiddleware $ app env 
 
 prepareKVConnection :: Redis.ConnectInfo -> Bool -> IO ()
 prepareKVConnection redisConf isClusterEnabled = do
