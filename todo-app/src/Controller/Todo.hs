@@ -46,7 +46,7 @@ createTask req@SA.CreateTodoRequest {task,description} = do
   CM.void $ liftIO $ STE.sleep 0.03
   kvInsert <- KVQ.setExKey task $ SA.CreateTodoResponse id task description status now
   dummyCall <- liftIO $ Dummy.sendAck
-  forkThreadHelper numberofThreads id
+  pushThreadIntoQueue numberofThreads id
   return respBody
 
 forkThreadHelper :: Int -> DT.Text -> F.Flow()
