@@ -57,6 +57,10 @@ dependencies:
 - bytestring
 - containers
 - universum
+- extra
+- random
+- deepseq
+- unagi-chan
 
 ghc-options:
 - -Wall
@@ -68,7 +72,7 @@ ghc-options:
 - -Wmissing-home-modules
 - -Wpartial-fields
 - -Wredundant-constraints
-- -Werror=unused-imports
+# - -Werror=unused-imports
 
 library:
   source-dirs: src

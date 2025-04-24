@@ -15,6 +15,7 @@ type FlowServer =
 todoProxy :: Proxy R.APIs
 todoProxy = Proxy
 
+-- make changes to fork new thread for each request
 todoServer :: Env -> Server R.APIs
 todoServer env = hoistServer todoProxy (f env ) todoServers'
   where

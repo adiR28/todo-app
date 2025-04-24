@@ -19,7 +19,7 @@ setExKey :: forall a.
 setExKey key value = do
   conn <- KVConf.kvGetConnection
   resp' <- liftIO $ R.runRedis conn $ R.set (DTE.encodeUtf8 key) (BSL.toStrict $ A.encode value)
-  resp <- liftIO $ R.runRedis conn $ R.expire (DTE.encodeUtf8 key) 86400
+  resp <- liftIO $ R.runRedis conn $ R.expire (DTE.encodeUtf8 key) 300
   return ()
 
 fetchKey :: forall a.
